@@ -24,6 +24,8 @@
 
 ➡️ **[Alle chronologisch geordneten Development-Versionen auf GitHub Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases)**
 
+**[Zur chronologischen Versionsübersicht mit Archiv- und Downloadhinweisen](VERSIONEN.md)**
+
 Die neueste Ausgabe steht oben; ältere Ausgaben bleiben separat abrufbar. Jeder Produkteintrag erhält, sofern erfolgreich gebaut:
 
 | Download in jedem einzelnen Versions-Eintrag | Installationsart |
