@@ -89,6 +89,7 @@
       document.documentElement.dir="ltr";
       document.querySelectorAll("[data-i18n]").forEach(node=>{node.textContent=L(node.dataset.i18n);});
       document.querySelectorAll("[data-i18n-placeholder]").forEach(node=>{node.placeholder=L(node.dataset.i18nPlaceholder);});
+      document.querySelectorAll("#platform option[data-category]").forEach(node=>{node.textContent=node.value+" ("+L(node.dataset.category)+")";});
       const language=document.getElementById("language");
       if(language)language.value=locale;
       document.title="Q Downloads · RetroCraft0";
@@ -140,7 +141,7 @@
       if(!name.toLowerCase().endsWith(".jar"))return null;
       const dev=name.endsWith("-dev.jar");
       const stem=name.slice(0,name.length-(dev?8:4));
-      const m=/^(Q-(?:System|Core|Chunky|Entity|Player))_(Paper|Plugin|Fabric|NeoForge)_V(\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?)(?:_MC([0-9]+(?:\.[0-9]+)*(?:-[A-Za-z0-9.-]+)?))?(?:_Java(\d{1,2}))?$/.exec(stem);
+      const m=/^(Q-(?:System|Core|Chunky|Entity|Player))_(Paper|Plugin|Fabric|NeoForge|Forge|Sponge|Quilt|Folia|Spigot|Bukkit|Purpur|Velocity|BungeeCord)_V(\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?)(?:_MC([0-9]+(?:\.[0-9]+)*(?:-[A-Za-z0-9.-]+)?))?(?:_Java(\d{1,2}))?$/.exec(stem);
       if(!m)return null;
       const product=m[1],platform=m[2]==="Plugin"?"Paper":m[2],version=m[3];
       const names=new Set((release.assets||[]).map(function(a){return a.name;}));
@@ -199,7 +200,7 @@
         }
         if(r.dev)card.append(element("p","card-warning",L("backup")));
         const meta=element("div","meta");
-        meta.append(element("span","",r.platform==="Paper"?"Paper · "+L("plugin"):r.platform+" · "+L("mod")));
+        meta.append(element("span","",["Paper","Sponge","Folia","Spigot","Bukkit","Purpur","Velocity","BungeeCord"].includes(r.platform)?r.platform+" · "+L("plugin"):r.platform+" · "+L("mod")));
         meta.append(element("span","",r.mc?"MC "+r.mc:L("mcMissing")));
         meta.append(element("span","",r.javaTarget?"Java "+r.javaTarget:L("javaMissing")));
         if(r.date){const d=new Date(r.date);if(!Number.isNaN(d.valueOf()))meta.append(element("span","",d.toLocaleDateString(locale,{day:"2-digit",month:"2-digit",year:"numeric"})));}
@@ -249,14 +250,14 @@
       if(allEntries.length!==manifest.count)throw new Error("Der Downloadkatalog ist nicht vollständig.");
       const allowed=new Set(["Q-System","Q-Core","Q-Chunky","Q-Entity","Q-Player"]);
       return allEntries.map(function(item){
-        if(!allowed.has(item.product)||!["paper","fabric","neoforge"].includes(item.platform)||
+        if(!allowed.has(item.product)||!["paper","fabric","neoforge","forge","sponge","quilt","folia","spigot","bukkit","purpur","velocity","bungeecord"].includes(item.platform)||
            !/^https:\/\/github\.com\/retrocraft0-hub\/Q-Downloads\/releases\/download\//.test(item.href)||
            !/^https:\/\/github\.com\/retrocraft0-hub\/Q-Downloads\/releases\/tag\//.test(item.releaseUrl)||
            !/^[A-Za-z0-9_.-]+\.jar$/.test(item.filename))
           throw new Error("Ein Katalogeintrag verweist nicht auf eine öffentliche Q-JAR.");
         return {
           product:item.product,
-          platform:({paper:"Paper",fabric:"Fabric",neoforge:"NeoForge"})[item.platform],
+          platform:({paper:"Paper",fabric:"Fabric",neoforge:"NeoForge",forge:"Forge",sponge:"Sponge",quilt:"Quilt",folia:"Folia",spigot:"Spigot",bukkit:"Bukkit",purpur:"Purpur",velocity:"Velocity",bungeecord:"BungeeCord"})[item.platform],
           version:item.version,mc:item.mc||"",javaTarget:item.javaTarget||"",
           dev:item.dev===true,approved:item.approved===true,
           filename:item.filename,href:item.href,releaseUrl:item.releaseUrl,
@@ -295,6 +296,16 @@
       });
       found.sort(function(a,b){return b.date.localeCompare(a.date)||a.product.localeCompare(b.product)||a.platform.localeCompare(b.platform);});
       all=found;
+      // Show new loaders ONLY after a real original JAR is present in the PUBLIC catalog.
+      const pluginPlatforms=new Set(["Paper","Sponge","Folia","Spigot","Bukkit","Purpur","Velocity","BungeeCord"]);
+      const platformOptions=new Set(Array.from(els.platform.options).map(item=>item.value));
+      for(const name of [...new Set(found.map(item=>item.platform))].sort()){
+        if(platformOptions.has(name))continue;
+        const option=document.createElement("option");option.value=name;
+        option.dataset.category=pluginPlatforms.has(name)?"plugin":"mod";
+        option.textContent=name+" ("+L(option.dataset.category)+")";
+        els.platform.append(option);platformOptions.add(name);
+      }
       const mcs=Array.from(new Set(found.map(function(r){return r.mc;}).filter(Boolean))).sort(function(a,b){return b.localeCompare(a,undefined,{numeric:true});});
       mcs.forEach(function(mc){const option=element("option","",mc);option.value=mc;els.minecraft.append(option);});
       const javas=Array.from(new Set(found.map(function(r){return r.javaTarget;}).filter(Boolean))).sort(function(a,b){return Number(b)-Number(a);});
