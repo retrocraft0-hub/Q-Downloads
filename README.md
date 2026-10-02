@@ -2,9 +2,9 @@
 
 Performance ist nicht nur eine Frage der Serverhardware. Die Q-Reihe beschäftigt sich damit, wie Minecraft Arbeit verteilt, priorisiert und unnötige Belastung vermeidet.
 
-Hier findest du unsere **aktuellen Testversionen und ältere Downloads** für Minecraft **Java 1.21.11 (Java 21)**.
+Hier findest du die Q-Plugins und -Mods als Downloads. **Die erste Reihe ist für Minecraft 1.21.11 / Java 21**. Weitere Minecraft- und Java-Versionen werden als eigene Dateien aufgeführt, sobald dafür tatsächlich passende Builds vorhanden sind.
 
-**[Downloads öffnen](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
+**[Downloads öffnen](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen mit Minecraft und Java](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
 
 > **Hinweis zu -dev:** Diese Versionen befinden sich noch in Entwicklung. Die JARs wurden gebaut und auf ihre grundlegende Struktur geprüft, aber nicht vollständig im Minecraft-Spielbetrieb getestet. Bitte vorerst nur auf einem Testserver bzw. Testclient verwenden und vorher deine Welt sichern.
 
@@ -18,7 +18,7 @@ Hier findest du unsere **aktuellen Testversionen und ältere Downloads** für Mi
 | **Q-Entity** | Konzentriert sich auf die Arbeit rund um Entities und deren Beobachter. | 1.1.5 |
 | **Q-Player** | Beschäftigt sich mit spielerbezogenen Vorgängen wie Join, Respawn, Tracking und Dimensionswechsel. Noch in einer frühen Entwicklungsphase. | 0.1.0 |
 
-Die einzelnen Projekte werden unabhängig weiterentwickelt. Ein Paper-Fix bedeutet also nicht automatisch ein neues Fabric- oder NeoForge-Update. Q-System ist als Gesamtpaket gedacht; die anderen Q-Projekte sind die eigenständigen Teilbereiche. Das Zusammenspiel verschiedener Q-Module ist noch nicht vollständig im Spielbetrieb geprüft.
+Die einzelnen Projekte und unterstützten Minecraft-/Java-Versionen werden unabhängig weiterentwickelt. Ein Fix für Paper auf Java 17 bedeutet also nicht automatisch ein Update für Java 21, Fabric oder NeoForge. Q-System ist als Gesamtpaket gedacht; die anderen Q-Projekte sind die eigenständigen Teilbereiche. Das Zusammenspiel verschiedener Q-Module ist noch nicht vollständig im Spielbetrieb geprüft.
 
 ## Download & Installation
 
