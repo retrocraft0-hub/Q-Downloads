@@ -1,0 +1,73 @@
+name: "Idee / Verbesserung für Q"
+description: "Neue Funktion, weitere Minecraft-Version, Plattform oder Optimierung vorschlagen."
+title: "[Idee] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hier können Wünsche für Q-System, Core, Chunky, Entity und Player gesammelt werden.
+        Ein Wunsch ist keine Zusage, dass die Kombination technisch möglich oder schon veröffentlicht ist.
+        Bitte keine privaten Zugangsdaten oder persönlichen Server-Logs posten.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Welches Q-Produkt?
+      options:
+        - Q-System
+        - Q-Core
+        - Q-Chunky
+        - Q-Entity
+        - Q-Player
+        - Mehrere / allgemeiner Vorschlag
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Art des Vorschlags
+      options:
+        - Bestehende Funktion verbessern
+        - Neue Funktion
+        - Weitere Minecraft-Version
+        - Weitere Plattform / Loader (z. B. Forge, Folia, Sponge, Quilt)
+        - Weitere Java-Version
+        - Performance / Stabilität
+        - Downloadseite / Beschreibungen
+        - Sonstiges
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Plattform / Loader (falls relevant)
+      placeholder: "z. B. Paper, Forge, Fabric, NeoForge, Sponge ..."
+    validations:
+      required: false
+  - type: input
+    id: minecraft
+    attributes:
+      label: Gewünschte Minecraft-Version (falls relevant)
+      placeholder: "z. B. 1.12.2"
+    validations:
+      required: false
+  - type: input
+    id: java
+    attributes:
+      label: Gewünschte Java-Version (falls relevant)
+      placeholder: "z. B. Java 17"
+    validations:
+      required: false
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Was wünschst du dir?
+      description: Beschreibe die gewünschte Funktion oder Verbesserung möglichst konkret.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Wann wäre das hilfreich?
+      description: Ein Praxisbeispiel hilft bei der Priorisierung.
+    validations:
+      required: false
