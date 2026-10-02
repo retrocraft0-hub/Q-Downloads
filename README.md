@@ -20,7 +20,7 @@
 
 **LEGO-Prinzip als Entwicklungsziel:** Die Standalone-Produkte sollen unabhängig funktionieren, optionale Q-Nachbarn erkennen und Überschneidungen sicher koordinieren; Q-System soll als Gesamtsystem mit ihnen zusammenarbeiten. Die vollständige plattformübergreifende Umsetzung und Mischinstallation sind **noch kein bestätigtes Releaseversprechen**.
 
-## Plugins und Mods herunterladen
+**[Gesamte dokumentierte Entwicklung von QDB 0.1 bis zu den heutigen Q-Produkten einschließlich tatsächlich wiedergefundener historischer JAR-Versionen](HISTORIE.md)** – historische Fundliste und Teststatus; nicht jeder wiedergefundene Alt-JAR ist bereits als GitHub-Releaseasset hochgeladen.\n\n## Plugins und Mods herunterladen
 
 ➡️ **[Alle chronologisch geordneten Development-Versionen auf GitHub Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases)**
 
