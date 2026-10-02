@@ -29,14 +29,14 @@
 <body>
   <header>
     <a class="brand" href="./" aria-label="Q Downloads – Start"><span class="mark">Q</span><span>Q DOWNLOADS<small>by RetroCraft0</small></span></a>
-    <nav aria-label="Weitere Seiten"><a href="README.md">Über Q</a><a href="VERSIONEN.md">Versionsliste</a><a href="HISTORIE.md">Geschichte</a></nav>
+    <nav aria-label="Weitere Seiten"><a href="https://github.com/retrocraft0-hub/Q-Downloads#readme">Über Q</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/VERSIONEN.md">Versionsliste</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Geschichte</a></nav>
   </header>
   <main>
     <section class="hero" aria-labelledby="main-title">
       <p class="eyebrow">Minecraft · Plugins & Mods</p>
       <h1 id="main-title">Finde deine Q-Version.</h1>
       <p>Q-System, Core, Chunky, Entity und Player. Wähle dein Projekt und deine Plattform – alle verfügbaren Versionen sind direkt verlinkt.</p>
-      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a></div>
+      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a></div>
     </section>
     <aside class="notice"><strong>Hinweis zu -dev:</strong> Das sind Testversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</aside>
     <section class="controls" aria-labelledby="filter-heading">
@@ -89,10 +89,12 @@
       const approved=names.has("CURSEFORGE-APPROVAL-"+platform.toLowerCase()+".json")&&!dev;
       const baseline=(release.tag_name||"").endsWith("-d5ef99a6c0")&&BASELINE[product]===version;
       const mc=m[4]||(baseline?"1.21.11":"");
+      const update=/## Was ist neu\?\s*\n+([^\n]{6,200})/i.exec(release.body||"");
+      const description=(update&&update[1]&&!update[1].includes("Erstarchivierung")) ? update[1].replace(/[*|<>]/g,"").trim() : INFO[product];
       return {product:product,platform:platform,version:version,mc:mc,dev:dev,approved:approved,
         filename:name,href:asset.browser_download_url,releaseUrl:release.html_url,
         title:release.name||"",body:release.body||"",date:release.published_at||release.created_at||"",
-        description:INFO[product],key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")};
+        description:description,key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")};
     }
     function cell(card,type,label) {return card.appendChild(element(type,"",label));}
     function render() {
