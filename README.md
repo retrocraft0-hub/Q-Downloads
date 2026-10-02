@@ -38,6 +38,14 @@ Die neueste Ausgabe steht oben; ältere Ausgaben bleiben separat abrufbar. Jeder
 
 **Nicht jede Stunde bedeutet eine neue Version.** Nur bei relevanter Änderung am jeweiligen Produkt und erfolgreichen Build-Prüfungen entsteht eine neue experimentelle Ausgabe. Wird nur Q-Player verändert, bleiben die anderen Produktversionen unverändert.
 
+## Ursprung: Von QDB zur Q-Reihe
+
+Die Projektentwicklung begann nach Angabe von RetroCraft0 mit **QDB** und wurde anschließend zur heutigen fünfteiligen Q-Reihe weiterentwickelt. Diese öffentliche Seite soll langfristig auch ältere experimentelle Entwicklungsetappen nachvollziehbar zeigen – nicht nur die neuesten fünf Produkte.
+
+**Transparenz zum historischen Archiv (02.10.2026):** Die hier abrufbaren ersten fünf Produkt-Releases mit insgesamt 15 Paper-/Fabric-/NeoForge-JARs bilden **noch nicht die gesamte Geschichte von QDB und Q** ab. Ursprüngliche ältere Versionen werden derzeit inventarisiert. Ein historischer Download wird erst ergänzt, wenn seine Original-JAR, Produkt-/Versions- und Loader-Metadaten, Dateiintegrität und Veröffentlichungsrechte überprüft sind. Bei nicht mehr vorhandenen Originaldateien darf eine historische Phase dokumentiert werden, aber **ohne erfundenen Download**. Historische Teststände erscheinen deutlich mit ihrem echten oder unbekannten damaligen Minecraft-Ziel und Teststatus. Der proprietäre Original-Quellcode und interne Arbeitsunterlagen bleiben privat.
+
+**Ziel der öffentlichen Chronologie:** für jede belegte Version und wichtige Entwicklungsphase sichtbar darstellen: Was wurde geändert, welche nachweislich bestätigten Bugs behoben, welche bekannten Probleme bestehen, welche Tests wurden wirklich durchgeführt und welche Risiken/Spieltests sind weiterhin offen? Experimentelle Entwicklungsdownloads bleiben als **UNGETESTET / DEVELOPMENT** ausgewiesen. Eine erfolgreiche persönliche CurseForge-Veröffentlichung wird künftig gesondert markiert; ursprüngliche Dev-Ausgaben bleiben im Archiv erhalten.
+
 ## Chronologisches Versionsregister – bestätigter Ausgangsbestand
 
 Im privaten Entwicklungs-Repository lagen zum Einrichtungszeitpunkt **diese fünf Quellversionen** vor, daraus ergeben sich jeweils drei Loader-Artefakte (15 Ausgaben, nicht 15 unterschiedliche Produktversionsnummern). Ein Eintrag ist erst dann **öffentlich verfügbar**, wenn unter [Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases) die betreffenden JARs wirklich angehängt wurden.
