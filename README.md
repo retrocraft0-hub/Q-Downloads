@@ -4,7 +4,7 @@ Performance ist nicht nur eine Frage der Serverhardware. Die Q-Reihe beschäftig
 
 Hier findest du die Q-Plugins und -Mods als Downloads. **Die erste Reihe ist für Minecraft 1.21.11 / Java 21**. Weitere Minecraft- und Java-Versionen werden als eigene Dateien aufgeführt, sobald dafür tatsächlich passende Builds vorhanden sind.
 
-**[Downloads öffnen](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen mit Minecraft und Java](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
+**[Downloadseite mit Sprachwahl](https://retrocraft0-hub.github.io/Q-Downloads/) · [Original-JARs auf GitHub](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen mit Minecraft und Java](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
 
 > **Hinweis zu -dev:** Diese Versionen befinden sich noch in Entwicklung. Die JARs wurden gebaut und auf ihre grundlegende Struktur geprüft, aber nicht vollständig im Minecraft-Spielbetrieb getestet. Bitte vorerst nur auf einem Testserver bzw. Testclient verwenden und vorher deine Welt sichern.
 
