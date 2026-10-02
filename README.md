@@ -1,75 +1,43 @@
-# Q-Reihe – Experimentelle Downloads | RetroCraft0
+# Q-Reihe – Plugins & Mods für Minecraft
 
-> ⚠️ **ACHTUNG – UNGETESTETE DEVELOPMENT-VERSIONEN**
->
-> Diese Downloads werden aus der laufenden Q-Entwicklung erzeugt. Ein grüner automatischer Java-/JAR-Build bedeutet **nicht**, dass ein Plugin/Mod auf einem echten Minecraft-Server oder -Client stabil funktioniert. Fehler, Datenverlust, Inkompatibilitäten und schlechtere Performance sind möglich. **Nur auf einem Testserver bzw. Testclient verwenden. Vorher Backups machen.** Die ausdrücklich geprüften Vollversionen erscheinen getrennt auf CurseForge.
+Performance ist nicht nur eine Frage der Serverhardware. Die Q-Reihe beschäftigt sich damit, wie Minecraft Arbeit verteilt, priorisiert und unnötige Belastung vermeidet.
 
-## Was ist Q?
+Hier findest du unsere **aktuellen Testversionen und ältere Downloads** für Minecraft **Java 1.21.11 (Java 21)**.
 
-**Q** ist RetroCraft0s modular entwickelte Minecraft-Performance-Familie für **Minecraft Java 1.21.11 / Java 21**. Die Ausgaben werden unabhängig für **Paper (Server-Plugin)**, **Fabric (Mod)** und **NeoForge (Mod)** gebaut. Das technische Ziel ist nicht, wahllos mehr Aufgaben asynchron auszuführen, sondern unnötige Arbeit zu vermeiden, Tick-Headroom und Ressourcen mit begrenzten Budgets zu verwalten und bei Fehlern möglichst auf das sichere Standardverhalten zurückzufallen (**bounded / fail-open**). Behauptungen über tatsächliche Leistungssteigerungen brauchen reale Messungen; die automatischen Builds allein beweisen sie nicht.
+**[Downloads öffnen](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
 
-### Die fünf eigenständigen Produkte
+> **Hinweis zu -dev:** Diese Versionen befinden sich noch in Entwicklung. Die JARs wurden gebaut und auf ihre grundlegende Struktur geprüft, aber nicht vollständig im Minecraft-Spielbetrieb getestet. Bitte vorerst nur auf einem Testserver bzw. Testclient verwenden und vorher deine Welt sichern.
 
-| Q-Produkt | Zweck / Entwicklungsziel | Reifestand der hier gelisteten Ausgangsversion |
+## Welches Q brauche ich?
+
+| Projekt | Wofür ist es gedacht? | Verfügbare Version beim Start des Archivs |
 | --- | --- | --- |
-| **Q-System** | Vollständige Q-Performance-Architektur, inklusive der Funktionsbereiche der eigenständigen Q-Produkte; soll gemeinsame Zuständigkeiten ohne Doppelarbeit koordinieren. | Entwicklung / nicht vollumfänglich spielgetestet |
-| **Q-Core** | Gemeinsame Performance-Grundlagen, begrenzte Budgets, Headroom und optionale Q-Familienkoordination. | Entwicklung / nicht vollumfänglich spielgetestet |
-| **Q-Chunky** | Chunk-bezogene Arbeit, Priorisierung und ressourcenbewusste Chunk-Verarbeitung. | Entwicklung / nicht vollumfänglich spielgetestet |
-| **Q-Entity** | Entity-bezogene Optimierung und abgestimmte Beobachter-/Interessenverwaltung. | Entwicklung / nicht vollumfänglich spielgetestet |
-| **Q-Player** | Spieler-Lifecycle, Join/Respawn/Dimensionswechsel, Tracking, Chunk-Interessen und optionale Client-Komponenten. **Noch sehr frühe Entwicklungsphase.** | Besonders experimentell |
+| **Q-System** | Das Gesamtpaket: verbindet die Bereiche Core, Chunky, Entity und Player. | 6.4.2 |
+| **Q-Core** | Verwaltet begrenzte Ressourcenbudgets und berücksichtigt, wie viel Spielraum der Server noch hat. | 5.2.5 |
+| **Q-Chunky** | Kümmert sich um die Priorisierung und Verarbeitung von Chunks. | 2.1.5 |
+| **Q-Entity** | Konzentriert sich auf die Arbeit rund um Entities und deren Beobachter. | 1.1.5 |
+| **Q-Player** | Beschäftigt sich mit spielerbezogenen Vorgängen wie Join, Respawn, Tracking und Dimensionswechsel. Noch in einer frühen Entwicklungsphase. | 0.1.0 |
 
-**LEGO-Prinzip als Entwicklungsziel:** Die Standalone-Produkte sollen unabhängig funktionieren, optionale Q-Nachbarn erkennen und Überschneidungen sicher koordinieren; Q-System soll als Gesamtsystem mit ihnen zusammenarbeiten. Die vollständige plattformübergreifende Umsetzung und Mischinstallation sind **noch kein bestätigtes Releaseversprechen**.
+Die einzelnen Projekte werden unabhängig weiterentwickelt. Ein Paper-Fix bedeutet also nicht automatisch ein neues Fabric- oder NeoForge-Update. Q-System ist als Gesamtpaket gedacht; die anderen Q-Projekte sind die eigenständigen Teilbereiche. Das Zusammenspiel verschiedener Q-Module ist noch nicht vollständig im Spielbetrieb geprüft.
 
-**[Gesamte dokumentierte Entwicklung von QDB 0.1 bis zu den heutigen Q-Produkten einschließlich tatsächlich wiedergefundener historischer JAR-Versionen](HISTORIE.md)** – historische Fundliste und Teststatus; nicht jeder wiedergefundene Alt-JAR ist bereits als GitHub-Releaseasset hochgeladen.\n\n## Plugins und Mods herunterladen
+## Download & Installation
 
-➡️ **[Alle chronologisch geordneten Development-Versionen auf GitHub Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases)**
+Wähle bei der gewünschten Version einfach die passende Datei aus:
 
-**[Zur chronologischen Versionsübersicht mit Archiv- und Downloadhinweisen](VERSIONEN.md)**
-
-Die neueste Ausgabe steht oben; ältere Ausgaben bleiben separat abrufbar. Jeder Produkteintrag erhält, sofern erfolgreich gebaut:
-
-| Download in jedem einzelnen Versions-Eintrag | Installationsart |
+| Datei | Wohin damit? |
 | --- | --- |
-| `Q-PRODUKT-vVERSION.jar` | **Paper: Plugin**, in den Plugin-Ordner des kompatiblen Testservers |
-| `Q-PRODUKT-Fabric-vVERSION.jar` | **Fabric: Mod**; jeweils erforderliche Loader-/API-Abhängigkeiten beachten |
-| `Q-PRODUKT-NeoForge-vVERSION.jar` | **NeoForge: Mod**, passende Loader-Version beachten |
-| `SHA256SUMS` | Prüfsummen aller drei JAR-Dateien |
-| `PUBLIC-AUDIT.md` | Öffentlicher Stand: was verifiziert wurde, was noch ungetestet ist und mögliche Risiken |
+| `Q-Name_Paper_Vx.x.x-dev.jar` | Paper-Plugin – in den Ordner `plugins/` deines Testservers |
+| `Q-Name_Fabric_Vx.x.x-dev.jar` | Fabric-Mod – in `mods/`; passende Fabric-Abhängigkeiten beachten |
+| `Q-Name_NeoForge_Vx.x.x-dev.jar` | NeoForge-Mod – in `mods/`; passende NeoForge-Version beachten |
 
-**Nicht jede Stunde bedeutet eine neue Version.** Nur bei relevanter Änderung am jeweiligen Produkt und erfolgreichen Build-Prüfungen entsteht eine neue experimentelle Ausgabe. Wird nur Q-Player verändert, bleiben die anderen Produktversionen unverändert.
+Du brauchst nur die JAR deiner Plattform, nicht alle drei. Weitere Dateien wie `SHA256SUMS` dienen der Prüfung des Downloads.
 
-## Ursprung: Von QDB zur Q-Reihe
+**Was hat sich geändert?** Die Neuerungen und bekannten Einschränkungen stehen beim jeweiligen Release. In der [Versionsübersicht](VERSIONEN.md) findest du die Downloads nach Datum, Produkt und Plattform sortiert. Ältere Versionen bleiben verfügbar.
 
-Die Projektentwicklung begann nach Angabe von RetroCraft0 mit **QDB** und wurde anschließend zur heutigen fünfteiligen Q-Reihe weiterentwickelt. Diese öffentliche Seite soll langfristig auch ältere experimentelle Entwicklungsetappen nachvollziehbar zeigen – nicht nur die neuesten fünf Produkte.
+## Noch wichtig
 
-**Transparenz zum historischen Archiv (02.10.2026):** Die hier abrufbaren ersten fünf Produkt-Releases mit insgesamt 15 Paper-/Fabric-/NeoForge-JARs bilden **noch nicht die gesamte Geschichte von QDB und Q** ab. Ursprüngliche ältere Versionen werden derzeit inventarisiert. Ein historischer Download wird erst ergänzt, wenn seine Original-JAR, Produkt-/Versions- und Loader-Metadaten, Dateiintegrität und Veröffentlichungsrechte überprüft sind. Bei nicht mehr vorhandenen Originaldateien darf eine historische Phase dokumentiert werden, aber **ohne erfundenen Download**. Historische Teststände erscheinen deutlich mit ihrem echten oder unbekannten damaligen Minecraft-Ziel und Teststatus. Der proprietäre Original-Quellcode und interne Arbeitsunterlagen bleiben privat.
+- `-dev` steht für eine experimentelle Ausgabe. Es ist **keine** als stabil bestätigte Version.
+- Ein erfolgreicher Build ist kein Beweis für weniger Lag oder bessere FPS. Solche Aussagen machen wir erst mit passenden Praxismessungen.
+- Die Downloads sind kostenlos nutzbare, **proprietäre JAR-Dateien** – das Projekt ist nicht Open Source. Der Java-Quellcode wird hier nicht veröffentlicht. © RetroCraft0.
 
-**Ziel der öffentlichen Chronologie:** für jede belegte Version und wichtige Entwicklungsphase sichtbar darstellen: Was wurde geändert, welche nachweislich bestätigten Bugs behoben, welche bekannten Probleme bestehen, welche Tests wurden wirklich durchgeführt und welche Risiken/Spieltests sind weiterhin offen? Experimentelle Entwicklungsdownloads bleiben als **UNGETESTET / DEVELOPMENT** ausgewiesen. Eine erfolgreiche persönliche CurseForge-Veröffentlichung wird künftig gesondert markiert; ursprüngliche Dev-Ausgaben bleiben im Archiv erhalten.
-
-## Chronologisches Versionsregister – bestätigter Ausgangsbestand
-
-Im privaten Entwicklungs-Repository lagen zum Einrichtungszeitpunkt **diese fünf Quellversionen** vor, daraus ergeben sich jeweils drei Loader-Artefakte (15 Ausgaben, nicht 15 unterschiedliche Produktversionsnummern). Ein Eintrag ist erst dann **öffentlich verfügbar**, wenn unter [Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases) die betreffenden JARs wirklich angehängt wurden.
-
-| Produkt | Nachgewiesene Ausgangsversion | Paper / Fabric / NeoForge | Öffentlicher Downloadstatus |
-| --- | --- | --- | --- |
-| Q-System | **v6.4.2** | je eine JAR vorgesehen | Über Releases prüfen |
-| Q-Core | **v5.2.5** | je eine JAR vorgesehen | Über Releases prüfen |
-| Q-Chunky | **v2.1.5** | je eine JAR vorgesehen | Über Releases prüfen |
-| Q-Entity | **v1.1.5** | je eine JAR vorgesehen | Über Releases prüfen |
-| Q-Player | **v0.1.0** | je eine JAR vorgesehen | Über Releases prüfen |
-
-**Ältere Versionen:** Frühere Versionsstände werden ebenfalls aufgenommen, sobald die **tatsächlichen ursprünglichen JAR-Dateien** verfügbar und überprüft sind. Eine bloße Erwähnung einer alten Versionsnummer ist kein Download und wird nicht als vorhandener Release ausgegeben. Neue Builds bekommen pro Produkt einen eigenen datierten GitHub-Prerelease; die Releases-Seite bildet den chronologischen Verlauf.
-
-### Wie lese ich die Versionsberichte?
-
-Jeder neue Download erhält einen öffentlichen Audit, der die Version, Artefakt-Prüfsummen, erfolgreich absolvierte automatisierte Buildprüfungen, nicht ausgeführte Minecraft-Start-/Stress-/Kompatibilitätstests und produktspezifische Risiken enthält. **Bekannte, anhand von Logs oder reproduzierbaren Tests bestätigte Fehler** werden als solche ausgewiesen. Hypothetische Fehler und ungetestete Komponenten werden nicht fälschlich zu bestätigten Bugs erklärt. Im Zweifel lieber einen Build als experimentell/gesperrt ausweisen als ihn als stabil zu verkaufen.
-
-## Stable / Vollversionen
-
-Die geprüften und von RetroCraft0 freigegebenen Versionen werden später als Updates innerhalb der **bestehenden CurseForge-Projekte** veröffentlicht. Ein neuer GitHub-Development-Prerelease ist keine automatische CurseForge-Freigabe. **CurseForge-Links werden erst nach bestätigter Projektzuordnung eingefügt.**
-
-## Download- und Nutzungsrechte
-
-**Kostenlos öffentlich herunterladbare Binaries; KEINE Open-Source-Veröffentlichung.** Es werden keine privaten Java-Quellen, Git-Historien, internen Entwicklungsprotokolle, API-Tokens oder Uploadberechtigungen bereitgestellt. Die JARs dürfen zum persönlichen Ausprobieren und Testen genutzt werden; alle weiteren nicht ausdrücklich gewährten Rechte bleiben bei © RetroCraft0, soweit gesetzlich zulässig. Öffentliche JARs enthalten Bytecode, der technisch dekompiliert werden kann; die Downloadseite ist kein absoluter technischer Kopierschutz.
-
-Besucher dürfen alle öffentlichen Versionen herunterladen, aber ohne ausdrücklich erteilten Schreibzugriff **nicht die Dateien, Versionshinweise oder Veröffentlichungen in diesem Originalrepository ändern**. Der eigentliche Q-Autopilot, die private Quellcodeentwicklung und das CurseForge-Freigabefenster liegen in einem **separaten privaten GitHub-Repository**.
+Probleme beim Testen? Hilfreich sind die betroffene Q-Version, Paper/Fabric/NeoForge samt Version, Minecraft-Version, eine kurze Fehlerbeschreibung und gegebenenfalls der Logauszug.
