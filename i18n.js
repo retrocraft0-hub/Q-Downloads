@@ -84,7 +84,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Resource budgets and server headroom.",
       "productChunky": "Chunk processing and prioritization.",
       "productEntity": "Entity and observer management.",
-      "productPlayer": "Join, respawn, tracking and dimension changes. Early development."
+      "productPlayer": "Join, respawn, tracking and dimension changes. Early development.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "de": {
       "language": "Sprache",
@@ -149,13 +151,17 @@ window.Q_I18N = Object.freeze({
       "productCore": "Ressourcenbudgets und Server-Headroom.",
       "productChunky": "Chunk-Verarbeitung und Priorisierung.",
       "productEntity": "Funktionen rund um Entities und ihre Beobachter.",
-      "productPlayer": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
+      "productPlayer": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "en-GB": {
       "language": "Language",
       "file": "Artefact / file name",
       "filePlaceholder": "e.g. Q-System, Chunky or Paper",
-      "reportCard": "Report a problem with this version ↗"
+      "reportCard": "Report a problem with this version ↗",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "es": {
       "language": "Idioma",
@@ -217,7 +223,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Presupuestos de recursos y capacidad del servidor.",
       "productChunky": "Procesamiento y priorización de chunks.",
       "productEntity": "Gestión de entidades y observadores.",
-      "productPlayer": "Conexión, reaparición, seguimiento y cambios de dimensión. Desarrollo inicial."
+      "productPlayer": "Conexión, reaparición, seguimiento y cambios de dimensión. Desarrollo inicial.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "fr": {
       "language": "Langue",
@@ -279,7 +287,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Budgets de ressources et marge du serveur.",
       "productChunky": "Traitement et priorité des chunks.",
       "productEntity": "Gestion des entités et de leurs observateurs.",
-      "productPlayer": "Connexion, réapparition, suivi et changement de dimension. Développement initial."
+      "productPlayer": "Connexion, réapparition, suivi et changement de dimension. Développement initial.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "ja": {
       "language": "言語",
@@ -341,7 +351,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "リソース予算とサーバー余力。",
       "productChunky": "チャンク処理と優先順位。",
       "productEntity": "エンティティと監視対象の管理。",
-      "productPlayer": "参加、リスポーン、追跡、ディメンション移動。開発初期段階。"
+      "productPlayer": "参加、リスポーン、追跡、ディメンション移動。開発初期段階。",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (プラグイン)"
     },
     "zh-CN": {
       "language": "语言",
@@ -403,7 +415,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "资源预算与服务器余量。",
       "productChunky": "区块处理和优先级。",
       "productEntity": "实体与观察者管理。",
-      "productPlayer": "加入、重生、追踪与维度切换。处于早期开发阶段。"
+      "productPlayer": "加入、重生、追踪与维度切换。处于早期开发阶段。",
+      "forge": "Forge (模组)",
+      "sponge": "Sponge (插件)"
     },
     "zh-TW": {
       "language": "語言",
@@ -465,7 +479,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "資源預算與伺服器餘裕。",
       "productChunky": "區塊處理與優先順序。",
       "productEntity": "實體與觀察者管理。",
-      "productPlayer": "加入、重生、追蹤與維度切換。仍在初期開發階段。"
+      "productPlayer": "加入、重生、追蹤與維度切換。仍在初期開發階段。",
+      "forge": "Forge (模組)",
+      "sponge": "Sponge (插件)"
     },
     "pt-BR": {
       "language": "Idioma",
@@ -522,7 +538,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Orçamento de recursos e margem do servidor.",
       "productChunky": "Processamento e prioridade de chunks.",
       "productEntity": "Gerenciamento de entidades e observadores.",
-      "productPlayer": "Entrada, respawn, rastreamento e mudança de dimensão. Desenvolvimento inicial."
+      "productPlayer": "Entrada, respawn, rastreamento e mudança de dimensão. Desenvolvimento inicial.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "it": {
       "language": "Lingua",
@@ -576,7 +594,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Budget delle risorse e capacità del server.",
       "productChunky": "Elaborazione e priorità dei chunk.",
       "productEntity": "Gestione di entità e osservatori.",
-      "productPlayer": "Accesso, respawn, tracking e cambio dimensione. Sviluppo iniziale."
+      "productPlayer": "Accesso, respawn, tracking e cambio dimensione. Sviluppo iniziale.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "nl": {
       "language": "Taal",
@@ -630,7 +650,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Resourcebudgetten en serverruimte.",
       "productChunky": "Chunkverwerking en prioriteit.",
       "productEntity": "Beheer van entiteiten en waarnemers.",
-      "productPlayer": "Join, respawn, tracking en dimensiewissels. Vroege ontwikkeling."
+      "productPlayer": "Join, respawn, tracking en dimensiewissels. Vroege ontwikkeling.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "pl": {
       "language": "Język",
@@ -684,7 +706,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Budżety zasobów i rezerwa serwera.",
       "productChunky": "Przetwarzanie i priorytetyzacja chunków.",
       "productEntity": "Zarządzanie jednostkami i obserwatorami.",
-      "productPlayer": "Dołączanie, odrodzenia, śledzenie i zmiany wymiarów. Wczesny rozwój."
+      "productPlayer": "Dołączanie, odrodzenia, śledzenie i zmiany wymiarów. Wczesny rozwój.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Plugin)"
     },
     "ko": {
       "language": "언어",
@@ -738,7 +762,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "리소스 예산과 서버 여유 공간.",
       "productChunky": "청크 처리와 우선순위.",
       "productEntity": "엔티티와 관찰자 관리.",
-      "productPlayer": "접속, 리스폰, 추적 및 차원 이동. 초기 개발 단계."
+      "productPlayer": "접속, 리스폰, 추적 및 차원 이동. 초기 개발 단계.",
+      "forge": "Forge (모드)",
+      "sponge": "Sponge (플러그인)"
     },
     "ru": {
       "language": "Язык",
@@ -792,7 +818,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Бюджеты ресурсов и запас сервера.",
       "productChunky": "Обработка и приоритет чанков.",
       "productEntity": "Управление сущностями и наблюдателями.",
-      "productPlayer": "Подключение, возрождение, отслеживание и переходы между измерениями. Ранняя разработка."
+      "productPlayer": "Подключение, возрождение, отслеживание и переходы между измерениями. Ранняя разработка.",
+      "forge": "Forge (Мод)",
+      "sponge": "Sponge (Плагин)"
     },
     "tr": {
       "language": "Dil",
@@ -846,7 +874,9 @@ window.Q_I18N = Object.freeze({
       "productCore": "Kaynak bütçeleri ve sunucu kapasitesi.",
       "productChunky": "Chunk işleme ve önceliklendirme.",
       "productEntity": "Varlık ve gözlemci yönetimi.",
-      "productPlayer": "Katılım, yeniden doğma, izleme ve boyut geçişi. Erken geliştirme."
+      "productPlayer": "Katılım, yeniden doğma, izleme ve boyut geçişi. Erken geliştirme.",
+      "forge": "Forge (Mod)",
+      "sponge": "Sponge (Eklenti)"
     }
   }
 });
