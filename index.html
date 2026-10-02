@@ -18,7 +18,7 @@
     .controls{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
     .controls h2{grid-column:1/-1;font-size:19px;letter-spacing:-.02em;margin:0 0 1px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:650;font-size:13px;color:var(--muted)}.field input,.field select{width:100%;min-width:0;border:1px solid #4a555a;background:#11181b;color:var(--fg);border-radius:8px;height:43px;padding:0 12px;font:inherit;font-size:14px}.field input::placeholder{color:#89999d}.field.wide{grid-column:span 2}
     .results-heading{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 17px;gap:12px}.results-heading h2{font-size:21px;margin:0;letter-spacing:-.03em}.results-heading span{color:var(--muted);font-size:14px}
-    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:21px;display:flex;flex-direction:column;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.product{font-size:20px;font-weight:760;letter-spacing:-.035em}.version{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.pill{font-size:11px;font-weight:750;border-radius:99px;border:1px solid #476558;padding:4px 10px;color:var(--accent);white-space:nowrap;background:var(--soft)}.pill.approved{color:#e7ebe8;border-color:#67736f;background:#3a4440}.blurb{color:var(--muted);margin:12px 0 15px;font-size:14px;min-height:40px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.meta span{border:1px solid var(--line);font-size:12px;padding:4px 9px;border-radius:5px;color:var(--muted)}.file{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5d4d2;overflow-wrap:anywhere;margin:0 0 14px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.download{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:8px;background:var(--accent);text-decoration:none;color:#12211c;font-size:13px;font-weight:760}.download:hover{background:#b7edda}.details{font-size:13px;text-underline-offset:4px;color:var(--muted)}.details:hover{color:var(--fg)}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:21px;display:flex;flex-direction:column;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.product{font-size:20px;font-weight:760;letter-spacing:-.035em}.version{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.pill{font-size:11px;font-weight:750;border-radius:99px;border:1px solid #476558;padding:4px 10px;color:var(--accent);white-space:nowrap;background:var(--soft)}.pill.approved{color:#e7ebe8;border-color:#67736f;background:#3a4440}.blurb{color:var(--muted);margin:12px 0 15px;font-size:14px;min-height:40px}.updates{font-size:13px;color:var(--muted);margin:0 0 13px}.updates strong{color:var(--fg)}.card-warning{font-size:12px;color:var(--muted);margin:0 0 16px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.meta span{border:1px solid var(--line);font-size:12px;padding:4px 9px;border-radius:5px;color:var(--muted)}.file{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5d4d2;overflow-wrap:anywhere;margin:0 0 14px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.download{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:8px;background:var(--accent);text-decoration:none;color:#12211c;font-size:13px;font-weight:760}.download:hover{background:#b7edda}.details{font-size:13px;text-underline-offset:4px;color:var(--muted)}.details:hover{color:var(--fg)}
     .empty{padding:48px 25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}.empty strong{display:block;color:var(--fg);font-size:18px;margin-bottom:5px}
     .bottom{margin:45px 0 0;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.bottom a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:790px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:1fr}.hero{padding-top:42px}.blurb{min-height:0}}
@@ -77,6 +77,15 @@
       a.href=href;a.rel="noopener noreferrer";
       return a;
     }
+    function actualUpdate(body) {
+      // Display a short changelog only when the release notes contain an actual, authored change.
+      const found=/(?:^|\n)(?:#{1,3}\s*)?(?:Was geändert wurde:|Was ist neu\?|Änderungen:)\s*\n([\s\S]*?)(?=\n\n|\n#{1,3}\s|$)/i.exec(String(body||""));
+      if(!found)return "";
+      const first=found[1].split(/\r?\n/).map(function(line){
+        return line.replace(/^\s*(?:[-*]\s+|\d+\.\s+)?/,"").replace(/[*<>|]/g,"").trim();
+      }).find(function(line){return line.length>=9&&!/^Release|Download|Teststand/i.test(line);});
+      return first?first.slice(0,180):"";
+    }
     function parseAsset(release,asset) {
       const name=asset.name||"";
       if(!name.toLowerCase().endsWith(".jar"))return null;
@@ -101,7 +110,7 @@
       return {product:product,platform:platform,version:version,mc:mc,javaTarget:javaTarget,dev:dev,approved:approved,
         filename:name,href:asset.browser_download_url,releaseUrl:release.html_url,
         title:release.name||"",body:release.body||"",date:release.published_at||release.created_at||"",
-        description:description,key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")+"/"+(javaTarget||"unknown")};
+        description:description,updateText:actualUpdate(release.body),key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")+"/"+(javaTarget||"unknown")};
     }
     function cell(card,type,label) {return card.appendChild(element(type,"",label));}
     function render() {
@@ -109,7 +118,7 @@
       const version=els.version.value.trim().toLowerCase();
       const project=els.product.value,platform=els.platform.value,minecraft=els.minecraft.value,javaTarget=els.java.value;
       const filtered=all.filter(function(r){
-        return (!q||(r.product+" "+r.platform+" Java "+r.javaTarget+" "+r.filename+" "+r.description).toLocaleLowerCase("de-DE").includes(q)) &&
+        return (!q||(r.product+" "+r.platform+(r.platform==="Paper"?" Plugin":"")+" MC "+r.mc+" Java "+r.javaTarget+" "+r.filename+" "+r.description+" "+r.updateText).toLocaleLowerCase("de-DE").includes(q)) &&
           (!version||r.version.toLowerCase().includes(version)) &&
           (!project||r.product===project)&&(!platform||r.platform===platform)&&
           (!minecraft||r.mc===minecraft)&&(!javaTarget||r.javaTarget===javaTarget);
@@ -132,6 +141,13 @@
         const status=element("span","pill"+(r.approved?" approved":""),r.approved?"Freigegeben":r.dev?"TESTVERSION":"Entwicklungsstand");
         head.append(status);card.append(head);
         card.append(element("p","blurb",r.description));
+        if(r.updateText){
+          const update=element("p","updates");
+          update.append(element("strong","","Update: "));
+          update.append(document.createTextNode(r.updateText));
+          card.append(update);
+        }
+        if(r.dev)card.append(element("p","card-warning","Entwicklungsversion – vor dem Testen ein Backup anlegen."));
         const meta=element("div","meta");
         meta.append(element("span","",r.platform==="Paper"?"Paper · Plugin":r.platform+" · Mod"));
         meta.append(element("span","",r.mc?"MC "+r.mc:"MC-Version siehe Release"));
