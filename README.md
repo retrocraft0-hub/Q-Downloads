@@ -40,4 +40,12 @@ Du brauchst nur die JAR deiner Plattform, nicht alle drei. Weitere Dateien wie `
 - Ein erfolgreicher Build ist kein Beweis für weniger Lag oder bessere FPS. Solche Aussagen machen wir erst mit passenden Praxismessungen.
 - Die Downloads sind kostenlos nutzbare, **proprietäre JAR-Dateien** – das Projekt ist nicht Open Source. Der Java-Quellcode wird hier nicht veröffentlicht. © RetroCraft0.
 
-Probleme beim Testen? Hilfreich sind die betroffene Q-Version, Paper/Fabric/NeoForge samt Version, Minecraft-Version, eine kurze Fehlerbeschreibung und gegebenenfalls der Logauszug.
+## Fehler melden und Wünsche einreichen
+
+Ist dir beim Testen etwas aufgefallen? Du kannst direkt hier ein öffentliches Feedbackformular ausfüllen:
+
+- **[Fehler melden](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml)** – mit Produkt, Plattform, exakter Q-JAR, Minecraft-/Java-Version, Schritten zum Nachstellen und optional gekürztem Log.
+- **[Verbesserung vorschlagen](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml)** – für neue Funktionen, ältere/neue Minecraft-Versionen und weitere Plattformen.
+- **[Bereits gemeldete Probleme und Kommentare ansehen](https://github.com/retrocraft0-hub/Q-Downloads/issues)** – du kannst dort auch auf eine vorhandene Meldung antworten.
+
+Meldungen werden für die weitere Q-Entwicklung regelmäßig ausgewertet. Bitte keine privaten IP-Adressen, Zugangsdaten, Tokens, Spieler-UUIDs oder ungekürzte persönliche Logs öffentlich posten. Ein Report ist zunächst ein Hinweis und kein bereits bestätigter Fehler.
