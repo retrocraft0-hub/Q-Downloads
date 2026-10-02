@@ -6,6 +6,7 @@ Hier stehen die tatsächlich verfügbaren Downloads, neueste zuerst. Du brauchst
 
 | Datum | Projekt | Q-Version | Plattform | Minecraft | Java | Stand | Was ist drin? |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| 2026-10-02 | **Q-Player** | 0.1.0 | Paper (Plugin) | 1.18.2 | 17 | Testversion (-dev) | Q-Player erstmals als eigene Paper-Ausgabe für Minecraft 1.18.2 und Java 17. [Download](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/paper/mc1.18.2/java17/v0.1.0-c2a8f48142) |
 | 2026-10-01 | **Q-Player** | 0.1.0 | Fabric (Mod) | 1.21.11 | 21 | Testversion (-dev) | Erste Ausgabe im Downloadarchiv. Frühe Entwicklung für Join, Respawn, Tracking und Dimensionswechsel. [Download](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
 | 2026-10-01 | **Q-Player** | 0.1.0 | NeoForge (Mod) | 1.21.11 | 21 | Testversion (-dev) | Erste Ausgabe im Downloadarchiv. Frühe Entwicklung für Join, Respawn, Tracking und Dimensionswechsel. [Download](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
 | 2026-10-01 | **Q-Player** | 0.1.0 | Paper (Plugin) | 1.21.11 | 21 | Testversion (-dev) | Erste Ausgabe im Downloadarchiv. Frühe Entwicklung für Join, Respawn, Tracking und Dimensionswechsel. [Download](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
