@@ -63,7 +63,6 @@
       "Q-Entity": "Funktionen rund um Entities und ihre Beobachter.",
       "Q-Player": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
     };
-    const BASELINE = {"Q-System":"6.4.2","Q-Core":"5.2.5","Q-Chunky":"2.1.5","Q-Entity":"1.1.5","Q-Player":"0.1.0"};
     const els = Object.fromEntries(["search","version","product","platform","minecraft","count","cards"].map(function(id){return [id,document.getElementById(id)];}));
     let all = [];
     function element(type,className,value) {
@@ -87,8 +86,8 @@
       const product=m[1],platform=m[2],version=m[3];
       const names=new Set((release.assets||[]).map(function(a){return a.name;}));
       const approved=names.has("CURSEFORGE-APPROVAL-"+platform.toLowerCase()+".json")&&!dev;
-      const baseline=(release.tag_name||"").endsWith("-d5ef99a6c0")&&BASELINE[product]===version;
-      const mc=m[4]||(baseline?"1.21.11":"");
+      const canonical=(release.tag_name||"").startsWith("dev/");
+      const mc=m[4]||(canonical?"1.21.11":"");
       const update=/## Was ist neu\?\s*\n+([^\n]{6,200})/i.exec(release.body||"");
       const description=(update&&update[1]&&!update[1].includes("Erstarchivierung")) ? update[1].replace(/[*|<>]/g,"").trim() : INFO[product];
       return {product:product,platform:platform,version:version,mc:mc,dev:dev,approved:approved,
