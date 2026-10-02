@@ -46,6 +46,7 @@
       <div class="field"><label for="product">Projekt</label><select id="product"><option value="">Alle Projekte</option><option>Q-System</option><option>Q-Core</option><option>Q-Chunky</option><option>Q-Entity</option><option>Q-Player</option></select></div>
       <div class="field"><label for="platform">Plattform</label><select id="platform"><option value="">Alle Plattformen</option><option value="Paper">Paper (Plugin)</option><option value="Fabric">Fabric (Mod)</option><option value="NeoForge">NeoForge (Mod)</option></select></div>
       <div class="field"><label for="minecraft">Minecraft-Version</label><select id="minecraft"><option value="">Alle Minecraft-Versionen</option></select></div>
+      <div class="field"><label for="java">Java-Version</label><select id="java"><option value="">Alle Java-Versionen</option></select></div>
     </section>
     <section aria-labelledby="results-title">
       <div class="results-heading"><h2 id="results-title">Verfügbare Dateien</h2><span id="count" role="status" aria-live="polite">Downloads werden geladen …</span></div>
@@ -63,7 +64,7 @@
       "Q-Entity": "Funktionen rund um Entities und ihre Beobachter.",
       "Q-Player": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
     };
-    const els = Object.fromEntries(["search","version","product","platform","minecraft","count","cards"].map(function(id){return [id,document.getElementById(id)];}));
+    const els = Object.fromEntries(["search","version","product","platform","minecraft","java","count","cards"].map(function(id){return [id,document.getElementById(id)];}));
     let all = [];
     function element(type,className,value) {
       const n=document.createElement(type);
@@ -81,30 +82,31 @@
       if(!name.toLowerCase().endsWith(".jar"))return null;
       const dev=name.endsWith("-dev.jar");
       const stem=name.slice(0,name.length-(dev?8:4));
-      const m=/^(Q-(?:System|Core|Chunky|Entity|Player))_(Paper|Fabric|NeoForge)_V(\d+\.\d+\.\d+(?:-[\w.-]+)?)(?:_MC(\d+[\w.-]*))?$/.exec(stem);
+      const m=/^(Q-(?:System|Core|Chunky|Entity|Player))_(Paper|Plugin|Fabric|NeoForge)_V(\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?)(?:_MC([0-9]+(?:\.[0-9]+)*(?:-[A-Za-z0-9.-]+)?))?(?:_Java(\d{1,2}))?$/.exec(stem);
       if(!m)return null;
-      const product=m[1],platform=m[2],version=m[3];
+      const product=m[1],platform=m[2]==="Plugin"?"Paper":m[2],version=m[3];
       const names=new Set((release.assets||[]).map(function(a){return a.name;}));
       const approved=names.has("CURSEFORGE-APPROVAL-"+platform.toLowerCase()+".json")&&!dev;
       const canonical=(release.tag_name||"").startsWith("dev/");
       const mc=m[4]||(canonical?"1.21.11":"");
+      const javaTarget=m[5]||(!m[4]&&canonical?"21":"");
       const update=/## Was ist neu\?\s*\n+([^\n]{6,200})/i.exec(release.body||"");
       const description=(update&&update[1]&&!update[1].includes("Erstarchivierung")) ? update[1].replace(/[*|<>]/g,"").trim() : INFO[product];
-      return {product:product,platform:platform,version:version,mc:mc,dev:dev,approved:approved,
+      return {product:product,platform:platform,version:version,mc:mc,javaTarget:javaTarget,dev:dev,approved:approved,
         filename:name,href:asset.browser_download_url,releaseUrl:release.html_url,
         title:release.name||"",body:release.body||"",date:release.published_at||release.created_at||"",
-        description:description,key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")};
+        description:description,key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")+"/"+(javaTarget||"unknown")};
     }
     function cell(card,type,label) {return card.appendChild(element(type,"",label));}
     function render() {
       const q=els.search.value.trim().toLocaleLowerCase("de-DE");
       const version=els.version.value.trim().toLowerCase();
-      const project=els.product.value,platform=els.platform.value,minecraft=els.minecraft.value;
+      const project=els.product.value,platform=els.platform.value,minecraft=els.minecraft.value,javaTarget=els.java.value;
       const filtered=all.filter(function(r){
-        return (!q||(r.product+" "+r.platform+" "+r.filename+" "+r.description).toLocaleLowerCase("de-DE").includes(q)) &&
+        return (!q||(r.product+" "+r.platform+" Java "+r.javaTarget+" "+r.filename+" "+r.description).toLocaleLowerCase("de-DE").includes(q)) &&
           (!version||r.version.toLowerCase().includes(version)) &&
           (!project||r.product===project)&&(!platform||r.platform===platform)&&
-          (!minecraft||r.mc===minecraft);
+          (!minecraft||r.mc===minecraft)&&(!javaTarget||r.javaTarget===javaTarget);
       });
       els.cards.replaceChildren();
       els.count.textContent=filtered.length+" "+(filtered.length===1?"Download":"Downloads");
@@ -127,6 +129,7 @@
         const meta=element("div","meta");
         meta.append(element("span","",r.platform==="Paper"?"Paper · Plugin":r.platform+" · Mod"));
         meta.append(element("span","",r.mc?"MC "+r.mc:"MC-Version siehe Release"));
+        meta.append(element("span","",r.javaTarget?"Java "+r.javaTarget:"Java-Version siehe Release"));
         if(r.date){const d=new Date(r.date);if(!Number.isNaN(d.valueOf()))meta.append(element("span","",d.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"})));}
         card.append(meta);
         card.append(element("p","file",r.filename));
@@ -161,11 +164,13 @@
       all=found;
       const mcs=Array.from(new Set(found.map(function(r){return r.mc;}).filter(Boolean))).sort(function(a,b){return b.localeCompare(a,undefined,{numeric:true});});
       mcs.forEach(function(mc){const option=element("option","",mc);option.value=mc;els.minecraft.append(option);});
+      const javas=Array.from(new Set(found.map(function(r){return r.javaTarget;}).filter(Boolean))).sort(function(a,b){return Number(b)-Number(a);});
+      javas.forEach(function(jdk){const option=element("option","","Java "+jdk);option.value=jdk;els.java.append(option);});
       if(incomplete)els.count.textContent="Ein Teil des älteren Archivs wird direkt unter GitHub Releases angeboten.";
       render();
     }
     ["search","version"].forEach(function(id){els[id].addEventListener("input",render);});
-    ["product","platform","minecraft"].forEach(function(id){els[id].addEventListener("change",render);});
+    ["product","platform","minecraft","java"].forEach(function(id){els[id].addEventListener("change",render);});
     load().catch(function(err){
       els.count.textContent="Downloads derzeit nicht ladbar";
       const box=element("div","empty");
