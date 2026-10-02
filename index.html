@@ -139,7 +139,7 @@
       filtered.slice(0,shownCount).forEach(function(r){
         const card=element("article","card");
         const head=element("div","card-head"),left=element("div","");
-        left.append(element("div","product",r.product));
+        left.append(element("div","product",r.product+" "+r.platform));
         left.append(element("div","version","Version "+r.version));
         head.append(left);
         const status=element("span","pill"+(r.approved?" approved":""),r.approved?"Freigegeben":r.dev?"TESTVERSION":"Entwicklungsstand");
