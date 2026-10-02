@@ -1,25 +1,33 @@
-# Q-Versionen – chronologisches Downloadarchiv
+# Q-Versionen — chronologisches originales Downloadarchiv
 
-> **ACHTUNG: Experimentelle GitHub-Ausgaben sind NICHT vollständig in Minecraft getestet.**
-> Ausschließlich auf Testservern/Testclients nutzen und vorab Welt-Backups erstellen.
-> Geprüfte Vollversionen erscheinen separat nach ausdrücklicher Freigabe auf CurseForge.
+> Development- und historische -dev-Dateien: **UNGETESTET**, keine belegten Minecraft-Last-/Spieltests.
+> Eine CurseForge-Freigabe gilt ausschließlich für die einzeln nachweisbar durch den Besitzer hochgeladene Plattform.
 
-## Alle tatsächlich veröffentlichten Versionen (neueste zuerst)
+## Jede echte Produkt-/Loader-/Version-Kombination genau einmal
 
-| Veröffentlichungsdatum (UTC) | Produkt | Version | Status | Download und Entwicklungs-Audit |
-| :-- | :-- | :-- | :-- | :-- |
-| 2026-10-01 | **Q-Player** | v0.1.0 | UNGETESTET / Development | [Originaldownloads und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
-| 2026-10-01 | **Q-Entity** | v1.1.5 | UNGETESTET / Development | [Originaldownloads und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-entity/v1.1.5-d5ef99a6c0) |
-| 2026-10-01 | **Q-Chunky** | v2.1.5 | UNGETESTET / Development | [Originaldownloads und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-chunky/v2.1.5-d5ef99a6c0) |
-| 2026-10-01 | **Q-Core** | v5.2.5 | UNGETESTET / Development | [Originaldownloads und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-core/v5.2.5-d5ef99a6c0) |
-| 2026-10-01 | **Q-System** | v6.4.2 | UNGETESTET / Development | [Originaldownloads und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-system/v6.4.2-d5ef99a6c0) |
+| Datum (UTC) | Produkt | Version | Plattform | Aktueller Status | Erklärung und Download |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| 2026-10-01 | **Q-Player** | v0.1.0 | Fabric / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
+| 2026-10-01 | **Q-Player** | v0.1.0 | NeoForge / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
+| 2026-10-01 | **Q-Player** | v0.1.0 | Paper / Plugin | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-player/v0.1.0-d5ef99a6c0) |
+| 2026-10-01 | **Q-Entity** | v1.1.5 | Fabric / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-entity/v1.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Entity** | v1.1.5 | NeoForge / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-entity/v1.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Entity** | v1.1.5 | Paper / Plugin | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-entity/v1.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Chunky** | v2.1.5 | Fabric / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-chunky/v2.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Chunky** | v2.1.5 | NeoForge / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-chunky/v2.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Chunky** | v2.1.5 | Paper / Plugin | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-chunky/v2.1.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Core** | v5.2.5 | Fabric / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-core/v5.2.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Core** | v5.2.5 | NeoForge / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-core/v5.2.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-Core** | v5.2.5 | Paper / Plugin | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-core/v5.2.5-d5ef99a6c0) |
+| 2026-10-01 | **Q-System** | v6.4.2 | Fabric / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-system/v6.4.2-d5ef99a6c0) |
+| 2026-10-01 | **Q-System** | v6.4.2 | NeoForge / Mod | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-system/v6.4.2-d5ef99a6c0) |
+| 2026-10-01 | **Q-System** | v6.4.2 | Paper / Plugin | UNGETESTET / -dev (nicht CurseForge) | Echte ursprüngliche Development-/Historien-JAR; technische Prüfungen und offene Minecraft-Livetests siehe Audit. [Download und Audit](https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/dev/q-system/v6.4.2-d5ef99a6c0) |
 
-Jeder automatische Development-Eintrag enthält die echten Paper-/Fabric-/NeoForge-JARs, SHA256SUMS und PUBLIC-AUDIT.md mit Inhaltsbeschreibung, betroffenen Änderungsbereichen, belegten Build-Tests, möglichen Risiken und fehlenden Minecraft-Tests. Historische Releases enthalten ausschließlich nachweislich vorhandene Originalplattformen.
+## Übergang von Development zu CurseForge
 
-## Alte Versionen
+- Eine neue sinnvolle Entwicklungsetappe erzeugt nach exakter 15-Loader-CI nur den freigegebenen Produkt-/Loader-Meilenstein.
+- Derselbe originale JAR-Asset-Eintrag wird bei persönlicher bestätigter CurseForge-Freigabe IM BESTEHENDEN privaten und öffentlichen Release umbenannt: aus -dev.jar wird .jar.
+- Es entstehen KEINE zusätzlichen freigegebenen JAR-Kopien und KEINE neuen cf/-Releases. Die Archiv-Prüfsummen, der Approval-Beleg und der öffentliche Status werden aktualisiert.
+- Historische Alt-Builds und getrennte reale Source-Stände werden nur dort aufgeführt, wo Originaldateien vorliegen. Private Java-Sources werden niemals öffentlich hochgeladen.
 
-Ältere Original-JARs können getrennt als historische Releases nachgetragen werden. Eine frühere Versionsnummer allein ist kein Download; aktuelle JARs werden niemals nur zur Vervollständigung des Archivs umbenannt. Nachgewiesener Startbestand: Q-System 6.4.2, Q-Core 5.2.5, Q-Chunky 2.1.5, Q-Entity 1.1.5 und Q-Player 0.1.0.
-
-© RetroCraft0. Nur binäre Downloads und öffentliche Metadaten. **Keine Open-Source-Veröffentlichung.**
-
-[Q-Beschreibung](README.md) · [GitHub Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases)
+[QDB→Q Entwicklungshistorie](HISTORIE.md) · [Echte öffentliche GitHub-Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases) · © RetroCraft0
