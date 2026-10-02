@@ -12,7 +12,7 @@
     a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
     header{border-bottom:1px solid var(--line);padding:18px max(22px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.03em}.mark{width:38px;height:38px;display:grid;place-items:center;border:2px solid var(--accent);border-radius:10px;color:var(--accent);font-size:24px;font-weight:900}.brand span:last-child small{display:block;color:var(--muted);font-weight:500;letter-spacing:0;font-size:12px;line-height:1.2}
-    nav{display:flex;gap:18px;font-size:14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
+    nav{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}.head-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.head-tools label{color:var(--muted);font-size:12px}.head-tools select{border:1px solid var(--line);border-radius:7px;padding:8px;background:var(--panel);color:var(--fg);font:inherit;font-size:13px;max-width:168px;cursor:pointer}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
     main{max-width:1164px;padding:0 22px;margin:0 auto 90px}.hero{padding:65px 0 35px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 13px}.hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:780;letter-spacing:-.055em;line-height:1.07;margin:0 0 18px}.hero p{font-size:17px;color:var(--muted);max-width:720px;margin:0}.toplinks{margin-top:25px;display:flex;gap:16px;flex-wrap:wrap;font-size:14px}.toplinks a{color:var(--accent);text-underline-offset:4px}
     .notice{border-left:3px solid var(--accent);padding:12px 16px;color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0;font-size:14px;margin:10px 0 29px}.notice strong{color:var(--fg)}
     .controls{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
@@ -24,42 +24,86 @@
     .empty{padding:48px 25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}.empty strong{display:block;color:var(--fg);font-size:18px;margin-bottom:5px}
     .bottom{margin:45px 0 0;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.bottom a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:790px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:1fr}.hero{padding-top:42px}.blurb{min-height:0}}
-    @media(max-width:430px){header{padding:15px 18px}nav{gap:10px;font-size:12px}.brand span:last-child{font-size:13px}.controls{gap:12px;padding:16px}.field.wide{grid-column:1/-1}.results-heading{align-items:start;flex-direction:column}.card{padding:17px}}
+    @media(max-width:430px){header{padding:15px 18px;flex-wrap:wrap}.head-tools{margin-left:auto}nav{gap:10px;font-size:12px}.brand span:last-child{font-size:13px}.controls{gap:12px;padding:16px}.field.wide{grid-column:1/-1}.results-heading{align-items:start;flex-direction:column}.card{padding:17px}}
     @media(prefers-reduced-motion:no-preference){.card,.download{transition:border-color .12s,background .12s}.card:hover{border-color:#648b7a}}
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="./" aria-label="Q Downloads – Start"><span class="mark">Q</span><span>Q DOWNLOADS<small>by RetroCraft0</small></span></a>
-    <nav aria-label="Weitere Seiten"><a href="https://github.com/retrocraft0-hub/Q-Downloads#readme">Über Q</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/VERSIONEN.md">Versionsliste</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Geschichte</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues">Feedback</a></nav>
+    <nav aria-label="More pages"><a data-i18n="about" href="https://github.com/retrocraft0-hub/Q-Downloads#readme">Über Q</a><a data-i18n="versions" href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/VERSIONEN.md">Versionsliste</a><a data-i18n="history" href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Geschichte</a><a data-i18n="feedback" href="https://github.com/retrocraft0-hub/Q-Downloads/issues">Feedback</a></nav>
+    <div class="head-tools"><label data-i18n="language" for="language">Sprache</label><select id="language" aria-label="Choose language"></select></div>
   </header>
   <main>
     <section class="hero" aria-labelledby="main-title">
-      <p class="eyebrow">Minecraft · Plugins & Mods</p>
-      <h1 id="main-title">Finde deine Q-Version.</h1>
-      <p>Q-System, Core, Chunky, Entity und Player. Wähle dein Projekt und deine Plattform – alle verfügbaren Versionen sind direkt verlinkt.</p>
-      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Fehler melden ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Idee vorschlagen ↗</a></div>
+      <p class="eyebrow" data-i18n="eyebrow">Minecraft · Plugins & Mods</p>
+      <h1 id="main-title" data-i18n="hero">Finde deine Q-Version.</h1>
+      <p data-i18n="intro">Q-System, Core, Chunky, Entity und Player. Wähle dein Projekt und deine Plattform – alle verfügbaren Versionen sind direkt verlinkt.</p>
+      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases" data-i18n="releases">Alle GitHub-Releases ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md" data-i18n="older">Ältere Versionen & Projektgeschichte ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml" data-i18n="report">Fehler melden ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml" data-i18n="idea">Idee vorschlagen ↗</a></div>
     </section>
-    <aside class="notice"><strong>Hinweis zu -dev:</strong> Das sind Testversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</aside>
+    <aside class="notice"><strong data-i18n="noticeTitle">Hinweis zu -dev:</strong> <span data-i18n="notice">Das sind Entwicklungsversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</span></aside>
     <section class="controls" aria-labelledby="filter-heading">
-      <h2 id="filter-heading">Downloads durchsuchen</h2>
-      <div class="field wide"><label for="search">Artefakt / Dateiname</label><input id="search" type="search" placeholder="z. B. Q-System, Chunky oder Paper" autocomplete="off" spellcheck="false"></div>
-      <div class="field"><label for="version">Q-Version</label><input id="version" type="search" placeholder="z. B. 6.4.2" autocomplete="off" spellcheck="false"></div>
-      <div class="field"><label for="product">Projekt</label><select id="product"><option value="">Alle Projekte</option><option>Q-System</option><option>Q-Core</option><option>Q-Chunky</option><option>Q-Entity</option><option>Q-Player</option></select></div>
-      <div class="field"><label for="platform">Plattform</label><select id="platform"><option value="">Alle Plattformen</option><option value="Paper">Paper (Plugin)</option><option value="Fabric">Fabric (Mod)</option><option value="NeoForge">NeoForge (Mod)</option></select></div>
-      <div class="field"><label for="minecraft">Minecraft-Version</label><select id="minecraft"><option value="">Alle Minecraft-Versionen</option></select></div>
-      <div class="field"><label for="java">Java-Version</label><select id="java"><option value="">Alle Java-Versionen</option></select></div>
+      <h2 id="filter-heading" data-i18n="filter">Downloads durchsuchen</h2>
+      <div class="field wide"><label for="search" data-i18n="file">Artefakt / Dateiname</label><input id="search" type="search" data-i18n-placeholder="filePlaceholder" placeholder="z. B. Q-System, Chunky oder Paper" autocomplete="off" spellcheck="false"></div>
+      <div class="field"><label for="version" data-i18n="version">Q-Version</label><input id="version" type="search" data-i18n-placeholder="versionPlaceholder" placeholder="z. B. 6.4.2" autocomplete="off" spellcheck="false"></div>
+      <div class="field"><label for="product" data-i18n="product">Projekt</label><select id="product"><option value="" data-i18n="allProducts">Alle Projekte</option><option>Q-System</option><option>Q-Core</option><option>Q-Chunky</option><option>Q-Entity</option><option>Q-Player</option></select></div>
+      <div class="field"><label for="platform" data-i18n="platform">Plattform</label><select id="platform"><option value="" data-i18n="allPlatforms">Alle Plattformen</option><option value="Paper" data-i18n="paper">Paper (Plugin)</option><option value="Fabric" data-i18n="fabric">Fabric (Mod)</option><option value="NeoForge" data-i18n="neoforge">NeoForge (Mod)</option></select></div>
+      <div class="field"><label for="minecraft" data-i18n="minecraft">Minecraft-Version</label><select id="minecraft"><option value="" data-i18n="allMinecraft">Alle Minecraft-Versionen</option></select></div>
+      <div class="field"><label for="java" data-i18n="java">Java-Version</label><select id="java"><option value="" data-i18n="allJava">Alle Java-Versionen</option></select></div>
     </section>
     <section aria-labelledby="results-title">
-      <div class="results-heading"><h2 id="results-title">Verfügbare Dateien</h2><span id="count" role="status" aria-live="polite">Downloads werden geladen …</span></div>
-      <div id="cards" class="cards"><p class="empty">Die aktuellen GitHub-Releases werden geladen …</p></div>
+      <div class="results-heading"><h2 id="results-title" data-i18n="results">Verfügbare Dateien</h2><span id="count" role="status" aria-live="polite" data-i18n="loading">Downloads werden geladen …</span></div>
+      <div id="cards" class="cards"><p class="empty" data-i18n="loading">Die aktuellen GitHub-Releases werden geladen …</p></div>
       <div id="moreWrap" class="more-wrap" hidden><button id="moreBtn" class="more" type="button">Weitere Downloads anzeigen</button></div>
     </section>
-    <footer class="bottom"><span>© RetroCraft0 · Proprietäre Q-Plugins und -Mods. Kein Open Source.</span><span>Die Dateien kommen direkt aus <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases</a>.</span></footer>
+    <footer class="bottom"><span data-i18n="footer">© RetroCraft0 · Proprietäre Q-Plugins und -Mods. Kein Open Source.</span><span><span data-i18n="footerFiles">Die Originaldateien kommen direkt aus GitHub Releases.</span> <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases ↗</a></span></footer>
   </main>
+  <script src="i18n.js"></script>
   <script>
     "use strict";
     const API = "https://api.github.com/repos/retrocraft0-hub/Q-Downloads/releases?per_page=100&page=";
+    const I18N=window.Q_I18N||{names:{"de":"Deutsch","en-US":"English (US)"},texts:{"en-US":{},"de":{}}};
+    function chooseLocale(){
+      try{
+        const saved=localStorage.getItem("q_download_language");
+        if(saved&&I18N.names[saved])return saved;
+      }catch(_){}
+      const candidates=[...(navigator.languages||[]),navigator.language||""];
+      for(const candidate of candidates){
+        if(I18N.names[candidate])return candidate;
+        const prefix=candidate.split("-")[0];
+        const match=Object.keys(I18N.names).find(code=>code===prefix||code.startsWith(prefix+"-"));
+        if(match)return match;
+      }
+      return "en-US";
+    }
+    let locale=chooseLocale();
+    function L(key){
+      const texts=I18N.texts||{};
+      return (texts[locale]&&texts[locale][key])||(texts["en-US"]&&texts["en-US"][key])||
+             (texts.de&&texts.de[key])||key;
+    }
+    function formatted(key,n){return L(key).replace("{n}",String(n));}
+    function applyLocale(){
+      document.documentElement.lang=locale;
+      document.documentElement.dir="ltr";
+      document.querySelectorAll("[data-i18n]").forEach(node=>{node.textContent=L(node.dataset.i18n);});
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(node=>{node.placeholder=L(node.dataset.i18nPlaceholder);});
+      const language=document.getElementById("language");
+      if(language)language.value=locale;
+      document.title="Q Downloads · RetroCraft0";
+    }
+    const languageSelect=document.getElementById("language");
+    Object.entries(I18N.names).forEach(([code,name])=>{
+      const item=document.createElement("option");item.value=code;item.textContent=name;languageSelect.append(item);
+    });
+    languageSelect.addEventListener("change",function(){
+      locale=languageSelect.value;
+      try{localStorage.setItem("q_download_language",locale);}catch(_){}
+      applyLocale();
+      render();
+    });
+
     const INFO = {
       "Q-System": "Gesamtpaket mit Core, Chunky, Entity und Player.",
       "Q-Core": "Ressourcenbudgets und Server-Headroom.",
@@ -67,6 +111,7 @@
       "Q-Entity": "Funktionen rund um Entities und ihre Beobachter.",
       "Q-Player": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
     };
+    const DESC_KEY={"Q-System":"productSystem","Q-Core":"productCore","Q-Chunky":"productChunky","Q-Entity":"productEntity","Q-Player":"productPlayer"};
     const els = Object.fromEntries(["search","version","product","platform","minecraft","java","count","cards","moreWrap","moreBtn"].map(function(id){return [id,document.getElementById(id)];}));
     let all = [];
     let shownCount=48;
@@ -129,11 +174,11 @@
       });
       els.cards.replaceChildren();
       els.moreWrap.hidden=true;
-      els.count.textContent=filtered.length+" "+(filtered.length===1?"Download":"Downloads");
+      els.count.textContent=filtered.length+" "+L(filtered.length===1?"one":"many");
       if(!filtered.length){
         const empty=element("div","empty");
-        empty.append(element("strong","","Keine passende Datei gefunden."));
-        empty.append("Versuch es mit einer anderen Version oder setze einen Filter zurück.");
+        empty.append(element("strong","",L("none")));
+        empty.append(L("noneBody"));
         els.cards.append(empty);return;
       }
       const chunk=document.createDocumentFragment();
@@ -141,38 +186,38 @@
         const card=element("article","card");
         const head=element("div","card-head"),left=element("div","");
         left.append(element("div","product",r.product+" "+r.platform));
-        left.append(element("div","version","Version "+r.version));
+        left.append(element("div","version",L("versionWord")+" "+r.version));
         head.append(left);
-        const status=element("span","pill"+(r.approved?" approved":""),r.approved?"Freigegeben":r.dev?"TESTVERSION":"Entwicklungsstand");
+        const status=element("span","pill"+(r.approved?" approved":""),r.approved?L("approved"):r.dev?L("dev"):L("experimental"));
         head.append(status);card.append(head);
-        card.append(element("p","blurb",r.description));
+        card.append(element("p","blurb",locale==="de"&&r.description?r.description:L(DESC_KEY[r.product])));
         if(r.updateText){
           const update=element("p","updates");
-          update.append(element("strong","","Update: "));
+          update.append(element("strong","",L("update")+" ("+L("original")+"): "));
           update.append(document.createTextNode(r.updateText));
           card.append(update);
         }
-        if(r.dev)card.append(element("p","card-warning","Entwicklungsversion – vor dem Testen ein Backup anlegen."));
+        if(r.dev)card.append(element("p","card-warning",L("backup")));
         const meta=element("div","meta");
-        meta.append(element("span","",r.platform==="Paper"?"Paper · Plugin":r.platform+" · Mod"));
-        meta.append(element("span","",r.mc?"MC "+r.mc:"MC-Version siehe Release"));
-        meta.append(element("span","",r.javaTarget?"Java "+r.javaTarget:"Java-Version siehe Release"));
-        if(r.date){const d=new Date(r.date);if(!Number.isNaN(d.valueOf()))meta.append(element("span","",d.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"})));}
+        meta.append(element("span","",r.platform==="Paper"?"Paper · "+L("plugin"):r.platform+" · "+L("mod")));
+        meta.append(element("span","",r.mc?"MC "+r.mc:L("mcMissing")));
+        meta.append(element("span","",r.javaTarget?"Java "+r.javaTarget:L("javaMissing")));
+        if(r.date){const d=new Date(r.date);if(!Number.isNaN(d.valueOf()))meta.append(element("span","",d.toLocaleDateString(locale,{day:"2-digit",month:"2-digit",year:"numeric"})));}
         card.append(meta);
         card.append(element("p","file",r.filename));
         const actions=element("div","actions");
-        actions.append(link(r.href,"↓ JAR herunterladen","download"));
-        actions.append(link(r.releaseUrl,"Versionsdetails ↗","details"));
+        actions.append(link(r.href,L("getJar"),"download"));
+        actions.append(link(r.releaseUrl,L("details"),"details"));
         card.append(actions);
         const report=element("p","reportline");
         const reportTitle="[Bug] "+r.product+" "+r.platform+" v"+r.version+" / MC "+(r.mc||"?")+" / Java "+(r.javaTarget||"?");
-        report.append(link("https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml&title="+encodeURIComponent(reportTitle),"Problem mit dieser Version melden ↗",""));
+        report.append(link("https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml&title="+encodeURIComponent(reportTitle),L("reportCard"),""));
         card.append(report);
         chunk.append(card);
       });
       els.cards.append(chunk);
       els.moreWrap.hidden=filtered.length<=shownCount;
-      els.moreBtn.textContent="Weitere "+Math.min(48,Math.max(0,filtered.length-shownCount))+" Downloads anzeigen";
+      els.moreBtn.textContent=formatted("more",Math.min(48,Math.max(0,filtered.length-shownCount)));
     }
     async function loadCatalog(){
       // Public static shards are generated exclusively from real public GitHub Release JAR assets.
@@ -254,17 +299,19 @@
       mcs.forEach(function(mc){const option=element("option","",mc);option.value=mc;els.minecraft.append(option);});
       const javas=Array.from(new Set(found.map(function(r){return r.javaTarget;}).filter(Boolean))).sort(function(a,b){return Number(b)-Number(a);});
       javas.forEach(function(jdk){const option=element("option","","Java "+jdk);option.value=jdk;els.java.append(option);});
+      applyLocale();
       render();
     }
     ["search","version"].forEach(function(id){els[id].addEventListener("input",function(){shownCount=48;render();});});
     ["product","platform","minecraft","java"].forEach(function(id){els[id].addEventListener("change",function(){shownCount=48;render();});});
     els.moreBtn.addEventListener("click",function(){shownCount+=48;render();});
+    applyLocale();
     load().catch(function(err){
-      els.count.textContent="Downloads derzeit nicht ladbar";
+      els.count.textContent=L("unavailable");
       const box=element("div","empty");
-      box.append(element("strong","","Die Suchliste ist gerade nicht erreichbar."));
-      box.append(err.message+" ");
-      box.append(link("https://github.com/retrocraft0-hub/Q-Downloads/releases","Alle Releases direkt auf GitHub öffnen ↗","details"));
+      box.append(element("strong","",L("unavailable")));
+      box.append(L("catalogUnavailable")+" ");
+      box.append(link("https://github.com/retrocraft0-hub/Q-Downloads/releases",L("fallback"),"details"));
       els.cards.replaceChildren(box);
     });
   </script>
