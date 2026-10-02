@@ -19,6 +19,7 @@
     .controls h2{grid-column:1/-1;font-size:19px;letter-spacing:-.02em;margin:0 0 1px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:650;font-size:13px;color:var(--muted)}.field input,.field select{width:100%;min-width:0;border:1px solid #4a555a;background:#11181b;color:var(--fg);border-radius:8px;height:43px;padding:0 12px;font:inherit;font-size:14px}.field input::placeholder{color:#89999d}.field.wide{grid-column:span 2}
     .results-heading{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 17px;gap:12px}.results-heading h2{font-size:21px;margin:0;letter-spacing:-.03em}.results-heading span{color:var(--muted);font-size:14px}
     .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:21px;display:flex;flex-direction:column;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.product{font-size:20px;font-weight:760;letter-spacing:-.035em}.version{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.pill{font-size:11px;font-weight:750;border-radius:99px;border:1px solid #476558;padding:4px 10px;color:var(--accent);white-space:nowrap;background:var(--soft)}.pill.approved{color:#e7ebe8;border-color:#67736f;background:#3a4440}.blurb{color:var(--muted);margin:12px 0 15px;font-size:14px;min-height:40px}.updates{font-size:13px;color:var(--muted);margin:0 0 13px}.updates strong{color:var(--fg)}.card-warning{font-size:12px;color:var(--muted);margin:0 0 16px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.meta span{border:1px solid var(--line);font-size:12px;padding:4px 9px;border-radius:5px;color:var(--muted)}.file{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5d4d2;overflow-wrap:anywhere;margin:0 0 14px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.download{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:8px;background:var(--accent);text-decoration:none;color:#12211c;font-size:13px;font-weight:760}.download:hover{background:#b7edda}.details{font-size:13px;text-underline-offset:4px;color:var(--muted)}.details:hover{color:var(--fg)}
+    .reportline{margin:12px 0 0;font-size:12px;text-align:right}.reportline a{color:var(--accent);text-underline-offset:3px}
     .more-wrap{text-align:center;margin:23px 0}.more{background:var(--panel2);color:var(--fg);border:1px solid var(--line);padding:12px 24px;border-radius:9px;font:inherit;font-size:14px;cursor:pointer}.more:hover{border-color:var(--accent)}.more-wrap[hidden]{display:none}
     .empty{padding:48px 25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}.empty strong{display:block;color:var(--fg);font-size:18px;margin-bottom:5px}
     .bottom{margin:45px 0 0;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.bottom a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -30,14 +31,14 @@
 <body>
   <header>
     <a class="brand" href="./" aria-label="Q Downloads – Start"><span class="mark">Q</span><span>Q DOWNLOADS<small>by RetroCraft0</small></span></a>
-    <nav aria-label="Weitere Seiten"><a href="https://github.com/retrocraft0-hub/Q-Downloads#readme">Über Q</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/VERSIONEN.md">Versionsliste</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Geschichte</a></nav>
+    <nav aria-label="Weitere Seiten"><a href="https://github.com/retrocraft0-hub/Q-Downloads#readme">Über Q</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/VERSIONEN.md">Versionsliste</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Geschichte</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues">Feedback</a></nav>
   </header>
   <main>
     <section class="hero" aria-labelledby="main-title">
       <p class="eyebrow">Minecraft · Plugins & Mods</p>
       <h1 id="main-title">Finde deine Q-Version.</h1>
       <p>Q-System, Core, Chunky, Entity und Player. Wähle dein Projekt und deine Plattform – alle verfügbaren Versionen sind direkt verlinkt.</p>
-      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a></div>
+      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/blob/main/HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Fehler melden ↗</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Idee vorschlagen ↗</a></div>
     </section>
     <aside class="notice"><strong>Hinweis zu -dev:</strong> Das sind Testversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</aside>
     <section class="controls" aria-labelledby="filter-heading">
@@ -163,6 +164,10 @@
         actions.append(link(r.href,"↓ JAR herunterladen","download"));
         actions.append(link(r.releaseUrl,"Versionsdetails ↗","details"));
         card.append(actions);
+        const report=element("p","reportline");
+        const reportTitle="[Bug] "+r.product+" "+r.platform+" v"+r.version+" / MC "+(r.mc||"?")+" / Java "+(r.javaTarget||"?");
+        report.append(link("https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml&title="+encodeURIComponent(reportTitle),"Problem mit dieser Version melden ↗",""));
+        card.append(report);
         chunk.append(card);
       });
       els.cards.append(chunk);
