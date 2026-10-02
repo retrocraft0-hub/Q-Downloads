@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101418">
+  <meta name="description" content="Q-Reihe Downloads: Paper Plugins, Fabric und NeoForge Mods nach Projekt, Version und Minecraft-Version finden.">
+  <title>Q Downloads · RetroCraft0</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101418;--panel:#1a2026;--panel2:#222a30;--line:#374147;--fg:#edf2f0;--muted:#b3c0c1;--accent:#82d7b6;--focus:#b8f6de;--soft:#253e35}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+    header{border-bottom:1px solid var(--line);padding:18px max(22px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.03em}.mark{width:38px;height:38px;display:grid;place-items:center;border:2px solid var(--accent);border-radius:10px;color:var(--accent);font-size:24px;font-weight:900}.brand span:last-child small{display:block;color:var(--muted);font-weight:500;letter-spacing:0;font-size:12px;line-height:1.2}
+    nav{display:flex;gap:18px;font-size:14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
+    main{max-width:1164px;padding:0 22px;margin:0 auto 90px}.hero{padding:65px 0 35px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 13px}.hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:780;letter-spacing:-.055em;line-height:1.07;margin:0 0 18px}.hero p{font-size:17px;color:var(--muted);max-width:720px;margin:0}.toplinks{margin-top:25px;display:flex;gap:16px;flex-wrap:wrap;font-size:14px}.toplinks a{color:var(--accent);text-underline-offset:4px}
+    .notice{border-left:3px solid var(--accent);padding:12px 16px;color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0;font-size:14px;margin:10px 0 29px}.notice strong{color:var(--fg)}
+    .controls{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+    .controls h2{grid-column:1/-1;font-size:19px;letter-spacing:-.02em;margin:0 0 1px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:650;font-size:13px;color:var(--muted)}.field input,.field select{width:100%;min-width:0;border:1px solid #4a555a;background:#11181b;color:var(--fg);border-radius:8px;height:43px;padding:0 12px;font:inherit;font-size:14px}.field input::placeholder{color:#89999d}.field.wide{grid-column:span 2}
+    .results-heading{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 17px;gap:12px}.results-heading h2{font-size:21px;margin:0;letter-spacing:-.03em}.results-heading span{color:var(--muted);font-size:14px}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:21px;display:flex;flex-direction:column;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.product{font-size:20px;font-weight:760;letter-spacing:-.035em}.version{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.pill{font-size:11px;font-weight:750;border-radius:99px;border:1px solid #476558;padding:4px 10px;color:var(--accent);white-space:nowrap;background:var(--soft)}.pill.approved{color:#e7ebe8;border-color:#67736f;background:#3a4440}.blurb{color:var(--muted);margin:12px 0 15px;font-size:14px;min-height:40px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.meta span{border:1px solid var(--line);font-size:12px;padding:4px 9px;border-radius:5px;color:var(--muted)}.file{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5d4d2;overflow-wrap:anywhere;margin:0 0 14px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.download{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:8px;background:var(--accent);text-decoration:none;color:#12211c;font-size:13px;font-weight:760}.download:hover{background:#b7edda}.details{font-size:13px;text-underline-offset:4px;color:var(--muted)}.details:hover{color:var(--fg)}
+    .empty{padding:48px 25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}.empty strong{display:block;color:var(--fg);font-size:18px;margin-bottom:5px}
+    .bottom{margin:45px 0 0;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.bottom a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:790px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:1fr}.hero{padding-top:42px}.blurb{min-height:0}}
+    @media(max-width:430px){header{padding:15px 18px}nav{gap:10px;font-size:12px}.brand span:last-child{font-size:13px}.controls{gap:12px;padding:16px}.field.wide{grid-column:1/-1}.results-heading{align-items:start;flex-direction:column}.card{padding:17px}}
+    @media(prefers-reduced-motion:no-preference){.card,.download{transition:border-color .12s,background .12s}.card:hover{border-color:#648b7a}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="./" aria-label="Q Downloads – Start"><span class="mark">Q</span><span>Q DOWNLOADS<small>by RetroCraft0</small></span></a>
+    <nav aria-label="Weitere Seiten"><a href="README.md">Über Q</a><a href="VERSIONEN.md">Versionsliste</a><a href="HISTORIE.md">Geschichte</a></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="main-title">
+      <p class="eyebrow">Minecraft · Plugins & Mods</p>
+      <h1 id="main-title">Finde deine Q-Version.</h1>
+      <p>Q-System, Core, Chunky, Entity und Player. Wähle dein Projekt und deine Plattform – alle verfügbaren Versionen sind direkt verlinkt.</p>
+      <div class="toplinks"><a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">Alle GitHub-Releases ↗</a><a href="HISTORIE.md">Ältere Versionen & Projektgeschichte ↗</a></div>
+    </section>
+    <aside class="notice"><strong>Hinweis zu -dev:</strong> Das sind Testversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</aside>
+    <section class="controls" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Downloads durchsuchen</h2>
+      <div class="field wide"><label for="search">Artefakt / Dateiname</label><input id="search" type="search" placeholder="z. B. Q-System, Chunky oder Paper" autocomplete="off" spellcheck="false"></div>
+      <div class="field"><label for="version">Q-Version</label><input id="version" type="search" placeholder="z. B. 6.4.2" autocomplete="off" spellcheck="false"></div>
+      <div class="field"><label for="product">Projekt</label><select id="product"><option value="">Alle Projekte</option><option>Q-System</option><option>Q-Core</option><option>Q-Chunky</option><option>Q-Entity</option><option>Q-Player</option></select></div>
+      <div class="field"><label for="platform">Plattform</label><select id="platform"><option value="">Alle Plattformen</option><option value="Paper">Paper (Plugin)</option><option value="Fabric">Fabric (Mod)</option><option value="NeoForge">NeoForge (Mod)</option></select></div>
+      <div class="field"><label for="minecraft">Minecraft-Version</label><select id="minecraft"><option value="">Alle Minecraft-Versionen</option></select></div>
+    </section>
+    <section aria-labelledby="results-title">
+      <div class="results-heading"><h2 id="results-title">Verfügbare Dateien</h2><span id="count" role="status" aria-live="polite">Downloads werden geladen …</span></div>
+      <div id="cards" class="cards"><p class="empty">Die aktuellen GitHub-Releases werden geladen …</p></div>
+    </section>
+    <footer class="bottom"><span>© RetroCraft0 · Proprietäre Q-Plugins und -Mods. Kein Open Source.</span><span>Die Dateien kommen direkt aus <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases</a>.</span></footer>
+  </main>
+  <script>
+    "use strict";
+    const API = "https://api.github.com/repos/retrocraft0-hub/Q-Downloads/releases?per_page=100&page=";
+    const INFO = {
+      "Q-System": "Gesamtpaket mit Core, Chunky, Entity und Player.",
+      "Q-Core": "Ressourcenbudgets und Server-Headroom.",
+      "Q-Chunky": "Chunk-Verarbeitung und Priorisierung.",
+      "Q-Entity": "Funktionen rund um Entities und ihre Beobachter.",
+      "Q-Player": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
+    };
+    const BASELINE = {"Q-System":"6.4.2","Q-Core":"5.2.5","Q-Chunky":"2.1.5","Q-Entity":"1.1.5","Q-Player":"0.1.0"};
+    const els = Object.fromEntries(["search","version","product","platform","minecraft","count","cards"].map(function(id){return [id,document.getElementById(id)];}));
+    let all = [];
+    function element(type,className,value) {
+      const n=document.createElement(type);
+      if(className)n.className=className;
+      if(value!==undefined)n.textContent=value;
+      return n;
+    }
+    function link(href,label,css){
+      const a=element("a",css,label);
+      a.href=href;a.rel="noopener noreferrer";
+      return a;
+    }
+    function parseAsset(release,asset) {
+      const name=asset.name||"";
+      if(!name.toLowerCase().endsWith(".jar"))return null;
+      const dev=name.endsWith("-dev.jar");
+      const stem=name.slice(0,name.length-(dev?8:4));
+      const m=/^(Q-(?:System|Core|Chunky|Entity|Player))_(Paper|Fabric|NeoForge)_V(\d+\.\d+\.\d+(?:-[\w.-]+)?)(?:_MC(\d+[\w.-]*))?$/.exec(stem);
+      if(!m)return null;
+      const product=m[1],platform=m[2],version=m[3];
+      const names=new Set((release.assets||[]).map(function(a){return a.name;}));
+      const approved=names.has("CURSEFORGE-APPROVAL-"+platform.toLowerCase()+".json")&&!dev;
+      const baseline=(release.tag_name||"").endsWith("-d5ef99a6c0")&&BASELINE[product]===version;
+      const mc=m[4]||(baseline?"1.21.11":"");
+      return {product:product,platform:platform,version:version,mc:mc,dev:dev,approved:approved,
+        filename:name,href:asset.browser_download_url,releaseUrl:release.html_url,
+        title:release.name||"",body:release.body||"",date:release.published_at||release.created_at||"",
+        description:INFO[product],key:product+"/"+platform+"/"+version+"/"+(mc||"unknown")};
+    }
+    function cell(card,type,label) {return card.appendChild(element(type,"",label));}
+    function render() {
+      const q=els.search.value.trim().toLocaleLowerCase("de-DE");
+      const version=els.version.value.trim().toLowerCase();
+      const project=els.product.value,platform=els.platform.value,minecraft=els.minecraft.value;
+      const filtered=all.filter(function(r){
+        return (!q||(r.product+" "+r.platform+" "+r.filename+" "+r.description).toLocaleLowerCase("de-DE").includes(q)) &&
+          (!version||r.version.toLowerCase().includes(version)) &&
+          (!project||r.product===project)&&(!platform||r.platform===platform)&&
+          (!minecraft||r.mc===minecraft);
+      });
+      els.cards.replaceChildren();
+      els.count.textContent=filtered.length+" "+(filtered.length===1?"Download":"Downloads");
+      if(!filtered.length){
+        const empty=element("div","empty");
+        empty.append(element("strong","","Keine passende Datei gefunden."));
+        empty.append("Versuch es mit einer anderen Version oder setze einen Filter zurück.");
+        els.cards.append(empty);return;
+      }
+      const chunk=document.createDocumentFragment();
+      filtered.forEach(function(r){
+        const card=element("article","card");
+        const head=element("div","card-head"),left=element("div","");
+        left.append(element("div","product",r.product));
+        left.append(element("div","version","Version "+r.version));
+        head.append(left);
+        const status=element("span","pill"+(r.approved?" approved":""),r.approved?"Freigegeben":r.dev?"TESTVERSION":"Entwicklungsstand");
+        head.append(status);card.append(head);
+        card.append(element("p","blurb",r.description));
+        const meta=element("div","meta");
+        meta.append(element("span","",r.platform==="Paper"?"Paper · Plugin":r.platform+" · Mod"));
+        meta.append(element("span","",r.mc?"MC "+r.mc:"MC-Version siehe Release"));
+        if(r.date){const d=new Date(r.date);if(!Number.isNaN(d.valueOf()))meta.append(element("span","",d.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"})));}
+        card.append(meta);
+        card.append(element("p","file",r.filename));
+        const actions=element("div","actions");
+        actions.append(link(r.href,"↓ JAR herunterladen","download"));
+        actions.append(link(r.releaseUrl,"Versionsdetails ↗","details"));
+        card.append(actions);
+        chunk.append(card);
+      });
+      els.cards.append(chunk);
+    }
+    async function load(){
+      const result=[];let incomplete=false;
+      for(let page=1;page<=10;page++){
+        const response=await fetch(API+page,{headers:{"Accept":"application/vnd.github+json"}});
+        if(!response.ok)throw new Error("GitHub-Releases sind gerade nicht erreichbar (HTTP "+response.status+").");
+        const list=await response.json();
+        if(!Array.isArray(list))throw new Error("Unerwartete Antwort vom Downloadarchiv.");
+        result.push.apply(result,list);
+        if(list.length<100)break;
+        if(page===10)incomplete=true;
+      }
+      const known=new Set();const found=[];
+      result.forEach(function(release){
+        (release.assets||[]).forEach(function(asset){
+          const r=parseAsset(release,asset);if(!r)return;
+          if(known.has(r.key)){console.warn("Doppelter Versionsstand im Archiv:",r.key);return;}
+          known.add(r.key);found.push(r);
+        });
+      });
+      found.sort(function(a,b){return b.date.localeCompare(a.date)||a.product.localeCompare(b.product)||a.platform.localeCompare(b.platform);});
+      all=found;
+      const mcs=Array.from(new Set(found.map(function(r){return r.mc;}).filter(Boolean))).sort(function(a,b){return b.localeCompare(a,undefined,{numeric:true});});
+      mcs.forEach(function(mc){const option=element("option","",mc);option.value=mc;els.minecraft.append(option);});
+      if(incomplete)els.count.textContent="Ein Teil des älteren Archivs wird direkt unter GitHub Releases angeboten.";
+      render();
+    }
+    ["search","version"].forEach(function(id){els[id].addEventListener("input",render);});
+    ["product","platform","minecraft"].forEach(function(id){els[id].addEventListener("change",render);});
+    load().catch(function(err){
+      els.count.textContent="Downloads derzeit nicht ladbar";
+      const box=element("div","empty");
+      box.append(element("strong","","Die Suchliste ist gerade nicht erreichbar."));
+      box.append(err.message+" ");
+      box.append(link("https://github.com/retrocraft0-hub/Q-Downloads/releases","Alle Releases direkt auf GitHub öffnen ↗","details"));
+      els.cards.replaceChildren(box);
+    });
+  </script>
+</body>
+</html>
