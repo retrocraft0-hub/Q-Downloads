@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Q-Downloads – alle verfügbaren Versionen"
+    url: "https://retrocraft0-hub.github.io/Q-Downloads/"
+    about: "Prüfe, welche Q-/Minecraft-/Java-/Plattformkombination bereits als echte JAR vorhanden ist."
+  - name: "Bestehende Fehlermeldungen und Kommentare ansehen"
+    url: "https://github.com/retrocraft0-hub/Q-Downloads/issues"
+    about: "Vor dem Melden nach einem ähnlichen Fehler suchen oder dich an einer bestehenden Meldung beteiligen."
