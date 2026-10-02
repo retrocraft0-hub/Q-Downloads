@@ -163,24 +163,79 @@
       });
       els.cards.append(chunk);
     }
-    async function load(){
-      const result=[];let incomplete=false;
-      for(let page=1;page<=10;page++){
-        const response=await fetch(API+page,{headers:{"Accept":"application/vnd.github+json"}});
-        if(!response.ok)throw new Error("GitHub-Releases sind gerade nicht erreichbar (HTTP "+response.status+").");
-        const list=await response.json();
-        if(!Array.isArray(list))throw new Error("Unerwartete Antwort vom Downloadarchiv.");
-        result.push.apply(result,list);
-        if(list.length<100)break;
-        if(page===10)incomplete=true;
+    async function loadCatalog(){
+      // Public static shards are generated exclusively from real public GitHub Release JAR assets.
+      // The catalog lives on GitHub Pages; no visitor access token or source repository is needed.
+      const response=await fetch("catalog/manifest.json",{cache:"no-cache"});
+      if(response.status===404)return null; // Legacy browsing before the first static index update.
+      if(!response.ok)throw new Error("Der Downloadkatalog ist gerade nicht erreichbar.");
+      const manifest=await response.json();
+      if(manifest.schema!==1||manifest.repo!=="retrocraft0-hub/Q-Downloads"||
+         !Array.isArray(manifest.pages)||!Number.isSafeInteger(manifest.count)||
+         manifest.count<0||manifest.pages.length!==Math.ceil(manifest.count/250))
+        throw new Error("Der öffentliche Downloadkatalog ist unvollständig.");
+      const allEntries=[];
+      for(let offset=0;offset<manifest.pages.length;offset+=6){
+        const batch=manifest.pages.slice(offset,offset+6);
+        const chunks=await Promise.all(batch.map(async function(info){
+          if(!/^catalog\/part-[0-9]{5}\.json$/.test(info.path)||
+             !Number.isSafeInteger(info.count)||info.count<1||info.count>250)
+            throw new Error("Ungültige Katalogseite.");
+          const response=await fetch(info.path,{cache:"no-cache"});
+          if(!response.ok)throw new Error("Eine Seite des Downloadkatalogs fehlt.");
+          const shard=await response.json();
+          if(shard.schema!==1||!Array.isArray(shard.entries)||shard.entries.length!==info.count)
+            throw new Error("Beschädigter Downloadkatalog.");
+          return shard.entries;
+        }));
+        chunks.forEach(function(entries){allEntries.push.apply(allEntries,entries);});
       }
-      const known=new Set();const found=[];
-      result.forEach(function(release){
-        (release.assets||[]).forEach(function(asset){
-          const r=parseAsset(release,asset);if(!r)return;
-          if(known.has(r.key)){console.warn("Doppelter Versionsstand im Archiv:",r.key);return;}
-          known.add(r.key);found.push(r);
+      if(allEntries.length!==manifest.count)throw new Error("Der Downloadkatalog ist nicht vollständig.");
+      const allowed=new Set(["Q-System","Q-Core","Q-Chunky","Q-Entity","Q-Player"]);
+      return allEntries.map(function(item){
+        if(!allowed.has(item.product)||!["paper","fabric","neoforge"].includes(item.platform)||
+           !/^https:\/\/github\.com\/retrocraft0-hub\/Q-Downloads\/releases\/download\//.test(item.href)||
+           !/^https:\/\/github\.com\/retrocraft0-hub\/Q-Downloads\/releases\/tag\//.test(item.releaseUrl)||
+           !/^[A-Za-z0-9_.-]+\.jar$/.test(item.filename))
+          throw new Error("Ein Katalogeintrag verweist nicht auf eine öffentliche Q-JAR.");
+        return {
+          product:item.product,
+          platform:({paper:"Paper",fabric:"Fabric",neoforge:"NeoForge"})[item.platform],
+          version:item.version,mc:item.mc||"",javaTarget:item.javaTarget||"",
+          dev:item.dev===true,approved:item.approved===true,
+          filename:item.filename,href:item.href,releaseUrl:item.releaseUrl,
+          description:item.description||INFO[item.product],
+          date:item.date||"",key:item.product+"/"+item.platform+"/"+item.version+"/"+(item.mc||"unknown")+"/"+(item.javaTarget||"unknown")
+        };
+      });
+    }
+    async function load(){
+      // A compact paginated static catalog is preferred over every visitor crawling hundreds
+      // of GitHub API pages. Public GitHub Releases remain the single original JAR source.
+      let found=await loadCatalog();
+      if(found===null){
+        const result=[];
+        for(let page=1;page<=200;page++){
+          const response=await fetch(API+page,{headers:{"Accept":"application/vnd.github+json"}});
+          if(!response.ok)throw new Error("GitHub-Releases sind gerade nicht erreichbar (HTTP "+response.status+").");
+          const list=await response.json();
+          if(!Array.isArray(list))throw new Error("Unerwartete Antwort vom Downloadarchiv.");
+          result.push.apply(result,list);
+          if(list.length<100)break;
+          if(page===200)throw new Error("Sehr großes Archiv: Der statische Gesamtindex wird benötigt.");
+        }
+        found=[];
+        result.forEach(function(release){
+          (release.assets||[]).forEach(function(asset){
+            const r=parseAsset(release,asset);
+            if(r)found.push(r);
+          });
         });
+      }
+      const known=new Set();
+      found=found.filter(function(r){
+        if(known.has(r.key)){console.warn("Doppelte vollständige Q/MC/Java/Loader-Version:",r.key);return false;}
+        known.add(r.key);return true;
       });
       found.sort(function(a,b){return b.date.localeCompare(a.date)||a.product.localeCompare(b.product)||a.platform.localeCompare(b.platform);});
       all=found;
@@ -188,7 +243,6 @@
       mcs.forEach(function(mc){const option=element("option","",mc);option.value=mc;els.minecraft.append(option);});
       const javas=Array.from(new Set(found.map(function(r){return r.javaTarget;}).filter(Boolean))).sort(function(a,b){return Number(b)-Number(a);});
       javas.forEach(function(jdk){const option=element("option","","Java "+jdk);option.value=jdk;els.java.append(option);});
-      if(incomplete)els.count.textContent="Ein Teil des älteren Archivs wird direkt unter GitHub Releases angeboten.";
       render();
     }
     ["search","version"].forEach(function(id){els[id].addEventListener("input",render);});
