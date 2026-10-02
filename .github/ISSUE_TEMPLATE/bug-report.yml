@@ -1,0 +1,147 @@
+name: "Fehler mit einem Q-Download melden"
+description: "Ein Plugin/Mod startet nicht, verursacht Fehler oder verhält sich anders als erwartet."
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Testen! Bitte wähle die **tatsächlich heruntergeladene Datei** aus.
+        Ein Build mit `-dev` ist noch nicht vom Betreiber im Minecraft-Langzeittest freigegeben.
+        Dieses Formular ist öffentlich: **Keine Passwörter, Tokens, privaten IP-Adressen, Spieler-UUIDs oder ungekürzten personenbezogenen Logs posten.**
+        Du darfst auf Deutsch oder Englisch schreiben. Neue Meldungen werden regelmäßig für die weitere Q-Entwicklung durchgesehen.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Q-Produkt
+      description: Welches Produkt ist betroffen?
+      options:
+        - Q-System
+        - Q-Core
+        - Q-Chunky
+        - Q-Entity
+        - Q-Player
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Plattform / Loader
+      description: Wähle die Plattform deiner tatsächlich vorhandenen Q-JAR; neue Plattformen bitte als Funktionswunsch melden.
+      options:
+        - Paper / Plugin
+        - Fabric
+        - NeoForge
+        - Forge
+        - Quilt
+        - Sponge
+        - Folia
+        - Spigot / Bukkit
+        - Purpur
+        - Velocity
+        - BungeeCord
+        - Andere (im Fehlertext erklären)
+    validations:
+      required: true
+  - type: input
+    id: q-version
+    attributes:
+      label: Q-Version
+      description: Exakt so wie beim Download, z. B. 6.4.2 oder 0.1.0.
+      placeholder: "z. B. 6.4.2"
+    validations:
+      required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft-Version
+      description: Das ist nicht dasselbe wie deine Java-Version.
+      placeholder: "z. B. 1.21.11 oder 1.18.2"
+    validations:
+      required: true
+  - type: input
+    id: java
+    attributes:
+      label: Java-Version
+      description: Ausgabe von `java -version`, falls bekannt.
+      placeholder: "z. B. Java 21 oder unbekannt"
+    validations:
+      required: true
+  - type: input
+    id: actual-jar
+    attributes:
+      label: Exakter Name der heruntergeladenen Q-JAR
+      description: Unterscheidet unabhängige Minecraft-, Java-, Plattform- und Q-Versionen.
+      placeholder: "z. B. Q-Player_Paper_V0.1.0_MC1.18.2_Java17-dev.jar"
+    validations:
+      required: true
+  - type: input
+    id: loader-version
+    attributes:
+      label: Plattform-Version (optional)
+      placeholder: "z. B. Paper-Buildnummer, Fabric Loader oder NeoForge-Version"
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Was passiert?
+      options:
+        - Server / Client startet nicht
+        - Absturz während des Spielens
+        - Fehlermeldung, Betrieb geht weiter
+        - Funktion verhält sich falsch
+        - Leistungsproblem / Lag (noch nicht vermessen)
+        - Kompatibilitätsproblem mit anderer Mod / Plugin
+        - Sonstiges
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Wie kann man das Problem nachstellen?
+      description: Beschreibe den Ablauf so, dass andere ihn reproduzieren können.
+      placeholder: |
+        1. Installiere die oben genannte JAR ...
+        2. Starte ...
+        3. Führe ... aus
+        4. Danach ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Was sollte passieren?
+      placeholder: "So sollte es normalerweise funktionieren ..."
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Was passiert tatsächlich?
+      placeholder: "Stattdessen passiert ..."
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Fehlermeldung / gekürzter Logauszug (optional)
+      description: Bitte nur relevante Zeilen und sensible Informationen vorher entfernen.
+      render: text
+    validations:
+      required: false
+  - type: input
+    id: download
+    attributes:
+      label: Link zum betroffenen GitHub-Release (optional)
+      placeholder: "https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/..."
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Vor dem Absenden
+      options:
+        - label: "Ich habe sensible Informationen aus öffentlichen Logs und Screenshots entfernt."
+          required: true
+        - label: "Mir ist bewusst, dass eine Fehlermeldung zunächst untersucht und nicht ungeprüft als bestätigter Fehler veröffentlicht wird."
+          required: true
