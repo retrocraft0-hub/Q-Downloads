@@ -6,6 +6,8 @@ Hier findest du die Q-Plugins und -Mods als Downloads. **Die erste Reihe ist fü
 
 **[Downloadseite mit Sprachwahl](https://retrocraft0-hub.github.io/Q-Downloads/) · [Original-JARs auf GitHub](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen mit Minecraft und Java](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
 
+Auf der Downloadseite werden zuerst **alle vorhandenen JAR-Dateien** angezeigt; beim Scrollen erscheinen weitere Einträge automatisch. Wenn du gezielt suchen oder nach Minecraft, Java, Q-Version und Plattform filtern möchtest, wähle darüber zuerst eines der fünf Q-Projekte aus. Ein zweiter Klick auf das aktive Projekt öffnet wieder die vollständige Downloadübersicht.
+
 > **Hinweis zu -dev:** Diese Versionen befinden sich noch in Entwicklung. Die JARs wurden gebaut und auf ihre grundlegende Struktur geprüft, aber nicht vollständig im Minecraft-Spielbetrieb getestet. Bitte vorerst nur auf einem Testserver bzw. Testclient verwenden und vorher deine Welt sichern.
 
 ## Welches Q brauche ich?
