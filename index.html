@@ -17,7 +17,8 @@
     main{max-width:1164px;padding:0 22px;margin:0 auto 90px}.hero{padding:65px 0 35px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 13px}.hero h1{font-size:clamp(32px,5.5vw,58px);font-weight:780;letter-spacing:-.055em;line-height:1.07;margin:0 0 18px}.hero p{font-size:17px;color:var(--muted);max-width:720px;margin:0}.toplinks{margin-top:25px;display:flex;gap:16px;flex-wrap:wrap;font-size:14px}.toplinks a{color:var(--accent);text-underline-offset:4px}
     .notice{border-left:3px solid var(--accent);padding:12px 16px;color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0;font-size:14px;margin:10px 0 29px}.notice strong{color:var(--fg)}
     .controls{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-    .controls h2{grid-column:1/-1;font-size:19px;letter-spacing:-.02em;margin:0 0 1px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:650;font-size:13px;color:var(--muted)}.field input,.field select{width:100%;min-width:0;border:1px solid #4a555a;background:#11181b;color:var(--fg);border-radius:8px;height:43px;padding:0 12px;font:inherit;font-size:14px}.field input::placeholder{color:#89999d}.field.wide{grid-column:span 2}
+    .controls h2{grid-column:1/-1;font-size:19px;letter-spacing:-.02em;margin:0 0 1px}
+    .controls{position:relative;display:block}.filter-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;border:0;padding:0;margin:15px 0 0;min-width:0}.controls.is-locked .filter-fields{opacity:.34;filter:grayscale(1);pointer-events:none}.locked-overlay{position:absolute;inset:54px 0 0;border:1px solid transparent;background:rgba(16,20,24,.11);border-radius:0 0 15px 15px;color:var(--muted);font:inherit;font-size:13px;cursor:not-allowed;display:grid;place-items:center;text-align:center;padding:15px}.locked-overlay:hover{background:rgba(16,20,24,.2)}.choose-warning{font-size:13px;color:#ff8888;font-weight:650;margin:8px 0 0}.field{display:flex;flex-direction:column;gap:7px}.field label{font-weight:650;font-size:13px;color:var(--muted)}.field input,.field select{width:100%;min-width:0;border:1px solid #4a555a;background:#11181b;color:var(--fg);border-radius:8px;height:43px;padding:0 12px;font:inherit;font-size:14px}.field input::placeholder{color:#89999d}.field.wide{grid-column:span 2}
     .product-bar{margin:0 0 16px}.choose-prompt{font-size:13px;color:var(--muted);margin:11px 0 0}.section-kicker{font-size:13px;color:var(--muted);font-weight:700;margin:0 0 9px}.product-tiles{display:flex;flex-wrap:wrap;gap:8px}.product-tile{border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:9px;cursor:pointer;padding:9px 16px;font:inherit;font-size:14px;font-weight:650}.product-tile[aria-pressed="true"]{background:var(--soft);border-color:var(--accent);color:var(--accent)}.product-tile:hover{border-color:var(--accent)}.option-check{grid-column:span 2;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--fg)}.option-check input{width:17px;height:17px;accent-color:var(--accent)}.reset{background:var(--panel2);color:var(--fg);border:1px solid var(--line);font:inherit;font-size:14px;border-radius:8px;padding:10px 14px;cursor:pointer;align-self:end}.reset:hover{border-color:var(--accent)}.search-help{font-size:12px;color:var(--muted);margin:-1px 0 0;grid-column:1/-1}
     .results-heading{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 17px;gap:12px}.results-heading h2{font-size:21px;margin:0;letter-spacing:-.03em}.results-heading span{color:var(--muted);font-size:14px}
     .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:15px;display:flex;flex-direction:column;min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.product{font-size:17px;font-weight:760;letter-spacing:-.035em}.version{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}.pill{font-size:11px;font-weight:750;border-radius:99px;border:1px solid #476558;padding:4px 10px;color:var(--accent);white-space:nowrap;background:var(--soft)}.pill.approved{color:#e7ebe8;border-color:#67736f;background:#3a4440}.blurb{color:var(--muted);margin:8px 0 10px;font-size:13px;min-height:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.updates{font-size:13px;color:var(--muted);margin:0 0 13px}.updates strong{color:var(--fg)}.card-warning{font-size:12px;color:var(--muted);margin:0 0 16px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.meta span{border:1px solid var(--line);font-size:12px;padding:4px 9px;border-radius:5px;color:var(--muted)}.file{font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c5d4d2;overflow-wrap:anywhere;margin:0 0 14px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.download{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:8px;background:var(--accent);text-decoration:none;color:#12211c;font-size:13px;font-weight:760}.download:hover{background:#b7edda}.details{font-size:13px;text-underline-offset:4px;color:var(--muted)}.details:hover{color:var(--fg)}
@@ -25,8 +26,8 @@
     .more-wrap{text-align:center;margin:23px 0}.more{background:var(--panel2);color:var(--fg);border:1px solid var(--line);padding:12px 24px;border-radius:9px;font:inherit;font-size:14px;cursor:pointer}.more:hover{border-color:var(--accent)}.more-wrap[hidden]{display:none}
     .empty{padding:48px 25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;grid-column:1/-1}.empty strong{display:block;color:var(--fg);font-size:18px;margin-bottom:5px}
     .bottom{margin:45px 0 0;padding-top:26px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.bottom a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    @media(max-width:950px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:790px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:42px}}@media(max-width:620px){.cards{grid-template-columns:1fr}.product-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.product-tile{padding:9px 5px}.option-check{grid-column:1/-1}}
-    @media(max-width:430px){header{padding:15px 18px;flex-wrap:wrap}.head-tools{margin-left:auto}nav{gap:10px;font-size:12px}.brand span:last-child{font-size:13px}.controls{gap:12px;padding:16px}.field.wide{grid-column:1/-1}.results-heading{align-items:start;flex-direction:column}.card{padding:17px}}
+    @media(max-width:950px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:790px){.filter-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:42px}}@media(max-width:620px){.cards{grid-template-columns:1fr}.product-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.product-tile{padding:9px 5px}.option-check{grid-column:1/-1}}
+    @media(max-width:430px){header{padding:15px 18px;flex-wrap:wrap}.head-tools{margin-left:auto}nav{gap:10px;font-size:12px}.brand span:last-child{font-size:13px}.controls{padding:16px}.filter-fields{gap:12px}.field.wide{grid-column:1/-1}.results-heading{align-items:start;flex-direction:column}.card{padding:17px}}
     @media(prefers-reduced-motion:no-preference){.card,.download{transition:border-color .12s,background .12s}.card:hover{border-color:#648b7a}}
   </style>
 </head>
@@ -45,35 +46,38 @@
     </section>
     <aside class="notice"><strong data-i18n="noticeTitle">Hinweis zu -dev:</strong> <span data-i18n="notice">Das sind Entwicklungsversionen. Sie wurden technisch gebaut und geprüft, aber noch nicht vollständig in Minecraft getestet. Vor dem Ausprobieren ein Backup anlegen.</span></aside>
     <section class="product-bar" aria-labelledby="browse-products">
-      <h2 id="browse-products" class="section-kicker" data-i18n="browseProducts">1. Wähle zuerst dein Q-Artefakt</h2>
+      <h2 id="browse-products" class="section-kicker" data-i18n="browseProducts">1. Wähle zuerst dein Q-Projekt für die Suche</h2>
       <div id="productTiles" class="product-tiles" role="group" aria-label="Q projects">
-delete all        <button type="button" class="product-tile" data-product="Q-System" aria-pressed="false">Q-System</button>
+        <button type="button" class="product-tile" data-product="Q-System" aria-pressed="false">Q-System</button>
         <button type="button" class="product-tile" data-product="Q-Core" aria-pressed="false">Q-Core</button>
         <button type="button" class="product-tile" data-product="Q-Chunky" aria-pressed="false">Q-Chunky</button>
         <button type="button" class="product-tile" data-product="Q-Entity" aria-pressed="false">Q-Entity</button>
         <button type="button" class="product-tile" data-product="Q-Player" aria-pressed="false">Q-Player</button>
       </div>
-      <p id="choosePrompt" class="choose-prompt" role="status" data-i18n="chooseFirst">Wähle oben zuerst System, Core, Chunky, Entity oder Player, um die passenden Downloads zu filtern.</p>
+      <p id="choosePrompt" class="choose-prompt" data-i18n="chooseFirst">Ohne Auswahl kannst du unten trotzdem alle Downloads durchscrollen.</p>
+      <p id="chooseWarning" class="choose-warning" role="alert" aria-live="assertive" hidden></p>
     </section>
-    <section id="filters" class="controls" aria-labelledby="filter-heading" hidden>
+    <section id="filters" class="controls is-locked" aria-labelledby="filter-heading">
       <h2 id="filter-heading" data-i18n="filter">Downloads durchsuchen</h2>
-      <div class="field"><label for="platform" data-i18n="platform">Plattform</label><select id="platform"><option value="" data-i18n="allPlatforms">Alle Plattformen</option><option value="Paper" data-i18n="paper">Paper (Plugin)</option><option value="Fabric" data-i18n="fabric">Fabric (Mod)</option><option value="NeoForge" data-i18n="neoforge">NeoForge (Mod)</option></select></div>
-      <div class="field"><label for="minecraft" data-i18n="minecraft">Minecraft-Version</label><select id="minecraft"><option value="" data-i18n="allMinecraft">Alle Minecraft-Versionen</option></select></div>
-      <div class="field"><label for="version" data-i18n="version">Q-Version</label><select id="version"><option value="" data-i18n="allVersions">Alle Q-Versionen</option></select></div>
-      <div class="field"><label for="java" data-i18n="java">Java-Version</label><select id="java"><option value="" data-i18n="allJava">Alle Java-Versionen</option></select></div>
-      <div class="field"><label for="sort" data-i18n="sort">Sortieren</label><select id="sort">
-        <option value="published-desc" data-i18n="newest">Neueste Veröffentlichung</option>
-        <option value="published-asc" data-i18n="oldest">Älteste Veröffentlichung</option>
-        <option value="version-desc" data-i18n="qHigh">Höchste Q-Version</option>
-        <option value="version-asc" data-i18n="qLow">Niedrigste Q-Version</option>
-      </select></div>
-      <div class="field"><label for="dateFrom" data-i18n="dateFrom">Veröffentlicht ab</label><input id="dateFrom" type="date"></div>
-      <div class="field"><label for="dateTo" data-i18n="dateTo">Veröffentlicht bis</label><input id="dateTo" type="date"></div>
-      <label class="option-check" for="latestOnly"><input id="latestOnly" type="checkbox" checked><span data-i18n="latestOnly">Nur höchste Q-Version pro Artefakt / Plattform / Minecraft / Java</span></label>
-      <button id="reset" type="button" class="reset" data-i18n="reset">Filter zurücksetzen</button>
-      <p class="search-help" data-i18n="directFiles">Die Suche zeigt einzelne tatsächlich veröffentlichte JAR-Dateien direkt, keine Ordner. Weitere Plattformen erscheinen erst mit echten Downloads.</p>
+      <fieldset id="filterFields" class="filter-fields" disabled>
+        <div class="field wide"><label for="query" data-i18n="searchQuery">Datei oder Version suchen</label><input id="query" type="search" maxlength="120" autocomplete="off" data-i18n-placeholder="searchPlaceholder" placeholder="z. B. 1.18.2, Paper oder Java 17"></div>
+        <div class="field"><label for="platform" data-i18n="platform">Plattform</label><select id="platform"><option value="" data-i18n="allPlatforms">Alle Plattformen</option></select></div>
+        <div class="field"><label for="minecraft" data-i18n="minecraft">Minecraft-Version</label><select id="minecraft"><option value="" data-i18n="allMinecraft">Alle Minecraft-Versionen</option></select></div>
+        <div class="field"><label for="version" data-i18n="version">Q-Version</label><select id="version"><option value="" data-i18n="allVersions">Alle Q-Versionen</option></select></div>
+        <div class="field"><label for="java" data-i18n="java">Java-Version</label><select id="java"><option value="" data-i18n="allJava">Alle Java-Versionen</option></select></div>
+        <div class="field"><label for="sort" data-i18n="sort">Sortieren</label><select id="sort">
+          <option value="published-desc" data-i18n="newest">Neueste Veröffentlichung</option>
+          <option value="published-asc" data-i18n="oldest">Älteste Veröffentlichung</option>
+          <option value="version-desc" data-i18n="qHigh">Höchste Q-Version</option>
+          <option value="version-asc" data-i18n="qLow">Niedrigste Q-Version</option>
+        </select></div>
+        <label class="option-check" for="latestOnly"><input id="latestOnly" type="checkbox"><span data-i18n="latestOnly">Nur höchste Q-Version pro Artefakt / Plattform / Minecraft / Java</span></label>
+        <button id="reset" type="button" class="reset" data-i18n="reset">Filter zurücksetzen</button>
+        <p class="search-help" data-i18n="directFiles">Die Suche zeigt einzelne tatsächlich veröffentlichte JAR-Dateien direkt, keine Ordner. Weitere Plattformen erscheinen erst mit echten Downloads.</p>
+      </fieldset>
+      <button id="lockedOverlay" class="locked-overlay" type="button" data-i18n="chooseToUnlock" aria-describedby="choosePrompt">Wähle zuerst System, Core, Chunky, Entity oder Player.</button>
     </section>
-    <section id="downloads" aria-labelledby="results-title" hidden>
+    <section id="downloads" aria-labelledby="results-title">
       <div class="results-heading"><h2 id="results-title" data-i18n="results">Verfügbare Dateien</h2><span id="count" role="status" aria-live="polite" data-i18n="loading">Downloads werden geladen …</span></div>
       <div id="cards" class="cards"><p class="empty" data-i18n="loading">Die aktuellen GitHub-Releases werden geladen …</p></div>
       <div id="moreWrap" class="more-wrap" hidden><button id="moreBtn" class="more" type="button">Weitere Downloads anzeigen</button></div>
@@ -85,7 +89,7 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
     "use strict";
     const API = "https://api.github.com/repos/retrocraft0-hub/Q-Downloads/releases?per_page=100&page=";
     const I18N=window.Q_I18N||{names:{"de":"Deutsch","en-US":"English (US)"},texts:{"en-US":{},"de":{}}};
-    const EXTRA={de:{browseProducts:"1. Wähle zuerst dein Q-Artefakt",chooseFirst:"Wähle oben zuerst System, Core, Chunky, Entity oder Player, um die passenden Downloads zu filtern.",allVersions:"Alle Q-Versionen",sort:"Sortieren",newest:"Neueste Veröffentlichung",oldest:"Älteste Veröffentlichung",qHigh:"Höchste Q-Version",qLow:"Niedrigste Q-Version",dateFrom:"Veröffentlicht ab",dateTo:"Veröffentlicht bis",latestOnly:"Nur höchste Q-Version pro Artefakt / Plattform / Minecraft / Java",reset:"Filter zurücksetzen",directFiles:"Die Suche zeigt einzelne tatsächlich veröffentlichte JAR-Dateien direkt, keine Ordner. Weitere Plattformen erscheinen erst mit echten Downloads."},"en-US":{browseProducts:"1. Choose your Q project first",chooseFirst:"First choose System, Core, Chunky, Entity or Player above to see compatible downloads.",allVersions:"All Q versions",sort:"Sort by",newest:"Newest release",oldest:"Oldest release",qHigh:"Highest Q version",qLow:"Lowest Q version",dateFrom:"Released from",dateTo:"Released until",latestOnly:"Only highest Q version per project / platform / Minecraft / Java",reset:"Clear filters",directFiles:"Search displays individual real published JARs directly, not folders. More platforms appear only after real downloads exist."}};
+    const EXTRA={de:{browseProducts:"1. Wähle zuerst dein Q-Projekt für die Suche",chooseFirst:"Du kannst unten auch ohne Suche durch alle verfügbaren Downloads scrollen.",chooseToUnlock:"Wähle zuerst ein Q-Projekt, um die Suche freizuschalten.",chooseWarning:"Bitte wähle zuerst System, Core, Chunky, Entity oder Player aus.",browseAll:"Alle Downloads",searchQuery:"Datei oder Version suchen",searchPlaceholder:"z. B. 1.18.2, Paper oder Java 17",allVersions:"Alle Q-Versionen",sort:"Sortieren",newest:"Neueste Veröffentlichung",oldest:"Älteste Veröffentlichung",qHigh:"Höchste Q-Version",qLow:"Niedrigste Q-Version",latestOnly:"Nur höchste Q-Version pro Projekt / Plattform / Minecraft / Java",reset:"Filter zurücksetzen",directFiles:"Die Suche zeigt einzelne tatsächlich veröffentlichte JAR-Dateien direkt, keine Ordner. Weitere Plattformen erscheinen erst mit echten Downloads."},"en-US":{browseProducts:"1. Choose a Q project to unlock search",chooseFirst:"You can still scroll through every available download below without searching.",chooseToUnlock:"Choose System, Core, Chunky, Entity or Player to unlock search.",chooseWarning:"Please choose System, Core, Chunky, Entity or Player first.",browseAll:"All downloads",searchQuery:"Find a file or version",searchPlaceholder:"e.g. 1.18.2, Paper or Java 17",allVersions:"All Q versions",sort:"Sort by",newest:"Newest release",oldest:"Oldest release",qHigh:"Highest Q version",qLow:"Lowest Q version",latestOnly:"Only highest Q version per project / platform / Minecraft / Java",reset:"Clear filters",directFiles:"Search displays individual real published JARs directly, not folders. More platforms appear only after real downloads exist."}};
     function chooseLocale(){
       try{
         const saved=localStorage.getItem("q_download_language");
@@ -137,12 +141,15 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
       "Q-Player": "Join, Respawn, Tracking und Dimensionswechsel. Frühe Entwicklung."
     };
     const DESC_KEY={"Q-System":"productSystem","Q-Core":"productCore","Q-Chunky":"productChunky","Q-Entity":"productEntity","Q-Player":"productPlayer"};
-    const els = Object.fromEntries(["version","platform","minecraft","java","sort","dateFrom","dateTo","latestOnly","reset","productTiles","choosePrompt","filters","downloads","count","cards","moreWrap","moreBtn"].map(function(id){return [id,document.getElementById(id)];}));
+    const els = Object.fromEntries(["query","version","platform","minecraft","java","sort","latestOnly","reset","productTiles","choosePrompt","chooseWarning","filters","filterFields","lockedOverlay","downloads","results-title","count","cards","moreWrap","moreBtn"].map(function(id){return [id,document.getElementById(id)];}));
     let all = [];
     let selectedProduct="";
     let catalogReady=false;
     let loadError=null;
-    let shownCount=24;
+    const PAGE_SIZE=24;
+    let currentRows=[];
+    let renderedCount=0;
+    let warningTimer=null;
     // Numeric SemVer sorting. A stable version sorts after a prerelease.
     function compareQVersions(a,b){
       const rx=/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$/;
@@ -234,56 +241,17 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
       const javas=[...new Set(versionFiles.map(function(r){return r.javaTarget;}).filter(Boolean))].sort(function(a,b){return Number(b)-Number(a);});
       selectOptions(els.java,javas,L("allJava"),function(v){return "Java "+v;});
     }
-    function render() {
-      els.productTiles.querySelectorAll("button[data-product]").forEach(function(btn){
-        btn.setAttribute("aria-pressed",String(btn.dataset.product===selectedProduct));
-      });
-      els.filters.hidden=!selectedProduct;
-      els.downloads.hidden=!selectedProduct;
-      els.choosePrompt.hidden=!!selectedProduct;
-      if(!selectedProduct)return;
-      if(loadError){
-        els.count.textContent=L("unavailable");
-        const box=element("div","empty");
-        box.append(element("strong","",L("unavailable")));
-        box.append(L("catalogUnavailable")+" ");
-        box.append(link("https://github.com/retrocraft0-hub/Q-Downloads/releases",L("fallback"),"details"));
-        els.cards.replaceChildren(box);els.moreWrap.hidden=true;return;
-      }
-      if(!catalogReady){els.count.textContent=L("loading");return;}
-      const version=els.version.value;
-      const project=selectedProduct,platform=els.platform.value,minecraft=els.minecraft.value,javaTarget=els.java.value;
-      const dateFrom=els.dateFrom.value,dateTo=els.dateTo.value;
-      let filtered=all.filter(function(r){
-        const date=(r.date||"").slice(0,10);
-        return (!version||r.version===version)&&r.product===project&&
-          (!platform||r.platform===platform)&&(!minecraft||r.mc===minecraft)&&
-          (!javaTarget||r.javaTarget===javaTarget)&&
-          (!dateFrom||(date&&date>=dateFrom))&&(!dateTo||(date&&date<=dateTo));
-      });
-      if(els.latestOnly.checked)filtered=newestQOnly(filtered);
-      const sort=els.sort.value;
-      filtered.sort(function(a,b){
-        if(sort==="version-desc"||sort==="version-asc"){
-          const cmp=compareQVersions(a.version,b.version)*(sort==="version-desc"?-1:1);
-          if(cmp)return cmp;
-        }
-        const cmp=(a.date||"").localeCompare(b.date||"");
-        if(cmp)return sort==="published-asc"?cmp:-cmp;
-        return a.product.localeCompare(b.product)||a.platform.localeCompare(b.platform)||
-          a.mc.localeCompare(b.mc,undefined,{numeric:true});
-      });
-      els.cards.replaceChildren();
-      els.moreWrap.hidden=true;
-      els.count.textContent=filtered.length+" "+L(filtered.length===1?"one":"many");
-      if(!filtered.length){
-        const empty=element("div","empty");
-        empty.append(element("strong","",L("none")));
-        empty.append(L("noneBody"));
-        els.cards.append(empty);return;
-      }
+    function warnIfLocked(){
+      if(selectedProduct)return;
+      els.chooseWarning.textContent=L("chooseWarning");
+      els.chooseWarning.hidden=false;
+      clearTimeout(warningTimer);
+      warningTimer=setTimeout(function(){els.chooseWarning.hidden=true;},2600);
+    }
+    function showMore(){
+      if(!catalogReady||renderedCount>=currentRows.length)return;
       const chunk=document.createDocumentFragment();
-      filtered.slice(0,shownCount).forEach(function(r){
+      currentRows.slice(renderedCount,renderedCount+PAGE_SIZE).forEach(function(r){
         const card=element("article","card");
         const head=element("div","card-head"),left=element("div","");
         left.append(element("div","product",r.product+" "+r.platform));
@@ -317,8 +285,69 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
         chunk.append(card);
       });
       els.cards.append(chunk);
-      els.moreWrap.hidden=filtered.length<=shownCount;
-      els.moreBtn.textContent=formatted("more",Math.min(24,Math.max(0,filtered.length-shownCount)));
+      renderedCount=Math.min(currentRows.length,renderedCount+PAGE_SIZE);
+      els.moreWrap.hidden=renderedCount>=currentRows.length;
+      els.moreBtn.textContent=formatted("more",Math.min(PAGE_SIZE,currentRows.length-renderedCount));
+    }
+    function render() {
+      els.productTiles.querySelectorAll("button[data-product]").forEach(function(btn){
+        btn.setAttribute("aria-pressed",String(btn.dataset.product===selectedProduct));
+      });
+      const locked=!selectedProduct;
+      els.filterFields.disabled=locked;
+      els.filters.classList.toggle("is-locked",locked);
+      els.lockedOverlay.hidden=!locked;
+      els.choosePrompt.hidden=!locked;
+      els["results-title"].textContent=L(locked?"browseAll":"results");
+      if(!locked)els.chooseWarning.hidden=true;
+      if(loadError){
+        els.count.textContent=L("unavailable");
+        const box=element("div","empty");
+        box.append(element("strong","",L("unavailable")));
+        box.append(L("catalogUnavailable")+" ");
+        box.append(link("https://github.com/retrocraft0-hub/Q-Downloads/releases",L("fallback"),"details"));
+        els.cards.replaceChildren(box);els.moreWrap.hidden=true;return;
+      }
+      if(!catalogReady){els.count.textContent=L("loading");return;}
+      let filtered;
+      if(locked){
+        // Browsing is independent of the gated search: show ALL releases, not only newest Q versions.
+        filtered=all.slice();
+      }else{
+        const version=els.version.value,platform=els.platform.value,minecraft=els.minecraft.value,javaTarget=els.java.value;
+        const terms=els.query.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+        filtered=all.filter(function(r){
+          const text=[r.product,r.platform,r.version,r.mc,r.javaTarget,"MC "+r.mc,"Java "+r.javaTarget,r.filename,r.description].join(" ").toLocaleLowerCase();
+          return r.product===selectedProduct&&
+            (!version||r.version===version)&&(!platform||r.platform===platform)&&
+            (!minecraft||r.mc===minecraft)&&(!javaTarget||r.javaTarget===javaTarget)&&
+            terms.every(function(term){return text.includes(term);});
+        });
+        if(els.latestOnly.checked)filtered=newestQOnly(filtered);
+      }
+      const sort=locked?"published-desc":els.sort.value;
+      filtered.sort(function(a,b){
+        if(sort==="version-desc"||sort==="version-asc"){
+          const cmp=compareQVersions(a.version,b.version)*(sort==="version-desc"?-1:1);
+          if(cmp)return cmp;
+        }
+        const cmp=(a.date||"").localeCompare(b.date||"");
+        if(cmp)return sort==="published-asc"?cmp:-cmp;
+        return a.product.localeCompare(b.product)||a.platform.localeCompare(b.platform)||
+          (a.mc||"").localeCompare(b.mc||"",undefined,{numeric:true});
+      });
+      currentRows=filtered;
+      renderedCount=0;
+      els.cards.replaceChildren();
+      els.moreWrap.hidden=true;
+      els.count.textContent=filtered.length+" "+L(filtered.length===1?"one":"many");
+      if(!filtered.length){
+        const empty=element("div","empty");
+        empty.append(element("strong","",L("none")));
+        empty.append(L("noneBody"));
+        els.cards.append(empty);return;
+      }
+      showMore();
     }
     async function loadCatalog(){
       // Public static shards are generated exclusively from real public GitHub Release JAR assets.
@@ -332,8 +361,8 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
          manifest.count<0||manifest.pages.length!==Math.ceil(manifest.count/250))
         throw new Error("Der öffentliche Downloadkatalog ist unvollständig.");
       const allEntries=[];
-      for(let offset=0;offset<manifest.pages.length;offset+=6){
-        const batch=manifest.pages.slice(offset,offset+6);
+      for(let offset=0;offset<manifest.pages.length;offset+=12){
+        const batch=manifest.pages.slice(offset,offset+12);
         const chunks=await Promise.all(batch.map(async function(info){
           if(!/^catalog\/part-[0-9]{5}\.json$/.test(info.path)||
              !Number.isSafeInteger(info.count)||info.count<1||info.count>250)
@@ -399,31 +428,38 @@ delete all        <button type="button" class="product-tile" data-product="Q-Sys
       catalogReady=true;
       applyLocale();refreshFilters();render();
     }
-    ["dateFrom","dateTo"].forEach(function(id){
-      els[id].addEventListener("input",function(){shownCount=24;render();});
-    });
+    els.lockedOverlay.addEventListener("click",warnIfLocked);
+    els.query.addEventListener("input",render);
     ["platform","minecraft","version","java"].forEach(function(id){
-      els[id].addEventListener("change",function(){shownCount=24;refreshFilters();render();});
+      els[id].addEventListener("change",function(){refreshFilters();render();});
     });
     ["sort","latestOnly"].forEach(function(id){
-      els[id].addEventListener("change",function(){shownCount=24;render();});
+      els[id].addEventListener("change",render);
     });
     els.productTiles.querySelectorAll("button[data-product]").forEach(function(btn){
       btn.addEventListener("click",function(){
-        if(selectedProduct!==btn.dataset.product){
-          selectedProduct=btn.dataset.product;
-          ["platform","minecraft","version","java","dateFrom","dateTo"].forEach(function(id){els[id].value="";});
-          els.sort.value="published-desc";els.latestOnly.checked=true;
-        }
-        shownCount=24;refreshFilters();render();
+        // Clicking the same project again returns to the complete unfiltered browse view.
+        selectedProduct=selectedProduct===btn.dataset.product?"":btn.dataset.product;
+        els.query.value="";
+        ["platform","minecraft","version","java"].forEach(function(id){els[id].value="";});
+        els.sort.value="published-desc";els.latestOnly.checked=false;
+        refreshFilters();render();
       });
     });
     els.reset.addEventListener("click",function(){
-      // Keep the required artifact selection when only clearing secondary filters.
-      ["platform","minecraft","version","java","dateFrom","dateTo"].forEach(function(id){els[id].value="";});
-      els.sort.value="published-desc";els.latestOnly.checked=true;shownCount=24;refreshFilters();render();
+      // Clear only secondary filters. The chosen project remains selected.
+      els.query.value="";
+      ["platform","minecraft","version","java"].forEach(function(id){els[id].value="";});
+      els.sort.value="published-desc";els.latestOnly.checked=false;
+      refreshFilters();render();
     });
-    els.moreBtn.addEventListener("click",function(){shownCount+=24;render();});
+    els.moreBtn.addEventListener("click",showMore);
+    if("IntersectionObserver" in window){
+      const observer=new IntersectionObserver(function(entries){
+        if(entries.some(function(entry){return entry.isIntersecting;})&&!els.moreWrap.hidden)showMore();
+      },{rootMargin:"450px 0px"});
+      observer.observe(els.moreWrap);
+    }
     applyLocale();render();
     load().catch(function(err){loadError=err;render();});
   </script>
