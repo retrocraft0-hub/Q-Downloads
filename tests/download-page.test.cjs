@@ -87,7 +87,7 @@ async function boot(entries = fixture()) {
     document, navigator: {languages: ["de"], language: "de"},
     window: {IntersectionObserver: FakeObserver}, IntersectionObserver: FakeObserver,
     localStorage: {getItem: () => null, setItem: () => {}},
-    Option: (label, value) => ({label, value}),
+    Option: function Option(label, value) { this.label = label; this.value = value; },
     fetch, console,
     setTimeout: callback => { timers.push(callback); return timers.length; },
     clearTimeout: id => { if (id) timers[id - 1] = null; }
@@ -115,6 +115,7 @@ test("no date range, no stray editor text, and inline JS parses", () => {
 test("all real downloads browseable before choosing a Q project, 24 at a time", async () => {
   const ui = await boot();
   assert.equal(ui.el("filterFields").disabled, true);
+  assert.match(html, /<section id="downloads" aria-labelledby="results-title">/);
   assert.equal(ui.el("downloads").hidden, false);
   assert.equal(ui.el("cards").children.length, 24);
   assert.match(ui.el("count").textContent, /^30 /);
