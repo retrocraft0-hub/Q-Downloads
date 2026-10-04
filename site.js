@@ -45,7 +45,7 @@ function renderSearch(){
  title.textContent=L(q?"searchResults":"searchInitial");zone.replaceChildren();more.hidden=true;
  if(loadError){const box=el("div","empty");box.append(el("strong","",L("error")),link("https://github.com/"+REPO+"/releases",L("useReleases"),"textlink"));zone.append(box);counter.textContent="";return}
  if(!ready){zone.append(el("div","empty",L("loading")));counter.textContent="";return}
- const terms=q.split(/[\\s,;\\/]+/).filter(Boolean);
+ const terms=q.replaceAll(","," ").replaceAll(";"," ").replaceAll("/"," ").split(" ").map(t=>t.trim()).filter(Boolean);
  const matched=all.filter(r=>{const searchable=[r.product,r.platform,r.mc,r.version,"v"+r.version,r.javaTarget,"Java "+r.javaTarget,r.filename,r.description].join(" ").toLocaleLowerCase();return terms.every(t=>searchable.includes(t))}).sort((a,b)=>String(b.date).localeCompare(String(a.date))||-cmpVersion(a.version,b.version));
  counter.textContent=q?matched.length+" "+L("files"):L("searchInitial")+" · "+all.length+" "+L("files");
  if(!matched.length){const box=el("div","empty");box.append(el("strong","",L("searchEmpty")),el("p","",L("searchHint")));zone.append(box);return}
