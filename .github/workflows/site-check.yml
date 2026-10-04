@@ -1,0 +1,57 @@
+name: Q Downloads site checks
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "site.js"
+      - "site.css"
+      - "pages.js"
+      - "about.html"
+      - "history.html"
+      - "qbot.html"
+      - "catalog/**"
+      - ".github/workflows/site-check.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify JavaScript parses
+        run: |
+          node --check site.js
+          node --check pages.js
+          node --check i18n.js
+      - name: Verify HTML pages and real release catalogue
+        run: |
+          python3 - <<'PY'
+          import json,re
+          from pathlib import Path
+          for name in ('index.html','about.html','history.html','qbot.html'):
+              body=Path(name).read_text()
+              assert '<!doctype html>' in body.lower(),name
+              assert 'site.css' in body and 'id="locale"' in body,name
+          index=Path('index.html').read_text()
+          assert 'dateFrom' not in index and 'dateTo' not in index
+          assert len(re.findall('class="product-card ',index))==5
+          manifest=json.loads(Path('catalog/manifest.json').read_text())
+          assert manifest['schema']==1 and manifest['repo']=='retrocraft0-hub/Q-Downloads'
+          entries=[]
+          for page in manifest['pages']:
+              shard=json.loads(Path(page['path']).read_text())
+              assert len(shard['entries'])==page['count']
+              entries += shard['entries']
+          assert len(entries)==manifest['count']
+          allowed={'Q-System','Q-Core','Q-Entity','Q-Chunky','Q-Player'}
+          for item in entries:
+              assert item['product'] in allowed and item['filename'].endswith('.jar')
+              assert item['href'].startswith('https://github.com/retrocraft0-hub/Q-Downloads/releases/download/')
+              assert item['releaseUrl'].startswith('https://github.com/retrocraft0-hub/Q-Downloads/releases/tag/')
+          print(f'Q site checks passed; {len(entries)} genuine release entries')
+          PY

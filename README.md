@@ -1,51 +1,35 @@
-# Q-Reihe – Plugins & Mods für Minecraft
+# Q Downloads
 
-Performance ist nicht nur eine Frage der Serverhardware. Die Q-Reihe beschäftigt sich damit, wie Minecraft Arbeit verteilt, priorisiert und unnötige Belastung vermeidet.
+**Fünf Produkte, ein übersichtliches Archiv.** Hier liegen die offiziell veröffentlichten **Q-System, Q-Core, Q-Chunky, Q-Entity und Q-Player**-JARs für unterstützte Minecraft-Versionen und Plattformen.
 
-Hier findest du die Q-Plugins und -Mods als Downloads. **Die erste Reihe ist für Minecraft 1.21.11 / Java 21**. Weitere Minecraft- und Java-Versionen werden als eigene Dateien aufgeführt, sobald dafür tatsächlich passende Builds vorhanden sind.
+### [→ Q-Downloadseite öffnen](https://retrocraft0-hub.github.io/Q-Downloads/)
 
-**[Downloadseite mit Sprachwahl](https://retrocraft0-hub.github.io/Q-Downloads/) · [Original-JARs auf GitHub](https://github.com/retrocraft0-hub/Q-Downloads/releases) · [Alle Versionen mit Minecraft und Java](VERSIONEN.md) · [Projektgeschichte](HISTORIE.md)**
+Die Website führt dich Schritt für Schritt durch **Produkt → Plattform → Minecraft-Version → Q-Version**. Du kannst alle tatsächlich vorhandenen Versionen sehen und lädst jede JAR direkt aus den Original-GitHub-Releases herunter. Sprache stellst du einmalig oben auf der Website ein.
 
-> **Hinweis zu -dev:** Diese Versionen befinden sich noch in Entwicklung. Die JARs wurden gebaut und auf ihre grundlegende Struktur geprüft, aber nicht vollständig im Minecraft-Spielbetrieb getestet. Bitte vorerst nur auf einem Testserver bzw. Testclient verwenden und vorher deine Welt sichern.
+| Produkt | Bereich | Öffnen |
+|:--|:--|:--|
+| **Q-System** | Gesamtpaket mit Core, Chunky, Entity und Player | [Downloadseite](https://retrocraft0-hub.github.io/Q-Downloads/#products) |
+| **Q-Core** | Ressourcenbudgets und Headroom | [Downloadseite](https://retrocraft0-hub.github.io/Q-Downloads/#products) |
+| **Q-Entity** | Entities und ihre Beobachter | [Downloadseite](https://retrocraft0-hub.github.io/Q-Downloads/#products) |
+| **Q-Chunky** | Chunk-Verarbeitung und Priorisierung | [Downloadseite](https://retrocraft0-hub.github.io/Q-Downloads/#products) |
+| **Q-Player** | Join, Respawn, Tracking und Dimensionswechsel | [Downloadseite](https://retrocraft0-hub.github.io/Q-Downloads/#products) |
 
-## Welches Q brauche ich?
+## Weitere Seiten
 
-| Projekt | Wofür ist es gedacht? | Verfügbare Version beim Start des Archivs |
-| --- | --- | --- |
-| **Q-System** | Das Gesamtpaket: verbindet die Bereiche Core, Chunky, Entity und Player. | 6.4.2 |
-| **Q-Core** | Verwaltet begrenzte Ressourcenbudgets und berücksichtigt, wie viel Spielraum der Server noch hat. | 5.2.5 |
-| **Q-Chunky** | Kümmert sich um die Priorisierung und Verarbeitung von Chunks. | 2.1.5 |
-| **Q-Entity** | Konzentriert sich auf die Arbeit rund um Entities und deren Beobachter. | 1.1.5 |
-| **Q-Player** | Beschäftigt sich mit spielerbezogenen Vorgängen wie Join, Respawn, Tracking und Dimensionswechsel. Noch in einer frühen Entwicklungsphase. | 0.1.0 |
+[Über Q](https://retrocraft0-hub.github.io/Q-Downloads/about.html) · [Entstehung & Geschichte](https://retrocraft0-hub.github.io/Q-Downloads/history.html) · [Qbot & Entwicklung](https://retrocraft0-hub.github.io/Q-Downloads/qbot.html) · [Chronologische Versionsliste](VERSIONEN.md) · [Original-Releases](https://github.com/retrocraft0-hub/Q-Downloads/releases)
 
-Die einzelnen Projekte und unterstützten Minecraft-/Java-Versionen werden unabhängig weiterentwickelt. Ein Fix für Paper auf Java 17 bedeutet also nicht automatisch ein Update für Java 21, Fabric oder NeoForge. Q-System ist als Gesamtpaket gedacht; die anderen Q-Projekte sind die eigenständigen Teilbereiche. Das Zusammenspiel verschiedener Q-Module ist noch nicht vollständig im Spielbetrieb geprüft.
+## Installation
 
-## Download & Installation
+- **Paper**: passende JAR in `plugins/` eines kompatiblen Testservers.
+- **Fabric / NeoForge**: passende JAR in `mods/` der jeweils kompatiblen Installation.
+- Minecraft-Version, Java-Version, Plattform und Q-Version müssen zur gewählten Datei passen. Unabhängige Plattformen und ältere Ports erscheinen nur, wenn entsprechende Originaldateien veröffentlicht wurden.
 
-Wähle bei der gewünschten Version einfach die passende Datei aus:
+> **Wichtig zu `-dev`:** technisch gebaut und strukturell geprüft, aber nicht als vollständig im Minecraft-Spielbetrieb getestete stabile Version bestätigt. Vor dem Ausprobieren Backup machen. Erfolgreicher Build allein ist kein Beweis für bessere Performance.
 
-| Datei | Wohin damit? |
-| --- | --- |
-| `Q-Name_Paper_Vx.x.x-dev.jar` | Paper-Plugin – in den Ordner `plugins/` deines Testservers |
-| `Q-Name_Fabric_Vx.x.x-dev.jar` | Fabric-Mod – in `mods/`; passende Fabric-Abhängigkeiten beachten |
-| `Q-Name_NeoForge_Vx.x.x-dev.jar` | NeoForge-Mod – in `mods/`; passende NeoForge-Version beachten |
+## Feedback
 
-Du brauchst nur die JAR deiner Plattform, nicht alle drei. Weitere Dateien wie `SHA256SUMS` dienen der Prüfung des Downloads.
+[Fehler melden](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml) · [Verbesserung vorschlagen](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml) · [Issues lesen](https://github.com/retrocraft0-hub/Q-Downloads/issues)
 
-**Was hat sich geändert?** Die Neuerungen und bekannten Einschränkungen stehen beim jeweiligen Release. In der [Versionsübersicht](VERSIONEN.md) findest du die Downloads nach Datum, Produkt und Plattform sortiert. Ältere Versionen bleiben verfügbar.
+Bitte keine privaten IPs, Zugangsdaten, Tokens oder persönlichen ungefilterten Logs öffentlich posten.
 
-## Noch wichtig
-
-- `-dev` steht für eine experimentelle Ausgabe. Es ist **keine** als stabil bestätigte Version.
-- Ein erfolgreicher Build ist kein Beweis für weniger Lag oder bessere FPS. Solche Aussagen machen wir erst mit passenden Praxismessungen.
-- Die Downloads sind kostenlos nutzbare, **proprietäre JAR-Dateien** – das Projekt ist nicht Open Source. Der Java-Quellcode wird hier nicht veröffentlicht. © RetroCraft0.
-
-## Fehler melden und Wünsche einreichen
-
-Ist dir beim Testen etwas aufgefallen? Du kannst direkt hier ein öffentliches Feedbackformular ausfüllen:
-
-- **[Fehler melden](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml)** – mit Produkt, Plattform, exakter Q-JAR, Minecraft-/Java-Version, Schritten zum Nachstellen und optional gekürztem Log.
-- **[Verbesserung vorschlagen](https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml)** – für neue Funktionen, ältere/neue Minecraft-Versionen und weitere Plattformen.
-- **[Bereits gemeldete Probleme und Kommentare ansehen](https://github.com/retrocraft0-hub/Q-Downloads/issues)** – du kannst dort auch auf eine vorhandene Meldung antworten.
-
-Meldungen werden für die weitere Q-Entwicklung regelmäßig ausgewertet. Bitte keine privaten IP-Adressen, Zugangsdaten, Tokens, Spieler-UUIDs oder ungekürzte persönliche Logs öffentlich posten. Ein Report ist zunächst ein Hinweis und kein bereits bestätigter Fehler.
+© RetroCraft0. Die öffentlichen Q-JARs sind **proprietäre Downloads**; dieses Repository veröffentlicht nicht den Java-Quellcode.
