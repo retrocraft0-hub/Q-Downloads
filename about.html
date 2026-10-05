@@ -1,1 +1,92 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e16"><title>Über Q · Q Downloads</title><link rel="stylesheet" href="./site.css"></head><body><header class="header"><div class="shell header-inner"><a class="logo" href="./"><span class="logo-mark">Q</span><span>Q DOWNLOADS<small>BY RETROCRAFT0</small></span></a><nav class="nav" aria-label="Navigation"><a href="./">Downloads</a><a href="./about.html" aria-current="page">Über Q</a><a href="./history.html">Geschichte</a><a href="./qbot.html">Qbot</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues">Feedback</a></nav><div class="locale"><label for="locale" style="position:absolute;left:-9999px">Sprache / Language</label><select id="locale" aria-label="Sprache / Language"></select></div></div></header><main class="shell"><article class="editorial" lang="de" data-language="de"><p class="eyebrow"><span class="dot"></span>THE Q FAMILY</p><h1>Eine Familie.<br><em>Fünf Aufgaben.</em></h1><p class="lead">Q beschäftigt sich mit der intelligenten Verteilung und Priorisierung von Minecraft-Arbeit. Q-System vereint die Bereiche; die vier weiteren Projekte werden eigenständig entwickelt.</p><h2>Die fünf Q-Produkte</h2><div class="resources" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-bottom:25px"><div class="resource"><strong>Q-System</strong><p>Das Gesamtpaket mit Core, Chunky, Entity und Player.</p></div><div class="resource"><strong>Q-Core</strong><p>Budgetierung und Ressourcen-/Headroom-Steuerung.</p></div><div class="resource"><strong>Q-Entity</strong><p>Arbeit rund um Entities und ihre Beobachter.</p></div><div class="resource"><strong>Q-Chunky</strong><p>Priorisierung und Verarbeitung von Chunks.</p></div><div class="resource"><strong>Q-Player</strong><p>Join, Respawn, Tracking und Dimensionswechsel; frühe Entwicklung.</p></div></div><h2>Plugins und Mods</h2><p>Jede tatsächlich veröffentlichte Variante ist einzeln nach <strong>Produkt, Q-Version, Plattform, Minecraft-Version und Java-Ziel</strong> aufgelistet. Paper-JARs gehören auf einen passenden Testserver in <code>plugins/</code>; Fabric- und NeoForge-JARs in die jeweilige Mod-Installation unter <code>mods/</code>.</p><h2>Warum getrennte Produkte?</h2><p>Ein Update an Q-Player muss nicht automatisch Q-Core ändern. Auch Paper-, Fabric- und NeoForge-Varianten können sich unabhängig entwickeln. Die gemeinsame Nutzung verschiedener Q-Module ist nicht pauschal als vollständig getestet zu verstehen.</p><p class="notice"><strong>Hinweis:</strong> „-dev“ ist eine Entwicklungsversion. Erfolgreicher Build und grundlegende technische Prüfung sind kein bestätigter Minecraft-Praxistest und kein pauschaler Nachweis für bessere Performance.</p><p><a class="primary" href="./#products">Zu den Downloads ↗</a></p></article><article class="editorial" lang="en" data-language="en" hidden><p class="eyebrow"><span class="dot"></span>THE Q FAMILY</p><h1>One family.<br><em>Five focuses.</em></h1><p class="lead">Q explores how Minecraft work can be prioritised and distributed more efficiently. Q-System bundles the areas; the four other projects evolve independently.</p><h2>Five products</h2><div class="resources" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-bottom:25px"><div class="resource"><strong>Q-System</strong><p>The complete bundle.</p></div><div class="resource"><strong>Q-Core</strong><p>Resource budgets and headroom.</p></div><div class="resource"><strong>Q-Entity</strong><p>Entities and observers.</p></div><div class="resource"><strong>Q-Chunky</strong><p>Chunk work and prioritisation.</p></div><div class="resource"><strong>Q-Player</strong><p>Join, respawn, tracking and dimension changes; early development.</p></div></div><h2>Plugins and mods</h2><p>Each published variant has its own <strong>product, Q version, platform, Minecraft version and Java target</strong>. Put Paper builds in a matching test server's <code>plugins/</code> directory, and Fabric/NeoForge builds in <code>mods/</code> on compatible installations.</p><h2>Why separate products?</h2><p>Q-Player updates need not change Q-Core; loader targets evolve independently. Mixed-module compatibility should never be assumed to be fully tested.</p><p class="notice"><strong>Note:</strong> “-dev” means a development build. A successful build is not proof of full Minecraft testing or improved performance.</p><p><a class="primary" href="./#products">Browse downloads ↗</a></p></article></main><footer class="footer"><div class="shell footer-inner"><span>© RetroCraft0 · Q Downloads</span><span><a href="./">Downloadseite</a> · <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases ↗</a></span></div></footer><script src="./i18n.js"></script><script src="./pages.js"></script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0f15">
+  <meta name="description" content="Was Q ist, wofür die Q-Produkte gedacht sind und welche Plattformen unterstützt werden.">
+  <title>Über Q · Q Downloads</title>
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<header class="header">
+  <div class="shell header-inner">
+    <a class="logo" href="./"><span class="logo-mark">Q</span><span>Q DOWNLOADS<small>BY RETROCRAFT0</small></span></a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="./" data-nav="catalog">Downloads</a>
+      <a href="./#guide" data-nav="guide">Anleitung</a>
+      <a href="./about.html" aria-current="page" data-nav="about">Über Q</a>
+      <a href="./qbot.html" data-nav="development">Entwicklung</a>
+      <a href="./history.html" data-nav="history">Geschichte</a>
+      <a href="https://github.com/retrocraft0-hub/Q-Downloads/issues" data-nav="feedback">Feedback</a>
+    </nav>
+    <div class="locale"><label for="locale" style="position:absolute;left:-9999px">Sprache / Language</label><select id="locale" aria-label="Sprache / Language"></select></div>
+  </div>
+</header>
+
+<main class="shell">
+  <p id="translationFallback" class="notice" hidden></p>
+
+  <article class="editorial" lang="de" data-language="de">
+    <p class="eyebrow"><span class="dot"></span>ABOUT Q</p>
+    <h1>Q kurz und<br><em>verständlich.</em></h1>
+    <p class="lead">Q ist eine Reihe von Minecraft-Projekten für die gezielte Steuerung und Priorisierung von Server- und Spielarbeit. Du kannst das Gesamtpaket Q-System verwenden oder einzelne Bereiche separat einsetzen.</p>
+
+    <h2>Die Produkte</h2>
+    <div class="editorial-grid">
+      <div class="info-card"><h3>Q-System</h3><p>Das gebündelte Gesamtpaket für Nutzer, die mehrere Q-Bereiche gemeinsam einsetzen möchten.</p></div>
+      <div class="info-card"><h3>Q-Core</h3><p>Grundlegende Ressourcen-, Budget- und Headroom-Steuerung.</p></div>
+      <div class="info-card"><h3>Q-Entity</h3><p>Funktionen rund um Entities, Beobachter und die Priorisierung zugehöriger Arbeit.</p></div>
+      <div class="info-card"><h3>Q-Chunky</h3><p>Planung und Priorisierung von Chunk-bezogenen Aufgaben.</p></div>
+      <div class="info-card"><h3>Q-Player</h3><p>Funktionen rund um Spielerereignisse wie Join, Respawn, Tracking und Dimensionswechsel.</p></div>
+    </div>
+
+    <h2>Plugin oder Mod?</h2>
+    <p>Das hängt von deiner Plattform ab. Paper- und Sponge-Versionen sind Server-Plugins und gehören in <code>plugins/</code>. Fabric-, NeoForge- und Forge-Versionen sind Mods und gehören in <code>mods/</code>. Nutze immer die Datei, die zu deiner tatsächlichen Plattform und Minecraft-Version passt.</p>
+
+    <h2>Warum gibt es mehrere Produkte?</h2>
+    <p>Die Bereiche können sich unabhängig entwickeln. Eine Änderung an Q-Player muss nicht automatisch Q-Core verändern. Dadurch können Funktionen gezielter gepflegt, portiert und getestet werden.</p>
+
+    <h2>Was bedeutet „-dev“?</h2>
+    <p>„-dev“ kennzeichnet einen Entwicklungsstand. Ein erfolgreicher Build und technische Prüfungen bedeuten nicht automatisch, dass jede Kombination bereits vollständig im Minecraft-Praxisbetrieb getestet wurde. Für Tests deshalb immer ein Backup verwenden.</p>
+
+    <p><a class="primary" href="./#products">Passenden Download auswählen ↗</a></p>
+  </article>
+
+  <article class="editorial" lang="en" data-language="en" hidden>
+    <p class="eyebrow"><span class="dot"></span>ABOUT Q</p>
+    <h1>Q, explained<br><em>clearly.</em></h1>
+    <p class="lead">Q is a set of Minecraft projects focused on controlling and prioritising server and gameplay work. You can use the complete Q-System package or choose individual areas separately.</p>
+
+    <h2>The products</h2>
+    <div class="editorial-grid">
+      <div class="info-card"><h3>Q-System</h3><p>The bundled package for users who want several Q areas together.</p></div>
+      <div class="info-card"><h3>Q-Core</h3><p>Core resource, budget and headroom control.</p></div>
+      <div class="info-card"><h3>Q-Entity</h3><p>Entity, observer and related workload prioritisation.</p></div>
+      <div class="info-card"><h3>Q-Chunky</h3><p>Planning and prioritisation of chunk-related work.</p></div>
+      <div class="info-card"><h3>Q-Player</h3><p>Player-event features such as join, respawn, tracking and dimension changes.</p></div>
+    </div>
+
+    <h2>Plugin or mod?</h2>
+    <p>That depends on your platform. Paper and Sponge builds are server plugins and belong in <code>plugins/</code>. Fabric, NeoForge and Forge builds are mods and belong in <code>mods/</code>. Always use the file matching your actual platform and Minecraft version.</p>
+
+    <h2>Why separate products?</h2>
+    <p>The areas can evolve independently. A Q-Player change does not have to change Q-Core. This makes features easier to maintain, port and test individually.</p>
+
+    <h2>What does “-dev” mean?</h2>
+    <p>“-dev” marks a development build. A successful build and technical checks do not automatically mean every combination has been fully tested in live Minecraft use. Always use a backup when testing.</p>
+
+    <p><a class="primary" href="./#products">Choose a matching download ↗</a></p>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <span>© RetroCraft0 · Q Downloads</span>
+    <span><a href="./">Downloads</a> · <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases ↗</a></span>
+  </div>
+</footer>
+<script src="./i18n.js"></script>
+<script src="./pages.js"></script>
+</body>
+</html>
