@@ -17,7 +17,6 @@
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="./" aria-current="page" data-t="catalog">Downloads</a>
-      <a href="#guide" data-t="guideNav">Anleitung</a>
       <a href="./about.html" data-t="about">Über Q</a>
       <a href="./qbot.html" data-t="qbot">Entwicklung</a>
       <a href="./history.html" data-t="origin">Geschichte</a>
@@ -33,88 +32,42 @@
 <main class="shell">
   <section class="hero">
     <p class="eyebrow"><span class="dot"></span>OFFICIAL Q DOWNLOAD CENTER</p>
-    <h1><span data-t="heroTop">Die richtige Q-Version.</span><br><em data-t="heroBottom">Ohne Rätselraten.</em></h1>
-    <p class="lead" data-t="desc">Wähle Produkt, Plattform und Minecraft-Version. Danach bekommst du genau die veröffentlichten Originaldateien, die zu deiner Auswahl passen.</p>
+    <h1><span data-t="heroTop">Q Downloads.</span><br><em data-t="heroBottom">Passend zu deiner Umgebung.</em></h1>
+    <p class="lead" data-t="desc">Wähle ein Q-Produkt. Die verfügbaren Plattform-, Minecraft- und Q-Versionen werden anschließend direkt aus den veröffentlichten Original-Releases gefiltert.</p>
     <div class="hero-actions">
-      <a href="#products" class="primary" data-t="catalogButton">Download auswählen</a>
-      <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases" class="secondary" data-t="releaseButton">Alle GitHub-Releases</a>
-    </div>
-  </section>
-
-  <div class="status-strip" aria-label="Download-Hinweise">
-    <span class="status-pill"><span class="mini-dot"></span><b>Originaldateien</b>&nbsp;via GitHub Releases</span>
-    <span class="status-pill"><b>Geführte Auswahl</b>&nbsp;statt Dateinamen raten</span>
-    <span class="status-pill"><b>Mehrsprachig</b>&nbsp;über das Sprachmenü oben</span>
-  </div>
-
-  <section id="guide" class="section-block compact" aria-labelledby="guide-title">
-    <div class="section-head">
-      <div>
-        <p class="section-label" data-t="guideEyebrow">SO FUNKTIONIERT ES</p>
-        <h2 id="guide-title" data-t="guideTitle">In drei Schritten zur richtigen Datei.</h2>
-        <p data-t="guideText">Du musst weder Dateinamen noch Loader-Kürzel kennen. Geh einfach der Reihe nach vor.</p>
-      </div>
-    </div>
-    <div class="guide-grid">
-      <article class="guide-step">
-        <span class="guide-no">01</span>
-        <h3 data-t="guide1Title">Produkt wählen</h3>
-        <p data-t="guide1Text">Nimm Q-System als Gesamtpaket oder wähle gezielt Core, Entity, Chunky oder Player.</p>
-      </article>
-      <article class="guide-step">
-        <span class="guide-no">02</span>
-        <h3 data-t="guide2Title">Umgebung angeben</h3>
-        <p data-t="guide2Text">Wähle die Plattform und danach genau die Minecraft-Version, auf der du Q einsetzen möchtest.</p>
-      </article>
-      <article class="guide-step">
-        <span class="guide-no">03</span>
-        <h3 data-t="guide3Title">JAR laden und einsetzen</h3>
-        <p data-t="guide3Text">Lade die angezeigte JAR. Paper/Sponge gehören in plugins/, Mod-Loader wie Fabric oder NeoForge in mods/.</p>
-      </article>
-    </div>
-
-    <div class="section-head" style="margin-top:34px">
-      <div>
-        <h3 data-t="platformTitle">Welche Plattform brauche ich?</h3>
-        <p data-t="platformText">Nutze die Plattform, die dein Server oder deine Mod-Installation tatsächlich verwendet.</p>
-      </div>
-    </div>
-    <div class="platform-grid">
-      <div class="platform-card"><strong>Paper / Sponge</strong><span data-t="paperHelp">Server-Plugin. JAR in den plugins/-Ordner eines kompatiblen Servers legen.</span></div>
-      <div class="platform-card"><strong>Fabric</strong><span data-t="fabricHelp">Mod. Benötigt einen passenden Fabric Loader und gehört in den mods/-Ordner.</span></div>
-      <div class="platform-card"><strong>NeoForge / Forge</strong><span data-t="neoHelp">Mod. Benötigt eine passende NeoForge-Installation und gehört in den mods/-Ordner.</span></div>
+      <a href="#products" class="primary" data-t="catalogButton">Produkte anzeigen</a>
+      <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases" class="secondary" data-t="releaseButton">Release-Archiv</a>
     </div>
   </section>
 
   <section id="products" class="section-block" style="scroll-margin-top:92px">
     <div class="section-head">
       <div>
-        <p class="section-label">Q PRODUCTS</p>
-        <h2 data-t="prodTitle">Wähle das passende Q-Produkt.</h2>
-        <p data-t="prodText">Jedes Produkt hat einen klaren Schwerpunkt. Q-System bündelt die verfügbaren Bereiche; die anderen Projekte können einzeln genutzt werden.</p>
+        <p class="section-label">PRODUCTS</p>
+        <h2 data-t="prodTitle">Q-Produkte</h2>
+        <p data-t="prodText">Q-System bündelt mehrere Q-Bereiche. Core, Entity, Chunky und Player stehen als eigenständig gepflegte Produkte zur Verfügung.</p>
       </div>
-      <span class="micro">PAPER · FABRIC · NEOFORGE · SPONGE</span>
     </div>
 
     <div class="products" role="group" aria-label="Q Produkte">
       <button type="button" class="product-card system" data-product="Q-System" data-desc="system" aria-pressed="false">
-        <span class="art"><span class="art-code">Q / COMPLETE</span><img class="product-thumb" src="./assets/thumb-system.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="art"><img class="product-thumb" src="./assets/thumb-system.svg" alt="" loading="lazy" decoding="async"></span>
         <span class="prod-text"><strong>Q-System</strong><span class="prod-description">Komplettpaket mit den verfügbaren Q-Bereichen in einer Installation.</span><span class="prod-foot">Downloads auswählen ↗</span></span>
       </button>
       <button type="button" class="product-card core" data-product="Q-Core" data-desc="core" aria-pressed="false">
-        <span class="art"><span class="art-code">Q / CORE</span><img class="product-thumb" src="./assets/thumb-core.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="art"><img class="product-thumb" src="./assets/thumb-core.svg" alt="" loading="lazy" decoding="async"></span>
         <span class="prod-text"><strong>Q-Core</strong><span class="prod-description">Grundlegende Ressourcen-, Budget- und Headroom-Steuerung.</span><span class="prod-foot">Downloads auswählen ↗</span></span>
       </button>
       <button type="button" class="product-card entity" data-product="Q-Entity" data-desc="entity" aria-pressed="false">
-        <span class="art"><span class="art-code">Q / ENTITY</span><img class="product-thumb" src="./assets/thumb-entity.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="art"><img class="product-thumb" src="./assets/thumb-entity.svg" alt="" loading="lazy" decoding="async"></span>
         <span class="prod-text"><strong>Q-Entity</strong><span class="prod-description">Steuerung und Priorisierung von Arbeit rund um Entities.</span><span class="prod-foot">Downloads auswählen ↗</span></span>
       </button>
       <button type="button" class="product-card chunky" data-product="Q-Chunky" data-desc="chunky" aria-pressed="false">
-        <span class="art"><span class="art-code">Q / CHUNK</span><img class="product-thumb" src="./assets/thumb-chunky.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="art"><img class="product-thumb" src="./assets/thumb-chunky.svg" alt="" loading="lazy" decoding="async"></span>
         <span class="prod-text"><strong>Q-Chunky</strong><span class="prod-description">Planung und Priorisierung von Chunk-Arbeit.</span><span class="prod-foot">Downloads auswählen ↗</span></span>
       </button>
       <button type="button" class="product-card player" data-product="Q-Player" data-desc="player" aria-pressed="false">
-        <span class="art"><span class="art-code">Q / PLAYER</span><img class="product-thumb" src="./assets/thumb-player.svg" alt="" loading="lazy" decoding="async"></span>
+        <span class="art"><img class="product-thumb" src="./assets/thumb-player.svg" alt="" loading="lazy" decoding="async"></span>
         <span class="prod-text"><strong>Q-Player</strong><span class="prod-description">Funktionen rund um Spielerereignisse wie Join, Respawn und Dimensionswechsel.</span><span class="prod-foot">Downloads auswählen ↗</span></span>
       </button>
     </div>
@@ -124,16 +77,16 @@
     <div class="section-head">
       <div>
         <p class="section-label">DOWNLOAD FINDER / <span id="chosenProduct">Q</span></p>
-        <h2 data-t="browseTitle">Dein passender Download</h2>
-        <p data-t="browseText">Die Auswahl wird Schritt für Schritt eingegrenzt. Angezeigt werden nur tatsächlich veröffentlichte JAR-Dateien.</p>
+        <h2 data-t="browseTitle">Version auswählen</h2>
+        <p data-t="browseText">Plattform, Minecraft-Version und Q-Version eingrenzen. Es werden ausschließlich tatsächlich veröffentlichte JAR-Dateien angezeigt.</p>
       </div>
     </div>
 
     <div class="browser-panel">
       <div class="steps">
-        <div class="step"><label for="platform"><span>1</span><span data-t="s2">Plattform</span></label><select id="platform" disabled aria-label="Plattform"></select></div>
-        <div class="step"><label for="minecraft"><span>2</span><span data-t="s3">Minecraft-Version</span></label><select id="minecraft" disabled aria-label="Minecraft-Version"></select></div>
-        <div class="step"><label for="version"><span>3</span><span data-t="s4">Q-Version</span></label><select id="version" disabled aria-label="Q-Version"></select></div>
+        <div class="step"><label for="platform"><span class="plain-label" data-t="s2">Plattform</span></label><select id="platform" disabled aria-label="Plattform"></select></div>
+        <div class="step"><label for="minecraft"><span class="plain-label" data-t="s3">Minecraft-Version</span></label><select id="minecraft" disabled aria-label="Minecraft-Version"></select></div>
+        <div class="step"><label for="version"><span class="plain-label" data-t="s4">Q-Version</span></label><select id="version" disabled aria-label="Q-Version"></select></div>
       </div>
       <div class="selection">
         <p id="selectionNote" role="status" aria-live="polite"></p>
@@ -141,7 +94,7 @@
       </div>
     </div>
 
-    <div class="result-head"><h2 data-t="results">Passende Dateien</h2><span id="count" role="status" aria-live="polite"></span></div>
+    <div class="result-head"><h2 data-t="results">Downloads</h2><span id="count" role="status" aria-live="polite"></span></div>
     <div class="downloads" id="downloads"><div class="empty">Katalog wird geladen …</div></div>
     <div style="text-align:center;margin:20px 0"><button id="more" type="button" class="secondary" hidden>Weitere Dateien</button></div>
   </section>
@@ -150,13 +103,13 @@
     <div class="section-head">
       <div>
         <p class="section-label" data-t="searchEyebrow">DIREKTSUCHE</p>
-        <h2 id="search-title" data-t="searchTitle">Schon genau im Kopf, was du brauchst?</h2>
-        <p data-t="searchHelp">Suche direkt nach Produkt, Plattform, Minecraft- oder Q-Version.</p>
+        <h2 id="search-title" data-t="searchTitle">Alle Releases durchsuchen</h2>
+        <p data-t="searchHelp">Produkt, Plattform, Minecraft-Version oder Q-Version direkt eingeben.</p>
       </div>
     </div>
 
     <div class="search-panel">
-      <label for="freeSearch" data-t="searchLabel">Alle veröffentlichten Dateien durchsuchen</label>
+      <label for="freeSearch" data-t="searchLabel">Suche</label>
       <div class="search-line">
         <input type="search" id="freeSearch" autocomplete="off" spellcheck="false" placeholder="z. B. Q-System Paper 1.21.11" aria-describedby="searchCount" data-t-placeholder="searchPlaceholder">
         <button type="button" id="clearSearch" class="secondary" data-t="searchReset">Leeren</button>
@@ -181,12 +134,11 @@
   </aside>
 
   <section class="section-block">
-    <p class="section-label">MORE ABOUT Q</p>
-    <h2>Mehr wissen, wenn du möchtest.</h2>
+    <p class="section-label">Q INFORMATION</p>
     <div class="resources">
-      <a class="resource" href="./about.html"><strong>Was ist Q?</strong><p>Produkte, Einsatzbereiche und Plattformen kurz erklärt.</p><b data-t="learn">Mehr erfahren</b></a>
-      <a class="resource" href="./qbot.html"><strong>Entwicklung & Qualität</strong><p>Wie Änderungen geprüft, gebaut und veröffentlicht werden.</p><b data-t="learn">Mehr erfahren</b></a>
-      <a class="resource" href="./history.html"><strong>Projektgeschichte</strong><p>Wie sich Q von frühen Ansätzen zu den heutigen Produkten entwickelt hat.</p><b data-t="learn">Mehr erfahren</b></a>
+      <a class="resource" href="./about.html"><strong>Was ist Q?</strong><p>Produktarchitektur, Variantenmodell, Plattformen und Veröffentlichung.</p><b data-t="learn">Mehr erfahren</b></a>
+      <a class="resource" href="./qbot.html"><strong>Entwicklung & Qualität</strong><p>Entwicklungsablauf, technische Prüfung und Qualitätsstatus.</p><b data-t="learn">Mehr erfahren</b></a>
+      <a class="resource" href="./history.html"><strong>Projektgeschichte</strong><p>Dokumentierte Entwicklung von den frühen Ansätzen bis zum heutigen Archiv.</p><b data-t="learn">Mehr erfahren</b></a>
     </div>
   </section>
 </main>
