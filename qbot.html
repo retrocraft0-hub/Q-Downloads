@@ -1,1 +1,98 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e16"><title>Qbot & Entwicklung · Q Downloads</title><link rel="stylesheet" href="./site.css"></head><body><header class="header"><div class="shell header-inner"><a class="logo" href="./"><span class="logo-mark">Q</span><span>Q DOWNLOADS<small>BY RETROCRAFT0</small></span></a><nav class="nav" aria-label="Navigation"><a href="./">Downloads</a><a href="./about.html">Über Q</a><a href="./history.html">Geschichte</a><a href="./qbot.html" aria-current="page">Qbot</a><a href="https://github.com/retrocraft0-hub/Q-Downloads/issues">Feedback</a></nav><div class="locale"><label for="locale" style="position:absolute;left:-9999px">Sprache / Language</label><select id="locale" aria-label="Sprache / Language"></select></div></div></header><main class="shell"><article class="editorial" lang="de" data-language="de"><p class="eyebrow"><span class="dot"></span>BEHIND THE DEVELOPMENT</p><h1>Qbot &<br><em>die Entwicklung.</em></h1><p class="lead">Forschung, nachvollziehbare Änderungen und technische Prüfung – statt wahlloser Versionssprünge.</p><h2>Was ist Qbot?</h2><p>Qbot bezeichnet hier den Entwicklungs-/Automatisierungskontext der Q-Reihe. Die öffentlich sichtbaren Downloads sind das Ergebnis der jeweiligen Build- und Veröffentlichungsschritte; Qbot ist <strong>kein zusätzliches Minecraft-Plugin zum Herunterladen</strong>.</p><h2>Vom Vorschlag zum Download</h2><div class="timeline"><article><h3>01 · Beobachten und recherchieren</h3><p>Ideen und Fehlerberichte werden mit Quellen, betroffenen Varianten und möglichen Risiken erfasst.</p></article><article><h3>02 · Gezielt entwickeln</h3><p>Änderungen betreffen das zuständige Q-Produkt und nachweislich nötige gemeinsame Schnittstellen – andere Produkte bleiben unabhängig.</p></article><article><h3>03 · Prüfen</h3><p>Tests, Build und Dateiprüfung sind von Minecraft-Start-, Last- und Kompatibilitätstests getrennt. Ein erfolgreicher Build allein macht nichts „stable“.</p></article><article><h3>04 · Veröffentlichen</h3><p>Nur tatsächlich vorhandene öffentliche Original-JARs mit belegter Plattform-/MC-/Java-Zuordnung erscheinen im Downloadkatalog. „-dev“ bleibt klar als Entwicklungsstand gekennzeichnet.</p></article></div><h2>Feedback zählt</h2><p>Bei einer Meldung am besten Produkt, Plattform, konkrete Q-Version, Minecraft und Java sowie Reproduktionsschritte nennen. Keine privaten IPs, Tokens oder ungekürzten personenbezogenen Logs in öffentlichen Issues posten.</p><p><a class="primary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Fehler melden ↗</a> <a class="secondary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Idee vorschlagen ↗</a></p></article><article class="editorial" lang="en" data-language="en" hidden><p class="eyebrow"><span class="dot"></span>BEHIND THE DEVELOPMENT</p><h1>Qbot &<br><em>development.</em></h1><p class="lead">Research-backed improvements, traceable changes and technical checks instead of arbitrary version jumps.</p><h2>What is Qbot?</h2><p>Qbot refers here to the Q development and automation context. Public downloads are outputs of specific build and publication steps; Qbot is <strong>not another Minecraft plugin to download</strong>.</p><h2>How a change becomes a release</h2><div class="timeline"><article><h3>01 · Observe and research</h3><p>Ideas and bug reports are recorded with sources, exact targets and risks.</p></article><article><h3>02 · Develop carefully</h3><p>Changes target the responsible Q product. Other products continue to evolve independently.</p></article><article><h3>03 · Verify</h3><p>Build checks and file validation are different from actual Minecraft startup, compatibility and load testing. Passing a build does not mean stable.</p></article><article><h3>04 · Publish</h3><p>Only actual public original JARs with matching platform, Minecraft and Java metadata enter the catalogue; -dev remains clearly marked.</p></article></div><h2>Feedback matters</h2><p>Include the product, platform, Q version, Minecraft and Java version, and reproduction steps. Never post private addresses, secrets or full personal logs publicly.</p><p><a class="primary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Report a bug ↗</a> <a class="secondary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Suggest an idea ↗</a></p></article></main><footer class="footer"><div class="shell footer-inner"><span>© RetroCraft0 · Q Downloads</span><span><a href="./">Downloadseite</a> · <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases ↗</a></span></div></footer><script src="./i18n.js"></script><script src="./pages.js"></script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0f15">
+  <meta name="description" content="Wie Q entwickelt, geprüft, gebaut und veröffentlicht wird.">
+  <title>Entwicklung · Q Downloads</title>
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<header class="header">
+  <div class="shell header-inner">
+    <a class="logo" href="./"><span class="logo-mark">Q</span><span>Q DOWNLOADS<small>BY RETROCRAFT0</small></span></a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="./" data-nav="catalog">Downloads</a>
+      <a href="./#guide" data-nav="guide">Anleitung</a>
+      <a href="./about.html" data-nav="about">Über Q</a>
+      <a href="./qbot.html" aria-current="page" data-nav="development">Entwicklung</a>
+      <a href="./history.html" data-nav="history">Geschichte</a>
+      <a href="https://github.com/retrocraft0-hub/Q-Downloads/issues" data-nav="feedback">Feedback</a>
+    </nav>
+    <div class="locale"><label for="locale" style="position:absolute;left:-9999px">Sprache / Language</label><select id="locale" aria-label="Sprache / Language"></select></div>
+  </div>
+</header>
+
+<main class="shell">
+  <p id="translationFallback" class="notice" hidden></p>
+
+  <article class="editorial" lang="de" data-language="de">
+    <p class="eyebrow"><span class="dot"></span>DEVELOPMENT & QUALITY</p>
+    <h1>Von der Änderung<br><em>zum Download.</em></h1>
+    <p class="lead">Die Entwicklung ist in klare Schritte getrennt: planen, umsetzen, technisch prüfen, praktisch testen und erst danach veröffentlichen.</p>
+
+    <h2>Was bedeutet Qbot?</h2>
+    <p>Qbot ist die Bezeichnung für den Entwicklungs- und Automatisierungskontext rund um Q. Es ist <strong>kein zusätzliches Minecraft-Plugin</strong> und muss nicht heruntergeladen werden.</p>
+
+    <h2>Der Ablauf</h2>
+    <div class="guide-grid">
+      <article class="guide-step"><span class="guide-no">01</span><h3>Aufgabe festlegen</h3><p>Eine Änderung wird einem konkreten Produkt, einer Plattform und einem nachvollziehbaren Ziel zugeordnet.</p></article>
+      <article class="guide-step"><span class="guide-no">02</span><h3>Gezielt entwickeln</h3><p>Nur die betroffenen Bereiche werden angepasst. Unabhängige Produkte bleiben unabhängig.</p></article>
+      <article class="guide-step"><span class="guide-no">03</span><h3>Technisch prüfen</h3><p>Build, Dateistruktur, Metadaten und relevante automatisierte Prüfungen müssen erfolgreich sein.</p></article>
+    </div>
+    <div class="guide-grid" style="margin-top:14px">
+      <article class="guide-step"><span class="guide-no">04</span><h3>Minecraft testen</h3><p>Start-, Kompatibilitäts- und Belastungstests werden getrennt vom reinen Build betrachtet.</p></article>
+      <article class="guide-step"><span class="guide-no">05</span><h3>Veröffentlichen</h3><p>Nur reale Originaldateien mit passender Produkt-, Plattform-, Minecraft- und Java-Zuordnung kommen in den Downloadkatalog.</p></article>
+      <article class="guide-step"><span class="guide-no">06</span><h3>Weiter verbessern</h3><p>Fehlerberichte und neue Erkenntnisse fließen in die nächste klar nachvollziehbare Änderung ein.</p></article>
+    </div>
+
+    <h2>Entwicklungsstand ist nicht gleich Stable</h2>
+    <p>Ein erfolgreicher Build zeigt, dass die Datei technisch erzeugt werden konnte. Er beweist nicht automatisch vollständige Kompatibilität oder bessere Performance in jeder Umgebung. Deshalb bleiben Entwicklungsstände klar gekennzeichnet.</p>
+
+    <h2>Gutes Feedback hilft direkt</h2>
+    <p>Bei einem Problem am besten Produkt, Plattform, Q-Version, Minecraft-Version, Java-Version und kurze Reproduktionsschritte angeben. Private IP-Adressen, Tokens oder personenbezogene Logs gehören nicht in öffentliche Issues.</p>
+
+    <p><a class="primary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Fehler melden ↗</a> <a class="secondary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Idee vorschlagen ↗</a></p>
+  </article>
+
+  <article class="editorial" lang="en" data-language="en" hidden>
+    <p class="eyebrow"><span class="dot"></span>DEVELOPMENT & QUALITY</p>
+    <h1>From a change<br><em>to a download.</em></h1>
+    <p class="lead">Development is split into clear steps: plan, implement, verify technically, test in practice and only then publish.</p>
+
+    <h2>What does Qbot mean?</h2>
+    <p>Qbot is the name used for the development and automation context around Q. It is <strong>not another Minecraft plugin</strong> and does not need to be downloaded.</p>
+
+    <h2>The process</h2>
+    <div class="guide-grid">
+      <article class="guide-step"><span class="guide-no">01</span><h3>Define the task</h3><p>A change is tied to a specific product, platform and traceable goal.</p></article>
+      <article class="guide-step"><span class="guide-no">02</span><h3>Develop precisely</h3><p>Only affected areas are changed. Independent products remain independent.</p></article>
+      <article class="guide-step"><span class="guide-no">03</span><h3>Verify technically</h3><p>The build, file structure, metadata and relevant automated checks must succeed.</p></article>
+    </div>
+    <div class="guide-grid" style="margin-top:14px">
+      <article class="guide-step"><span class="guide-no">04</span><h3>Test in Minecraft</h3><p>Startup, compatibility and load tests are treated separately from a successful build.</p></article>
+      <article class="guide-step"><span class="guide-no">05</span><h3>Publish</h3><p>Only real original files with matching product, platform, Minecraft and Java metadata enter the download catalogue.</p></article>
+      <article class="guide-step"><span class="guide-no">06</span><h3>Improve again</h3><p>Bug reports and new findings feed into the next traceable change.</p></article>
+    </div>
+
+    <h2>Development does not automatically mean stable</h2>
+    <p>A successful build proves that the file could be produced technically. It does not automatically prove full compatibility or better performance in every environment. Development builds therefore remain clearly marked.</p>
+
+    <h2>Useful feedback helps directly</h2>
+    <p>For a problem, include the product, platform, Q version, Minecraft version, Java version and short reproduction steps. Do not post private IP addresses, tokens or personal logs in public issues.</p>
+
+    <p><a class="primary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=bug-report.yml">Report a bug ↗</a> <a class="secondary" href="https://github.com/retrocraft0-hub/Q-Downloads/issues/new?template=feature-request.yml">Suggest an idea ↗</a></p>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-inner">
+    <span>© RetroCraft0 · Q Downloads</span>
+    <span><a href="./">Downloads</a> · <a href="https://github.com/retrocraft0-hub/Q-Downloads/releases">GitHub Releases ↗</a></span>
+  </div>
+</footer>
+<script src="./i18n.js"></script>
+<script src="./pages.js"></script>
+</body>
+</html>
