@@ -14,8 +14,22 @@ PLATFORMS = {"paper", "fabric", "neoforge"}
 def fail(message):
     raise SystemExit("Q public catalog: " + message)
 
+def reject_duplicate_keys(pairs):
+    """Reject ambiguous JSON objects at every depth, including individual releases."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            fail("duplicate JSON object key: " + key)
+        result[key] = value
+    return result
+
+
+def read_catalog_json(path):
+    return json.loads(path.read_text(encoding="utf8"), object_pairs_hook=reject_duplicate_keys)
+
+
 def main():
-    catalog = json.loads((ROOT / "catalog/manifest.json").read_text(encoding="utf8"))
+    catalog = read_catalog_json(ROOT / "catalog/manifest.json")
     if catalog.get("schema") != 1 or catalog.get("repo") != REPO or not isinstance(catalog.get("pages"), list):
         fail("bad catalog manifest contract")
     entries = []
@@ -27,7 +41,7 @@ def main():
         if path in paths:
             fail("duplicate catalog shard")
         paths.add(path)
-        shard = json.loads((ROOT / path).read_text(encoding="utf8"))
+        shard = read_catalog_json(ROOT / path)
         if shard.get("schema") != 1 or not isinstance(shard.get("entries"), list):
             fail("bad catalog shard")
         if len(shard["entries"]) != page.get("count"):
