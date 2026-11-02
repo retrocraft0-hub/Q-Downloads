@@ -11,6 +11,7 @@ on:
       - "qbot.html"
       - "catalog/**"
       - "tools/check-release-catalog.py"
+      - "tools/test-catalog-page-contract.py"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -32,6 +33,8 @@ jobs:
           node --check i18n.js
       - name: Verify public catalog uniqueness, exact release links and status
         run: python3 tools/check-release-catalog.py
+      - name: Reject browser-incompatible catalog pagination
+        run: python3 tools/test-catalog-page-contract.py
       - name: Verify HTML pages and real release catalogue
         run: |
           python3 - <<'PY'
