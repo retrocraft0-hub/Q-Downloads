@@ -24,8 +24,17 @@ def reject_duplicate_keys(pairs):
     return result
 
 
+def reject_nonstandard_constant(value):
+    """Python accepts NaN/Infinity by default; browser JSON.parse rejects them."""
+    fail("non-standard JSON constant: " + value)
+
+
 def read_catalog_json(path):
-    return json.loads(path.read_text(encoding="utf8"), object_pairs_hook=reject_duplicate_keys)
+    return json.loads(
+        path.read_text(encoding="utf8"),
+        object_pairs_hook=reject_duplicate_keys,
+        parse_constant=reject_nonstandard_constant,
+    )
 
 
 def main():
