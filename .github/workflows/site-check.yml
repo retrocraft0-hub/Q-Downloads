@@ -1,5 +1,8 @@
 name: Q Downloads site checks
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths:
       - "index.html"
