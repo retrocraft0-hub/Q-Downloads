@@ -2,6 +2,7 @@
 """Pure offline Q-Downloads release index consistency audit (no GitHub API, no writes)."""
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,12 +14,25 @@ PLATFORMS = {"paper", "fabric", "neoforge"}
 def fail(message):
     raise SystemExit("Q public catalog: " + message)
 
+def reject_duplicate_keys(pairs):
+    """Reject ambiguous JSON objects at every depth, including individual releases."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            fail("duplicate JSON object key: " + key)
+        result[key] = value
+    return result
+
+
+def read_catalog_json(path):
+    return json.loads(path.read_text(encoding="utf8"), object_pairs_hook=reject_duplicate_keys)
+
+
 def main():
-    catalog = json.loads((ROOT / "catalog/manifest.json").read_text(encoding="utf8"))
+    catalog = read_catalog_json(ROOT / "catalog/manifest.json")
     if catalog.get("schema") != 1 or catalog.get("repo") != REPO or not isinstance(catalog.get("pages"), list):
         fail("bad catalog manifest contract")
-    # Match the browser catalog() pagination contract exactly: it rejects
-    # non-integer counts, extra/missing pages and empty/oversized shards.
+    # Match the browser pagination contract: exact 250-entry shards, integer counts.
     count = catalog.get("count")
     if type(count) is not int or count < 0:
         fail("invalid catalog count")
@@ -35,7 +49,7 @@ def main():
         if path in paths:
             fail("duplicate catalog shard")
         paths.add(path)
-        shard = json.loads((ROOT / path).read_text(encoding="utf8"))
+        shard = read_catalog_json(ROOT / path)
         if shard.get("schema") != 1 or not isinstance(shard.get("entries"), list):
             fail("bad catalog shard")
         if len(shard["entries"]) != page.get("count"):
@@ -77,6 +91,10 @@ def main():
             fail("approval label mismatch")
         if not isinstance(item.get("date"), str) or not re.fullmatch(r"20[0-9]{2}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", item["date"]):
             fail("invalid published timestamp")
+        try:
+            datetime.strptime(item["date"], "%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            fail("invalid published calendar timestamp")
         identity = tuple(item.get(k) for k in ("product", "platform", "mc", "javaTarget", "version"))
         if filename in seen_names or identity in seen_targets:
             fail("duplicate binary filename or five-axis published target")
