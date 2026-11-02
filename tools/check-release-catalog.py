@@ -54,6 +54,18 @@ def main():
             fail("wrong release destination: " + filename)
         if type(item.get("dev")) is not bool or type(item.get("approved")) is not bool:
             fail("missing explicit dev/approval flags")
+        # The URL can be internally consistent while pointing to a different
+        # Q product, loader, version or MC/Java target. Bind the original
+        # filename to its catalog identity; preserve historical short names.
+        loader_name = {"paper": "Paper", "fabric": "Fabric", "neoforge": "NeoForge"}[item["platform"]]
+        stem = f"{item['product']}_{loader_name}_V{item['version']}"
+        suffix = "-dev.jar" if item["dev"] else ".jar"
+        allowed_names = {
+            stem + suffix,
+            stem + f"_MC{item['mc']}_Java{item['javaTarget']}" + suffix,
+        }
+        if filename not in allowed_names:
+            fail("filename does not match product, loader, Q version or MC/Java identity")
         if item["dev"] and not filename.endswith("-dev.jar"):
             fail("dev version has an official filename")
         if item["dev"] and item["approved"]:
