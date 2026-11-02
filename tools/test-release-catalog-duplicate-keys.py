@@ -73,7 +73,7 @@ class DuplicateKeyTests(unittest.TestCase):
         # Unknown fields must not bypass strict JSON syntax: browsers reject these.
         for constant in ("NaN", "Infinity", "-Infinity"):
             with self.subTest(constant=constant):
-                mutated = self.manifest[:-2] + ',"unused":' + constant + '}\\n'
+                mutated = self.manifest.rstrip()[:-1] + ',"unused":' + constant + '}'
                 with self.assertRaisesRegex(SystemExit, "non-standard JSON constant"):
                     self.run_catalog(manifest=mutated)
 
