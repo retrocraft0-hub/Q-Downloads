@@ -16,6 +16,7 @@ on:
       - "catalog/**"
       - "tools/check-release-catalog.py"
       - "tools/test-release-catalog-duplicate-keys.py"
+      - "tools/test-release-catalog-dates.py"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -42,6 +43,8 @@ jobs:
         run: python3 tools/check-release-catalog.py
       - name: Reject duplicate JSON object keys at every catalog depth
         run: python3 tools/test-release-catalog-duplicate-keys.py
+      - name: Reject invalid published calendar dates
+        run: python3 tools/test-release-catalog-dates.py
       - name: Verify HTML pages and real release catalogue
         run: |
           python3 - <<'PY'
