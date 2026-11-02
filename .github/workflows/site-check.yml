@@ -15,6 +15,7 @@ on:
       - "qbot.html"
       - "catalog/**"
       - "tools/check-release-catalog.py"
+      - "tools/test-release-catalog-duplicate-keys.py"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -39,6 +40,8 @@ jobs:
           node --check i18n.js
       - name: Verify public catalog uniqueness, exact release links and status
         run: python3 tools/check-release-catalog.py
+      - name: Reject duplicate JSON object keys at every catalog depth
+        run: python3 tools/test-release-catalog-duplicate-keys.py
       - name: Verify HTML pages and real release catalogue
         run: |
           python3 - <<'PY'
