@@ -38,7 +38,7 @@ SHORT_TARGET = next(
 )
 
 
-def audit(replacement=None, short_mutation=None):
+def audit(replacement=None, short_mutation=None, tag_mutation=None, short_tag_mutation=None):
     with tempfile.TemporaryDirectory(prefix="q-public-catalog-test-") as tmp:
         root = Path(tmp)
         (root / "tools").mkdir()
@@ -54,6 +54,13 @@ def audit(replacement=None, short_mutation=None):
                 item["href"] = item["href"][:-len(old)] + replacement
             if short_mutation is not None and path == SHORT_TARGET[0]:
                 shard["entries"][SHORT_TARGET[1]].update(short_mutation)
+            for target, new_tag in ((TARGET, tag_mutation), (SHORT_TARGET, short_tag_mutation)):
+                if new_tag is not None and path == target[0]:
+                    item = shard["entries"][target[1]]
+                    item["tag"] = new_tag
+                    base = "https://github.com/retrocraft0-hub/Q-Downloads/releases/"
+                    item["href"] = base + "download/" + new_tag + "/" + item["filename"]
+                    item["releaseUrl"] = base + "tag/" + new_tag
             (root / path).write_text(json.dumps(shard), encoding="utf-8")
         return subprocess.run(
             [sys.executable, str(root / "tools/check-release-catalog.py")],
@@ -90,3 +97,35 @@ for name, mutation in {
     )
     print("PASS rejected:", name)
 print("PASS 2 short-filename MC/Java metadata drift regressions")
+
+# Even when the href and releaseUrl agree, the release tag must be bound to
+# the five-axis catalog identity. The previous checker accepted these attacks.
+TAG_CASES = {
+    "wrong release product": "dev/q-system/paper/mc1.18.2/java17/v0.1.0-c2a8f48142",
+    "wrong release loader": "dev/q-player/fabric/mc1.18.2/java17/v0.1.0-c2a8f48142",
+    "wrong release Minecraft": "dev/q-player/paper/mc1.20.1/java17/v0.1.0-c2a8f48142",
+    "wrong release Java": "dev/q-player/paper/mc1.18.2/java21/v0.1.0-c2a8f48142",
+    "wrong release Q version": "dev/q-player/paper/mc1.18.2/java17/v9.9.9-c2a8f48142",
+    "encoded release segment": "dev/q-player/paper/mc1.18.2/java17/v0.1.0-%2e%2e",
+}
+for name, tag in TAG_CASES.items():
+    result = audit(tag_mutation=tag)
+    assert result.returncode != 0 and "release tag does not match" in result.stderr, (
+        name, result.returncode, result.stdout, result.stderr
+    )
+    print("PASS rejected:", name)
+for name, tag in {
+    "wrong historical release product": "dev/q-core/v0.1.0-d5ef99a6c0",
+    "wrong historical release Q version": "dev/q-player/v9.9.9-d5ef99a6c0",
+}.items():
+    result = audit(short_tag_mutation=tag)
+    assert result.returncode != 0 and "release tag does not match" in result.stderr, (
+        name, result.returncode, result.stdout, result.stderr
+    )
+    print("PASS rejected:", name)
+# A future release may use the explicit full target tag, including on MC 1.21.11.
+valid_full = "dev/q-player/fabric/mc1.21.11/java21/v0.1.0-d5ef99a6c0"
+result = audit(short_tag_mutation=valid_full)
+assert result.returncode == 0, (result.stdout, result.stderr)
+print("PASS accepted: synthetic explicit target tag (offline structural test only)")
+print("PASS 8 release-tag identity rejections + 1 positive full-target tag")
