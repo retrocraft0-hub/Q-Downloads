@@ -69,6 +69,27 @@ class DuplicateKeyTests(unittest.TestCase):
         with self.assertRaisesRegex(SystemExit, "duplicate JSON object key: x"):
             self.run_catalog(shard=mutated)
 
+    def test_nonfinite_manifest_extra_rejected(self):
+        # Unknown fields must not bypass strict JSON syntax: browsers reject these.
+        for constant in ("NaN", "Infinity", "-Infinity"):
+            with self.subTest(constant=constant):
+                mutated = self.manifest[:-2] + ',"unused":' + constant + '}\\n'
+                with self.assertRaisesRegex(SystemExit, "non-standard JSON constant"):
+                    self.run_catalog(manifest=mutated)
+
+    def test_nonfinite_nested_release_extra_rejected(self):
+        # A syntactically invalid value deep inside a release hides the whole catalog.
+        for constant in ("NaN", "Infinity", "-Infinity"):
+            with self.subTest(constant=constant):
+                mutated = self.shard.replace(
+                    '"product":"Q-Player"',
+                    '"unused":{"value":' + constant + '},"product":"Q-Player"',
+                    1,
+                )
+                self.assertNotEqual(mutated, self.shard)
+                with self.assertRaisesRegex(SystemExit, "non-standard JSON constant"):
+                    self.run_catalog(shard=mutated)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
