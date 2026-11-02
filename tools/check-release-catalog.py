@@ -32,9 +32,17 @@ def main():
     catalog = read_catalog_json(ROOT / "catalog/manifest.json")
     if catalog.get("schema") != 1 or catalog.get("repo") != REPO or not isinstance(catalog.get("pages"), list):
         fail("bad catalog manifest contract")
+    # Match the browser pagination contract: exact 250-entry shards, integer counts.
+    count = catalog.get("count")
+    if type(count) is not int or count < 0:
+        fail("invalid catalog count")
+    if len(catalog["pages"]) != (count + 249) // 250:
+        fail("catalog page count does not match 250-entry browser pagination")
     entries = []
     paths = set()
     for page in catalog["pages"]:
+        if not isinstance(page, dict) or type(page.get("count")) is not int or not 1 <= page["count"] <= 250:
+            fail("invalid catalog shard size")
         path = page.get("path")
         if not isinstance(path, str) or not re.fullmatch(r"catalog/part-[0-9]{5}\.json", path):
             fail("invalid catalog shard path")
