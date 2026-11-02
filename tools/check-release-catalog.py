@@ -52,6 +52,21 @@ def main():
             fail("unexpected release tag")
         if item.get("href") != RELEASES + "download/" + tag + "/" + filename or item.get("releaseUrl") != RELEASES + "tag/" + tag:
             fail("wrong release destination: " + filename)
+        if type(item.get("dev")) is not bool or type(item.get("approved")) is not bool:
+            fail("missing explicit dev/approval flags")
+        # The URL can be internally consistent while pointing to a different
+        # Q product, loader, version or MC/Java target. Bind the original
+        # filename to its catalog identity; preserve historical short names.
+        loader_name = {"paper": "Paper", "fabric": "Fabric", "neoforge": "NeoForge"}[item["platform"]]
+        stem = f"{item['product']}_{loader_name}_V{item['version']}"
+        suffix = "-dev.jar" if item["dev"] else ".jar"
+        # Historical short names belong only to the original MC 1.21.11 / Java 21 line.
+        # Other targets must name both dimensions explicitly to prevent identity drift.
+        allowed_names = {stem + f"_MC{item['mc']}_Java{item['javaTarget']}" + suffix}
+        if item["mc"] == "1.21.11" and item["javaTarget"] == "21":
+            allowed_names.add(stem + suffix)
+        if filename not in allowed_names:
+            fail("filename does not match product, loader, Q version or MC/Java identity")
         # A valid filename alone is insufficient: an internally consistent URL
         # can still point at a different product/version/loader release tag.
         # Historical short tags are limited to the original MC/Java line.
@@ -69,21 +84,6 @@ def main():
                 and re.fullmatch(historical_tag, tag))
         ):
             fail("release tag does not match product, loader, MC/Java or Q version")
-        if type(item.get("dev")) is not bool or type(item.get("approved")) is not bool:
-            fail("missing explicit dev/approval flags")
-        # The URL can be internally consistent while pointing to a different
-        # Q product, loader, version or MC/Java target. Bind the original
-        # filename to its catalog identity; preserve historical short names.
-        loader_name = {"paper": "Paper", "fabric": "Fabric", "neoforge": "NeoForge"}[item["platform"]]
-        stem = f"{item['product']}_{loader_name}_V{item['version']}"
-        suffix = "-dev.jar" if item["dev"] else ".jar"
-        # Historical short names belong only to the original MC 1.21.11 / Java 21 line.
-        # Other targets must name both dimensions explicitly to prevent identity drift.
-        allowed_names = {stem + f"_MC{item['mc']}_Java{item['javaTarget']}" + suffix}
-        if item["mc"] == "1.21.11" and item["javaTarget"] == "21":
-            allowed_names.add(stem + suffix)
-        if filename not in allowed_names:
-            fail("filename does not match product, loader, Q version or MC/Java identity")
         if item["dev"] and not filename.endswith("-dev.jar"):
             fail("dev version has an official filename")
         if item["dev"] and item["approved"]:
