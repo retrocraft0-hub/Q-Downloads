@@ -52,6 +52,23 @@ def main():
             fail("unexpected release tag")
         if item.get("href") != RELEASES + "download/" + tag + "/" + filename or item.get("releaseUrl") != RELEASES + "tag/" + tag:
             fail("wrong release destination: " + filename)
+        # A valid filename alone is insufficient: an internally consistent URL
+        # can still point at a different product/version/loader release tag.
+        # Historical short tags are limited to the original MC/Java line.
+        tag_prefix = "dev/" + item["product"].lower()
+        tag_version = "v" + re.escape(item["version"]) + r"-[0-9a-f]{10}"
+        exact_tag = (
+            re.escape(tag_prefix) + "/" + re.escape(item["platform"])
+            + "/mc" + re.escape(item["mc"])
+            + "/java" + re.escape(item["javaTarget"]) + "/" + tag_version
+        )
+        historical_tag = re.escape(tag_prefix) + "/" + tag_version
+        if not (
+            re.fullmatch(exact_tag, tag)
+            or (item["mc"] == "1.21.11" and item["javaTarget"] == "21"
+                and re.fullmatch(historical_tag, tag))
+        ):
+            fail("release tag does not match product, loader, MC/Java or Q version")
         if type(item.get("dev")) is not bool or type(item.get("approved")) is not bool:
             fail("missing explicit dev/approval flags")
         # The URL can be internally consistent while pointing to a different
