@@ -1,9 +1,13 @@
 name: Q Downloads site checks
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths:
       - "index.html"
       - "site.js"
+      - "i18n.js"
       - "site.css"
       - "pages.js"
       - "about.html"
@@ -12,6 +16,9 @@ on:
       - "catalog/**"
       - "tools/check-release-catalog.py"
       - "tools/test-release-catalog-filenames.py"
+      - "tools/test-release-catalog-duplicate-keys.py"
+      - "tools/test-release-catalog-dates.py"
+      - "tools/test-catalog-page-contract.py"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -22,10 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
+          package-manager-cache: false
       - name: Verify JavaScript parses
         run: |
           node --check site.js
@@ -35,6 +45,12 @@ jobs:
         run: python3 tools/check-release-catalog.py
       - name: Reject mismatched public JAR filename identities
         run: python3 tools/test-release-catalog-filenames.py
+      - name: Reject duplicate JSON object keys at every catalog depth
+        run: python3 tools/test-release-catalog-duplicate-keys.py
+      - name: Reject invalid published calendar dates
+        run: python3 tools/test-release-catalog-dates.py
+      - name: Reject browser-incompatible catalog pagination
+        run: python3 tools/test-catalog-page-contract.py
       - name: Verify HTML pages and real release catalogue
         run: |
           python3 - <<'PY'
