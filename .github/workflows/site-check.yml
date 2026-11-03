@@ -19,6 +19,7 @@ on:
       - "tools/test-release-catalog-duplicate-keys.py"
       - "tools/test-release-catalog-dates.py"
       - "tools/test-catalog-page-contract.py"
+      - "tests/download-page.test.cjs"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -41,6 +42,14 @@ jobs:
           node --check site.js
           node --check pages.js
           node --check i18n.js
+      - name: Run download-page regression tests when present
+        shell: bash
+        run: |
+          if [[ -f tests/download-page.test.cjs ]]; then
+            node --test tests/download-page.test.cjs
+          else
+            echo "No download-page regression test on this branch; skipping."
+          fi
       - name: Verify public catalog uniqueness, exact release links and status
         run: python3 tools/check-release-catalog.py
       - name: Reject mismatched public JAR filename identities
