@@ -29,6 +29,8 @@ test("accepts only HTTPS GitHub release paths in the exact public repository", (
     "https://evil.example/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar",
     "https://github.com/other/Q-Downloads/releases/download/tag/a.jar",
     "https://github.com/retrocraft0-hub/Q-Downloads/issues",
+    "https://github.com:444/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar",
+    "https://user:pass@github.com/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar",
     "javascript:alert(1)",
     "not a URL",
   ]) assert.equal(safeUrl(url, "download"), "", url);
