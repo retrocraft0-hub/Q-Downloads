@@ -31,9 +31,13 @@ test("accepts only HTTPS GitHub release paths in the exact public repository", (
     "https://github.com/retrocraft0-hub/Q-Downloads/issues",
     "https://github.com:444/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar",
     "https://user:pass@github.com/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar",
+    "https://github.com/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar?download=1",
+    "https://github.com/retrocraft0-hub/Q-Downloads/releases/download/tag/a.jar#fragment",
     "javascript:alert(1)",
     "not a URL",
   ]) assert.equal(safeUrl(url, "download"), "", url);
+  assert.equal(safeUrl(tag + "?view=1", "tag"), "");
+  assert.equal(safeUrl(tag + "#fragment", "tag"), "");
   assert.equal(safeUrl(tag, "download"), "");
   assert.equal(safeUrl(download, "tag"), "");
 });
