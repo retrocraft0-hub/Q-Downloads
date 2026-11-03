@@ -57,4 +57,7 @@ test("rejects invalid public catalog entries before rendering", () => {
   assert.equal(clean({ ...valid, filename: "source.zip" }), null);
   assert.equal(clean({ ...valid, href: "https://evil.example/a.jar" }), null);
   assert.equal(clean({ ...valid, releaseUrl: "https://evil.example/tag" }), null);
+  assert.equal(clean({ ...valid, filename: "Different-dev.jar" }), null);
+  assert.equal(clean({ ...valid, href: base + "download/Q-System-test/other.jar" }), null);
+  assert.equal(clean({ ...valid, releaseUrl: base + "tag/other-tag" }), null);
 });
