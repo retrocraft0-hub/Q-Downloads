@@ -61,3 +61,24 @@ test("rejects invalid public catalog entries before rendering", () => {
   assert.equal(clean({ ...valid, href: base + "download/Q-System-test/other.jar" }), null);
   assert.equal(clean({ ...valid, releaseUrl: base + "tag/other-tag" }), null);
 });
+
+test("fails closed when a valid public catalog repeats a release identity", async () => {
+  const base = "https://github.com/retrocraft0-hub/Q-Downloads/releases/";
+  const row = {
+    product: "Q-System", version: "0.1", filename: "Q-System-dev.jar",
+    platform: "Paper", mc: "1.21.11",
+    href: base + "download/Q-System-test/Q-System-dev.jar",
+    releaseUrl: base + "tag/Q-System-test",
+  };
+  const manifest = { schema: 1, repo: "retrocraft0-hub/Q-Downloads",
+    count: 2, pages: [{ path: "catalog/part-00001.json", count: 2 }] };
+  context.fetch = async (path) => ({
+    ok: true,
+    json: async () => path === "catalog/manifest.json"
+      ? manifest : { schema: 1, entries: [row, { ...row }] },
+  });
+  await assert.rejects(
+    vm.runInContext("catalog()", context),
+    /Duplicate release identity/
+  );
+});
