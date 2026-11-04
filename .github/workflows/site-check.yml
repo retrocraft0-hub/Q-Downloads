@@ -20,6 +20,7 @@ on:
       - "tools/test-release-catalog-dates.py"
       - "tools/test-catalog-page-contract.py"
       - "tests/download-page.test.cjs"
+      - "tests/catalog-cross-shard.test.cjs"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -47,6 +48,9 @@ jobs:
         run: |
           if [[ -f tests/download-page.test.cjs ]]; then
             node --test tests/download-page.test.cjs
+          if [[ -f tests/catalog-cross-shard.test.cjs ]]; then
+            node --test tests/catalog-cross-shard.test.cjs
+          fi
           else
             echo "No download-page regression test on this branch; skipping."
           fi
