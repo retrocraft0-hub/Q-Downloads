@@ -21,6 +21,7 @@ on:
       - "tools/test-catalog-page-contract.py"
       - "tests/download-page.test.cjs"
       - "tests/catalog-cross-shard.test.cjs"
+      - "tests/catalog-cross-shard-positive.test.cjs"
       - "assets/**"
       - ".github/workflows/site-check.yml"
   workflow_dispatch:
@@ -63,6 +64,9 @@ jobs:
           fi
           if [[ -f tests/catalog-cross-shard.test.cjs ]]; then
             node --test tests/catalog-cross-shard.test.cjs
+          fi
+          if [[ -f tests/catalog-cross-shard-positive.test.cjs ]]; then
+            node --test tests/catalog-cross-shard-positive.test.cjs
           fi
       - name: Verify public catalog uniqueness, exact release links and status
         run: python3 tools/check-release-catalog.py
