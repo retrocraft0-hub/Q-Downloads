@@ -49,9 +49,11 @@ def main():
         fail("catalog page count does not match 250-entry browser pagination")
     entries = []
     paths = set()
-    for page in catalog["pages"]:
+    for page_index, page in enumerate(catalog["pages"]):
         if not isinstance(page, dict) or type(page.get("count")) is not int or not 1 <= page["count"] <= 250:
             fail("invalid catalog shard size")
+        if page_index < len(catalog["pages"]) - 1 and page["count"] != 250:
+            fail("non-final catalog shard must contain exactly 250 entries")
         path = page.get("path")
         if not isinstance(path, str) or not re.fullmatch(r"catalog/part-[0-9]{5}\.json", path):
             fail("invalid catalog shard path")

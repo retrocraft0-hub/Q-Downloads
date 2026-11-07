@@ -87,6 +87,18 @@ expect_rejected(
     "catalog page count",
 )
 
+# A short first shard and a full final shard satisfy the total and page-count
+# checks, but violate the browser's sequential 250-entry pagination contract.
+noncanonical = copy.deepcopy(BASE_MANIFEST)
+noncanonical["count"] = 251
+noncanonical["pages"] = [{"path": PATH0, "count": 1}, {"path": PATH1, "count": 250}]
+expect_rejected(
+    "non-final shard has only 1 of 250 entries", noncanonical,
+    {PATH0: {"schema": 1, "entries": synthetic[:1]},
+     PATH1: {"schema": 1, "entries": synthetic[1:]}},
+    "non-final catalog shard must contain exactly 250 entries",
+)
+
 # The exact 250+1 split is accepted offline, with no release publication.
 valid = copy.deepcopy(BASE_MANIFEST)
 valid["count"] = 251
