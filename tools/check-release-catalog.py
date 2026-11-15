@@ -55,7 +55,7 @@ def main():
         if page_index < len(catalog["pages"]) - 1 and page["count"] != 250:
             fail("non-final catalog shard must contain exactly 250 entries")
         path = page.get("path")
-        if not isinstance(path, str) or not re.fullmatch(r"catalog/part-[0-9]{5}\.json", path):
+        if not isinstance(path, str) or path != f"catalog/part-{page_index:05d}.json":
             fail("invalid catalog shard path")
         if path in paths:
             fail("duplicate catalog shard")
