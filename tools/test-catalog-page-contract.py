@@ -53,6 +53,16 @@ expect_rejected(
     "catalog page count",
 )
 
+# Manifest positions must select their canonical shard filenames, not arbitrary
+# well-formed files. The previous checker accepted this renamed valid shard.
+misnumbered = copy.deepcopy(BASE_MANIFEST)
+misnumbered["pages"][0]["path"] = "catalog/part-99999.json"
+expect_rejected(
+    "misnumbered shard at index zero", misnumbered,
+    {"catalog/part-99999.json": BASE_SHARD},
+    "invalid catalog shard path",
+)
+
 # Python bool compares equal to 1; the browser's Number.isSafeInteger rejects it.
 one = {"schema": 1, "entries": BASE_SHARD["entries"][:1]}
 bad_count = copy.deepcopy(BASE_MANIFEST)
