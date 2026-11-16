@@ -63,6 +63,17 @@ expect_rejected(
     "invalid catalog shard path",
 )
 
+# JavaScript's strict schema comparison rejects true, while Python true == 1.
+bad_manifest_schema = copy.deepcopy(BASE_MANIFEST)
+bad_manifest_schema["schema"] = True
+expect_rejected("boolean manifest schema", bad_manifest_schema,
+                {PATH0: BASE_SHARD}, "bad catalog manifest contract")
+
+bad_shard_schema = copy.deepcopy(BASE_SHARD)
+bad_shard_schema["schema"] = True
+expect_rejected("boolean shard schema", BASE_MANIFEST,
+                {PATH0: bad_shard_schema}, "bad catalog shard")
+
 # Python bool compares equal to 1; the browser's Number.isSafeInteger rejects it.
 one = {"schema": 1, "entries": BASE_SHARD["entries"][:1]}
 bad_count = copy.deepcopy(BASE_MANIFEST)

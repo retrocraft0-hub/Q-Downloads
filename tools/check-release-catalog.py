@@ -39,7 +39,7 @@ def read_catalog_json(path):
 
 def main():
     catalog = read_catalog_json(ROOT / "catalog/manifest.json")
-    if catalog.get("schema") != 1 or catalog.get("repo") != REPO or not isinstance(catalog.get("pages"), list):
+    if type(catalog.get("schema")) is not int or catalog["schema"] != 1 or catalog.get("repo") != REPO or not isinstance(catalog.get("pages"), list):
         fail("bad catalog manifest contract")
     # Match the browser pagination contract: exact 250-entry shards, integer counts.
     count = catalog.get("count")
@@ -61,7 +61,7 @@ def main():
             fail("duplicate catalog shard")
         paths.add(path)
         shard = read_catalog_json(ROOT / path)
-        if shard.get("schema") != 1 or not isinstance(shard.get("entries"), list):
+        if type(shard.get("schema")) is not int or shard["schema"] != 1 or not isinstance(shard.get("entries"), list):
             fail("bad catalog shard")
         if len(shard["entries"]) != page.get("count"):
             fail("catalog shard count mismatch")
